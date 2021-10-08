@@ -46,7 +46,7 @@ p {
 }
 
 a {
-  color: #e20e02;
+  color: #DABF34;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
@@ -95,10 +95,10 @@ a.btn .svg-inline--fa {
 a.btn-primary {
   background: linear-gradient(
     to right,
-    #e20e02 0%,
+    #DABF34 0%,
     var(--doc-secondary-color) 100%
   );
-  border: 1px solid #e20e02;
+  border: 1px solid #DABF34;
   color: #fff !important;
 }
 
@@ -114,17 +114,17 @@ a.btn-primary.active,
 a.btn-primary.hover {
   background: linear-gradient(
     to right,
-    #e20e02 0%,
+    #DABF34 0%,
     var(--doc-secondary-color) 100%
   );
   color: #fff !important;
-  border: 1px solid #e20e02;
+  border: 1px solid #DABF34;
 }
 
 .btn-green,
 a.btn-green {
-  background: #e20e02;
-  border: 1px solid #e20e02;
+  background: #DABF34;
+  border: 1px solid #DABF34;
   color: #fff !important;
 }
 
@@ -369,11 +369,11 @@ select {
 }
 
 .body-green .branding .text-highlight {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .text-highlight {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .body-blue .branding .text-highlight {
@@ -407,7 +407,7 @@ select {
 }
 
 .body-green .branding .icon {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .body-blue .branding .icon {
@@ -544,7 +544,7 @@ select {
 }
 
 .body-green .doc-header .doc-title {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .body-blue .doc-header .doc-title {
@@ -733,7 +733,7 @@ select {
 }
 
 .callout-success {
-  background: #e20e02;
+  background: #DABF34;
   color: #fff;
 }
 
@@ -917,11 +917,11 @@ select {
 
 /* Color Schemes */
 .body-green .header {
-  border-color: #e20e02;
+  border-color: #DABF34;
 }
 
 .body-green a {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .body-green a:hover {
@@ -1031,8 +1031,8 @@ select {
 }
 
 .body-green .doc-menu .nav-link.active {
-  color: #e20e02;
-  border-color: #e20e02;
+  color: #DABF34;
+  border-color: #DABF34;
 }
 
 .body-blue .doc-menu .nav-link.active {
@@ -1095,7 +1095,7 @@ select {
 }
 
 .body-green .doc-sub-menu .nav-link.active {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .body-blue .doc-sub-menu .nav-link.active {
@@ -1462,7 +1462,7 @@ select {
 }
 
 .cards-section .item-green .item-inner {
-  border-top: 3px solid #e20e02;
+  border-top: 3px solid #DABF34;
 }
 
 .cards-section .item-green .item-inner:hover .title {
@@ -1470,7 +1470,7 @@ select {
 }
 
 .cards-section .item-green .icon {
-  color: #e20e02;
+  color: #DABF34;
 }
 
 .cards-section .item-blue .item-inner {

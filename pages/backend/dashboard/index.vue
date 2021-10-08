@@ -528,7 +528,7 @@ export default {
           width: 250,
           type: 'donut'
         },
-        colors: ['#e20e02', '#f68a04', '#007aff', '#545e75'],
+        colors: ['#DABF34', '#f68a04', '#007aff', '#545e75'],
         labels: ['New Customer', "Exsisting Subscriber's", "Daily Visitor's", "Extented Subscriber's"],
         dataLabels: {
           enabled: false
@@ -558,7 +558,7 @@ export default {
           width: 250,
           type: 'donut'
         },
-        colors: ['#e20e02', '#83878a', '#007aff', '#f68a04', '#14e788', '#545e75'],
+        colors: ['#DABF34', '#83878a', '#007aff', '#f68a04', '#14e788', '#545e75'],
         labels: ['Actions', 'Comedy', 'Harror', 'Drama', 'Kids', 'Thrilled'],
         dataLabels: {
           enabled: false
@@ -587,7 +587,7 @@ export default {
       },
       donutseries: [44, 30, 20, 43, 22, 20],
       baroptions: {
-        colors: ['#e20e02', '#007aff'],
+        colors: ['#DABF34', '#007aff'],
         chart: {
           type: 'bar',
           height: 230,

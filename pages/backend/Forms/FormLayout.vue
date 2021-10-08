@@ -407,7 +407,7 @@
   &lt;b-form-group
     label-for="exampleInputcolor"
     label="Input color"&gt;
-    &lt;b-form-input type="color" id="exampleInputcolor" value="#e20e02"&gt;&lt;/b-form-input&gt;
+    &lt;b-form-input type="color" id="exampleInputcolor" value="#DABF34"&gt;&lt;/b-form-input&gt;
   &lt;/b-form-group&gt;
   &lt;b-form-group
     label-for="exampleFormControlSelect1"
@@ -504,7 +504,7 @@
                 label-for="exampleInputcolor"
                 label="Input color"
               >
-                <b-form-input id="exampleInputcolor" type="color" value="#e20e02" />
+                <b-form-input id="exampleInputcolor" type="color" value="#DABF34" />
               </b-form-group>
               <b-form-group
                 label-for="exampleFormControlSelect1"

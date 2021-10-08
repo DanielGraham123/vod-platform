@@ -43,7 +43,7 @@ p {
 }
 
 a {
-  color: #e20e02;
+  color: #DABF34;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
@@ -90,8 +90,8 @@ a.btn .svg-inline--fa {
 
 .btn-primary,
 a.btn-primary {
-  background: #e20e02;
-  border: 1px solid #e20e02;
+  background: #DABF34;
+  border: 1px solid #DABF34;
   color: #fff !important;
 }
 
