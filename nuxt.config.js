@@ -91,9 +91,9 @@ export default {
     },
     babel: { compact: true },
   },
-  server: {
-    port: process.env.PORT || 6400, // default: 3000
-  },
+  // server: {
+  //   port: process.env.PORT || 6400, // default: 3000
+  // },
   vue: {
     config: {
       ignoredElements: [
