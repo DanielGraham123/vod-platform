@@ -3,7 +3,7 @@ export default {
   /*
    ** Headers of the page
    */
-  target: "server",
+  target: "static",
   head: {
     title: process.env.npm_package_name || "",
     meta: [
