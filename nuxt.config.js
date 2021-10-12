@@ -1,8 +1,4 @@
 export default {
-  mode: "universal",
-  /*
-   ** Headers of the page
-   */
   target: "static",
   head: {
     title: process.env.npm_package_name || "",
