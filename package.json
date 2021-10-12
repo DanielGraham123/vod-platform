@@ -14,6 +14,10 @@
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
   },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.7",
     "@amcharts/amcharts4-geodata": "^4.1.17",
