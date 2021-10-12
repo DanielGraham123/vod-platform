@@ -12,6 +12,7 @@ steps:
   
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
+  timeout: 1100s
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/bbtv-webplayer:${SHORT_SHA}', '.']
   
   # push the container image to Container Registry
