@@ -37,3 +37,4 @@ steps:
   
 images:
 - gcr.io/$PROJECT_ID/bbtv-webplayer
+timeout: 660s
