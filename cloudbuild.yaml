@@ -1,22 +1,39 @@
-runtime: nodejs12
+steps:
+  # Notify slack channel that build started
+- name: gcr.io/cloud-builders/curl
+  args:
+  - -X
+  - POST
+  - -H
+  - 'Content-type: application/json'
+  - --data
+  - '{"text":"New deployment started! --> BBTV [Web Player] => www.bbtv-webplayer.com"}'
+  - https://hooks.slack.com/services/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
+  
+  # build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/bbtv-webplayer:${SHORT_SHA}', '.']
+  
+  # push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/bbtv-webplayer']
+  
+  # deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'bbtv-webplayer', '--image', 'gcr.io/$PROJECT_ID/bbtv-webplayer:${SHORT_SHA}', '--platform', 'managed', '--region', 'us-central1', '--allow-unauthenticated']
+  env:
+  - 'PORT=8080'
 
-instance_class: F2
-
-handlers:
-  - url: /_nuxt
-    static_dir: .nuxt/dist/client
-    secure: always
-
-  - url: /(.*\.(gif|png|jpg|ico|txt))$
-    static_files: static/\1
-    upload: static/.*\.(gif|png|jpg|ico|txt)$
-    secure: always
-
-  - url: /.*
-    script: auto
-    secure: always
-
-env_variables:
-  HOST: "0.0.0.0"
-  NODE_ENV: "production"
-  NPM_CONFIG_PRODUCTION: false
+  # Notify slack channel that build done
+- name: gcr.io/cloud-builders/curl
+  args:
+  - -X
+  - POST
+  - -H
+  - 'Content-type: application/json'
+  - --data
+  - '{"text":"New deployment done! --> BBTV [Web Player] => www.bbtv-webplayer.com"}'
+  - https://hooks.slack.com/services/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
+  
+images:
+- gcr.io/$PROJECT_ID/bbtv-webplayer
