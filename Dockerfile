@@ -5,8 +5,9 @@ RUN mkdir -p /usr/src/bbtv-web
 WORKDIR /usr/src/bbtv-web
 
 # update and install depedency
-RUN apk update & apk upgrade
-RUN apk add git
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
 
 # copy this project into our destination directory
 COPY . /usr/src/bbtv-web/
