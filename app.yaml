@@ -1,2 +1,5 @@
 runtime: nodejs
 env: flex
+
+env_variables:
+  HOST: "0.0.0.0"
