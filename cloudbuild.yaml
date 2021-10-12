@@ -16,6 +16,7 @@ steps:
   
   # push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
+  timeout: 1100s
   args: ['push', 'gcr.io/$PROJECT_ID/bbtv-webplayer']
   
   # deploy container image to Cloud Run
