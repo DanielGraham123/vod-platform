@@ -12,12 +12,12 @@ steps:
   
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  timeout: 900s
+  timeout: 2000s
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/bbtv-webplayer:${SHORT_SHA}', '.']
   
   # push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  timeout: 900s
+  timeout: 2000s
   args: ['push', 'gcr.io/$PROJECT_ID/bbtv-webplayer']
   
   # deploy container image to Cloud Run
@@ -40,5 +40,7 @@ steps:
 images:
 - gcr.io/$PROJECT_ID/bbtv-webplayer
 
+timeout: 2000s
+
 options:
-  machineType: 'E2_HIGHCPU_8'
+  machineType: 'N1_HIGHCPU_8'
