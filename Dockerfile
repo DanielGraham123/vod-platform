@@ -9,6 +9,11 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git
 
+# override default npm to npm 6.14.8
+RUN npm install npm@6.14.8
+RUN rm -rf /usr/local/lib/node_modules/npm
+RUN mv node_modules/npm /usr/local/lib/node_modules/npm
+
 # copy this project into our destination directory
 COPY . /usr/src/bbtv-web/
 RUN npm install
