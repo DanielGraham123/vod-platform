@@ -1,21 +1,22 @@
 <template>
   <div>
-    <Home />
-    <div class="main-content">
+    <Landing />
+    <!-- <div class="main-content">
       <favourite />
       <upcomming />
-      <!-- <top /> -->
-      <suggestion />
-      <!-- <detail /> -->
-      <trending />
-      <thriller />
-    </div>
+       <top /> -->
+    <!-- <suggestion /> -->
+    <!-- <detail /> -->
+    <!-- <trending /> -->
+    <!-- <thriller /> -->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import { core } from "../assets/app/app";
 import Home from "../components/frontend/home-page/Home";
+import Landing from "../components/frontend/landing-page/Landing";
 import favourite from "../components/frontend/home-page/favourite";
 import upcomming from "../components/frontend/home-page/upcomming";
 import top from "../components/frontend/home-page/top-ten";
@@ -27,6 +28,7 @@ export default {
   layout: "FrontendLayout",
   components: {
     Home,
+    Landing,
     favourite,
     upcomming,
     top,

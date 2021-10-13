@@ -6,7 +6,7 @@ body {
 
 #background {
   position: relative;
-  background-image: url("fish.jpg");
+  background-image: url(~@/assets/css/landing-page/images/fish.jpg);
   height: 650px;
   overflow: hidden;
   background-size: cover;
