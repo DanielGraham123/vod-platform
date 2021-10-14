@@ -1,91 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--meta description attributes-->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.7">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="description"
-  content="finish setting up for BBtv account for premium African top nutch content">
-<meta name="keywords" content="movies,Tv shows, Tv Series, Tv channel, culture, Africa, VOD">
-<title>enter password</title>
-
-
-<head>
-
-  <!--impoorting vue, jquery, bootstrap and font awesome respectively-->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="design.css">
-  <script type="text/javascript" src="design.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <!--importing JavaScript for password validation-->
-  <script src="password.js"></script>
-</head>
-<style>
+  <!--meta description attributes-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="finish setting up for BBtv account for
+    premium African top nutch
+    content">
+  <meta name="keywords" content="movies,Tv shows, Tv Series, Tv channel,
+    culture, Africa, VOD">
+  <title>enter password</title>
+  <head>
+    <!--impoorting vue, jquery, bootstrap and font awesome respectively-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="design.css">
+    <script type="text/javascript" src="design.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"></script>
+    <!--importing JavaScript for password validation-->
+    <script src="password.js"></script>
+  </head>
+  <style>
   body {background-color: white;}
-  </style> <!--importing Bootstrap 4-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- 
-<body>
-    <div id="nextnav"><span style="color:yellow; font-size: 50px; font-weight: bold;">BBtv</span> 
-      <span id="signin"><a href="signin.html">Sign In</a></span>      </div>
-
-      <div id="next-body"> <button id="yellowcircle">
-        <i class="fa fa-check" aria-hidden="true" style="color:yellow; font-size: 40px;"></i></button><br>
-        <!--contains the password, confirm password-->
-        <span>STEP 1 0F 3 </span><br>
-        <span><b> WELCOME BACK!</b></span><br>
-        <div style="text-align:left; margin:auto; width:370px;
-          padding: 10px;">
-        Enter your password and you will soon be Watching.<br>
-        <form>
-        <input id="password" class="password"  type="password" name="password" placeholder="Password"
-        required minlength="6">
-       
-        <input id="confirm" class="password" type="password" name="confirm password" placeholder="Confirm Password" required >
-        <!-- An element to toggle between password visibility -->
-
-
- <button id="next-button"><a href="plan.html">next</a></button>
-      
-        </form>
-      </div>
-        </div>
-
-        <div style="background-color: black; width:100%; margin-top: 50px;">
-            <footer class="container" >
+  </style>
+  <!--importing Bootstrap 4-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <body>
+    <div id="nextnav">
+      <span style="color:yellow; font-size: 50px; font-weight:
+        bold;">BBtv</span>
+      <span id="signin">
+        <a href="signin.html">Sign In</a>
+      </span>
+    </div>
     
-              <div id="footer" class="row">
-                <div class="col-4">
-                  <h5 id="foot"><b>ABOUT US</b></h5>
-                  <a href="#">Contact Us</a>
-                  <a href="#">Terms & Conditions</a>
-                  <a href="#">Privacy Policies</a>
-                  <a href="#">Legal Notices</a>
-                </div>
-          
-                <div class="col-4">
-                  <h5 id="foot"><b>SOCIAL</b></h5>
-                  <a href="https://web.facebook.com/Cameroon-Gce-104334978381822/">Facebook</a>
-                  <a href="https://youtube.com/channel/UCln0LZPlRqBZLdNScXOLQDA">YouTube</a>
-                  <a href="#">Instagram </a>
-                  <a href="#"> Twitter</a>
-                </div>
-          
-                <div class="col-4">
-                  <h5 id="foot"><b>SERVICES</b></h5>
-                  <a href="#">Acounts</a>
-                  <a href="#">FAQs</a>
-                  <a href="#">Help Center</a>
-                  <a href="#">Only on BBtv </a>
-          
-          
-                </div>
-              </div>
-            </div>
-          
-       
+    <div id="next-body">
+      <button id="yellowcircle">
+        <i class="fa fa-check" aria-hidden="true" style="color:yellow;
+          font-size: 40px;"></i>
+      </button>
+      <br>
+      <!--contains the password, confirm password-->
+      <span>STEP 1 0F 3</span>
+      <br>
+      <span>
+        <b> WELCOME BACK!</b>
+      </span>
+      <br>
+      <div id="passwordbox">
+        Enter your password and you will soon be Watching.
+        <br>
+        
+          <input
+            id="password"
+            class="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            minlength="6">
+          <input
+            id="confirm"
+            class="password"
+            type="password"
+            name="confirm
+            password"
+            placeholder="Confirm Password"
+            required>
+          <!-- An element to toggle between password visibility -->
+            <a href="next.html" id="next-button" class="btn btn-primary btn-link">next</a>
+        
+      </div>
+    </div>
+    
+    <div style="background-color: black; width:100%; margin-top: 50px;">
+      <footer class="container">
+        <div id="footer" class="row">
+          <div class="col-4">
+            <h5 id="foot">
+              <b>ABOUT US</b>
+            </h5>
+            <a href="#">Contact Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policies</a>
+            <a href="#">Legal Notices</a>
+          </div>
+          <div class="col-4">
+            <h5 id="foot">
+              <b>SOCIAL</b>
+            </h5>
+            <a href="https://web.facebook.com/Cameroon-Gce-104334978381822/">Facebook</a>
+            <a href="https://youtube.com/channel/UCln0LZPlRqBZLdNScXOLQDA">YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#"> Twitter</a>
+          </div>
+          <div class="col-4">
+            <h5 id="foot">
+              <b>SERVICES</b>
+            </h5>
+            <a href="#">Acounts</a>
+            <a href="#">FAQs</a>
+            <a href="#">Help Center</a>
+            <a href="#">Only on BBtv</a>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

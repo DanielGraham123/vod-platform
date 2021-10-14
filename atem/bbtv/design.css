@@ -36,6 +36,8 @@ font-weight: bold;
         text-align:center; height:35px; font-weight: bold;
         cursor: pointer; }
         #em a{text-decoration: none; color:black; }
+        #em a:hover{text-decoration: none; color:black; }
+        .btn-link:hover {text-decoration: none;}
 /*divider*/
 .divider {height:.7rem; background-color:  #1A1A1A;}
 
@@ -100,11 +102,17 @@ font-weight: bold;
 #next-body {text-align:center; margin-top: 50px; font-size: 20px;}
 #next-button {width:300px; height: 50px; background-color: yellow;
    font-weight: bold; color: white; border:none; cursor: pointer;
-   width:96%; margin:auto; font-size: 20px; margin: 20px;}
+   width:96%; margin:auto; font-size: 20px; margin-top: 20px;
+  margin-bottom: 20px;}
+
    #next-button a:hover {text-decoration: none; color: white;}
    #next-button:hover {background-color: #1A1A1A; color:white}
 #signin {float:right; font-size:25px;  }
 #signin a {text-decoration: none; color: black;}
+/*pass.html page password box*/
+#passwordbox {text-align:left; margin:auto; width:370px;
+  padding: 10px; box-shadow: #525050 1px 1px 2px 2px ; border-radius: 15px; margin-top:20px}
+
 
 #password, #confirm {width:96%; margin: auto; height: 50px; margin-top:20px;
 
@@ -112,7 +120,9 @@ font-weight: bold;
 
  /*for the select your plan page */
 #plan1 {color:white; background-color: yellow; height:150px; width:150px;}
-
+.card {opacity:0.6; width:230px; text-align: center; display: inline-block;
+   margin: 10px;}
+.card:hover {opacity: 1;}
 
 
 /*media query for card sizes and margin*/
@@ -140,6 +150,6 @@ font-weight: bold;
        }
   
   @media only screen and (max-width: 795px) {
- 
+ .card {width:140px; margin:2px;}
    
   } 
