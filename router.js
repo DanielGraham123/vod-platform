@@ -6,6 +6,10 @@ import Home from "~/pages/frontend/home-page/index";
 import Movies from "~/pages/frontend/movie-category/index";
 import TVShows from "~/pages/frontend/category-page";
 
+// Auth Pages
+import Login from "~/pages/AuthPages/Default/SignIn1";
+import SignUp from "~/pages/AuthPages/Default/SignUp1";
+
 Vue.use(Router);
 
 export function createRouter() {
@@ -31,6 +35,18 @@ export function createRouter() {
         path: "/tv-shows",
         name: "tv-shows",
         component: TVShows,
+      },
+
+      // Auth links
+      {
+        path: "/auth/login",
+        name: "login",
+        component: Login,
+      },
+      {
+        path: "/auth/signup",
+        name: "signup",
+        component: SignUp,
       },
     ],
   });

@@ -27,7 +27,6 @@ export default {
     { src: "@fortawesome/fontawesome-free/css/all.min.css", lang: "css" },
     { src: "animate.css/animate.min.css", lang: "css" },
     { src: "~assets/app/app.css", lang: "css" },
-    { src: "~assets/css/landing-page/design.css", lang: "css" },
     // { src: 'animate.css/animate.min.css', lang: 'css' },
     // { src: 'owl.carousel/dist/assets/owl.carousel.css', lang: 'css' },
     // { src: 'owl.carousel/dist/assets/owl.theme.default.css', lang: 'css' }
