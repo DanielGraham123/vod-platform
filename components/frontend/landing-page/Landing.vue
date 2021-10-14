@@ -215,7 +215,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      script: [
+        {
+          src: "landing.js",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
