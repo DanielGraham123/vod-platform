@@ -2,7 +2,7 @@ body a {text-decoration: none; color:black}
 
 #background {
     position: relative;
-    background-image: url("photos/fish.jpg");
+    background-image: url("../images/fish.jpg");
     height: 650px;
     overflow:hidden;
     background-size: cover ;
