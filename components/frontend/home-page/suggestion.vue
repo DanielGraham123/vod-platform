@@ -13,7 +13,7 @@
           >
             <div>
               <h4 class="main-title" v-b-tooltip.hover title="View All">
-                <nuxt-link to="/frontend/category-page" class="text-white">
+                <nuxt-link to="/tv-shows" class="text-white">
                   Recommended For You
                 </nuxt-link>
               </h4>

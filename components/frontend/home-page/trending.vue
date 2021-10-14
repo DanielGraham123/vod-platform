@@ -12,7 +12,7 @@
             "
           >
             <h4 class="main-title">Trending</h4>
-            <nuxt-link to="/frontend/Category-page" class="text-primary">
+            <nuxt-link to="/tv-shows" class="text-primary">
               View all
             </nuxt-link>
           </div>
