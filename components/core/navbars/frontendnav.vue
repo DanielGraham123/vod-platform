@@ -24,6 +24,7 @@
               <nuxt-link class="navbar-brand" :to="homeURL">
                 <img class="img-fluid logo" :src="logo" alt="BBtv" />
               </nuxt-link>
+              <!-- Navbar collapse -->
               <b-collapse id="navbarSupportedContent" :visible="sidebar" is-nav>
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
@@ -39,6 +40,8 @@
                   </ul>
                 </div>
               </b-collapse>
+              <!--  -->
+              
               <div class="mobile-more-menu">
                 <b-navbar-toggle
                   target="dropdownMenuButton"

@@ -273,7 +273,8 @@ header .navbar .menu-main-menu-container {
 }
 header .navbar ul.navbar-nav {
   display: block;
-  text-align: center;
+  text-align: right;
+  padding-right: 2em;
 }
 header .navbar ul li {
   list-style: none;
