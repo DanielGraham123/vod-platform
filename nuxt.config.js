@@ -37,7 +37,6 @@ export default {
   plugins: [
     "~plugins/steamit.js",
     "~/directives/index.js",
-    "~atem/bbtv/main.js",
     { src: "~/plugins/apexchart.js", ssr: false },
   ],
 
