@@ -7,7 +7,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import lightLoader from "../../../assets/images/loader2.gif";
+import lightLoader from "../../../assets/images/loader.gif";
 import { animation } from "../../../assets/app/app";
 export default {
   name: "Loader",

@@ -1,4 +1,5 @@
 export default {
+  mode: "universal",
   target: "server",
   head: {
     title: process.env.npm_package_name || "",
@@ -59,7 +60,7 @@ export default {
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
-    // "nuxt-flatpickr",
+    "nuxt-flatpickr",
   ],
   /*
    ** Build configuration

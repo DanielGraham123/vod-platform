@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Landing />
+    <Loader />
+    
+    <div class="main-content">
+      <Landing />
+    </div>
     <!-- <div class="main-content">
       <favourite />
       <upcomming />
@@ -24,6 +28,9 @@ import suggestion from "../components/frontend/home-page/suggestion";
 import detail from "../components/frontend/home-page/detail";
 import trending from "../components/frontend/home-page/trending";
 import thriller from "../components/frontend/home-page/thriller";
+import Loader from '../components/core/loader/Loader'
+
+
 export default {
   layout: "FrontendLayout",
   components: {
@@ -36,6 +43,7 @@ export default {
     detail,
     trending,
     thriller,
+    Loader,
   },
   mounted() {
     setTimeout(function () {
