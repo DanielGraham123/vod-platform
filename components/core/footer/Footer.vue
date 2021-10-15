@@ -28,11 +28,10 @@
   </footer>
 </template>
 <script>
-
 export default {
-  name: 'Footer',
+  name: "Footer",
   props: {
-    copyrighttext: { type: String, default: 'STREAMIT - 2020 All Rights Reserved' }
-  }
-}
+    copyrighttext: { type: String, default: "BBTV - 2020 All Rights Reserved" },
+  },
+};
 </script>

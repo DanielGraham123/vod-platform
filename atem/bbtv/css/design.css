@@ -2,7 +2,7 @@ body a {text-decoration: none; color:black}
 
 #background {
     position: relative;
-    background-image: url("photos/fish.jpg");
+    background-image: url("../images/fish.jpg");
     height: 650px;
     overflow:hidden;
     background-size: cover ;
@@ -27,7 +27,7 @@ body a {text-decoration: none; color:black}
     font-size: 30px; z-index:10px; display:inline-block; width:100%; color:white;
 font-weight: bold;
     }/*first an second email sign up respectively*/
-    #email {text-align: center; position: absolute; z-index:10px; top:380px; width: 100%;}
+    #email {text-align: center; position: relative; z-index:10px; width: 100%; margin:10px;}
     
     #email1 {text-align: center; position: relative; z-index:10px;  width: 100%; margin: auto; padding: 10px;}
     /*second sign up on landing page*/
