@@ -1,10 +1,7 @@
 <template>
   <div>
     <Loader />
-
-    <div class="main-content">
-      <Landing />
-    </div>
+    <Landing />
   </div>
 </template>
 

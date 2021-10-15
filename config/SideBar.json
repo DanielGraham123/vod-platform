@@ -24,7 +24,7 @@
     "name": "comment",
     "is_heading": false,
     "is_active": false,
-    "link":"/backend/comment",
+    "link": "/backend/comment",
     "class_name": "",
     "is_icon_class": true,
     "icon": "las la-comments"
@@ -163,11 +163,12 @@
             "title": "Color",
             "name": "color",
             "is_active": false,
-            "link":"/backend/core/UiColors",
+            "link": "/backend/core/UiColors",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-palette"
-          },{
+          },
+          {
             "title": "Trypography",
             "name": "typography",
             "is_active": false,
@@ -243,7 +244,7 @@
             "title": "Grid",
             "name": "grid",
             "is_active": false,
-            "link":"/backend/core/UiGrid",
+            "link": "/backend/core/UiGrid",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-border-all"
@@ -252,7 +253,7 @@
             "title": "Images",
             "name": "images",
             "is_active": false,
-            "link":"/backend/core/UiImages",
+            "link": "/backend/core/UiImages",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-images"
@@ -270,7 +271,7 @@
             "title": "Media",
             "name": "media",
             "is_active": false,
-            "link":  "/backend/core/UiMediaObject",
+            "link": "/backend/core/UiMediaObject",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-ad"
@@ -297,7 +298,7 @@
             "title": "Pagination",
             "name": "pagination",
             "is_active": false,
-            "link":"/backend/core/UiPagination",
+            "link": "/backend/core/UiPagination",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-ellipsis-h"
@@ -306,7 +307,7 @@
             "title": "Popovers",
             "name": "popovers",
             "is_active": false,
-            "link":  "/backend/core/UiPopovers",
+            "link": "/backend/core/UiPopovers",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-eraser"
@@ -315,7 +316,7 @@
             "title": "Progress Bars",
             "name": "progressBars",
             "is_active": false,
-            "link":"/backend/core/UiProgressBars",
+            "link": "/backend/core/UiProgressBars",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-hdd"
@@ -333,7 +334,7 @@
             "title": "Tooltips",
             "name": "tooltips",
             "is_active": false,
-            "link":   "/backend/core/UiTooltips",
+            "link": "/backend/core/UiTooltips",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-magnet"
@@ -510,7 +511,7 @@
             "title": "Login",
             "name": "login",
             "is_active": false,
-            "link": "/AuthPages/Default/SignIn1",
+            "link": "/auth/login",
             "class_name": "",
             "is_icon_class": true,
             "icon": "las la-sign-in-alt"
@@ -519,7 +520,7 @@
             "title": "Register",
             "name": "register",
             "is_active": false,
-            "link": "/AuthPages/Default/SignUp1",
+            "link": "/auth/signup",
             "class_name": "",
             "is_icon_class": true,
             "icon": "ri-login-circle-line"

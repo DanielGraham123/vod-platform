@@ -12,10 +12,10 @@
         <ul class="f-link list-unstyled mb-0">
           <li><a href="#">About Us</a></li>
           <li>
-            <nuxt-link to="/frontend/category-page"> Movies </nuxt-link>
+            <nuxt-link to="/tv-shows"> Movies </nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/frontend/category-page"> Tv Shows </nuxt-link>
+            <nuxt-link to="/tv-shows"> Tv Shows </nuxt-link>
           </li>
           <li><a href="#">Coporate Information</a></li>
         </ul>
@@ -69,9 +69,9 @@ export default {
       logo: loader,
       headerItem: [
         // { title: "Home", link: "/" },
-        { title: "Movies", link: "/frontend/movie-category" },
-        { title: "Tv Shows", link: "/frontend/category-page" },
-        { title: "Tv Channels", link: "/frontend/category-page" },
+        { title: "Movies", link: "/movies" },
+        { title: "Tv Shows", link: "/tv-shows" },
+        { title: "Tv Channels", link: "/tv-shows" },
       ],
     };
   },
