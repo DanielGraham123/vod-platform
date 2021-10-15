@@ -40,16 +40,19 @@
 
     <!--  -->
     <div id="email">
-      <form align="center">
-        <input
-          type="email"
-          placeholder="Email address"
-          style="height: 35px; color: black; width: 250px"
-        />
-        <button type="submit" id="em">
-          Sign Up
-          <i class="fas fa-angle-right" style="font-size: 16px"></i>
-        </button>
+      <form align="center" @submit.prevent="submitEmail">
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Email address"
+            style="height: 35px; color: black; width: 250px"
+            v-model="email"
+          />
+          <button type="submit" id="em">
+            Sign Up
+            <i class="fas fa-angle-right" style="font-size: 16px"></i>
+          </button>
+        </div>
       </form>
     </div>
 
@@ -224,6 +227,18 @@ export default {
         },
       ],
     };
+  },
+
+  data() {
+    return {
+      email: "",
+    };
+  },
+
+  methods: {
+    submitEmail() {
+      console.log("input email:", this.email);
+    },
   },
 };
 </script>
