@@ -6,6 +6,7 @@
       :home-u-r-l="url"
       :logo="logo"
     />
+
     <nuxt />
     <Footer :copyrighttext="text">
       <template v-slot:column1>
@@ -59,14 +60,20 @@ import ScrollTop from "../components/core/ScrollTop";
 import { core } from "../assets/app/app";
 import loader from "../assets/images/logo-full.png";
 import profile from "../assets/images/frontend/user/user.jpg";
+import { mapMutations, mapGetters } from "vuex";
+
+import firebase from "firebase/app";
+import "firebase/auth";
+
 export default {
   name: "FrontendLayout",
   data() {
     return {
       profile,
-      text: "BBtv - 2021 All Rights Reserved",
+      text: "BBTV - 2021 All Rights Reserved",
       url: "/",
       logo: loader,
+      user: null,
       headerItem: [
         // { title: "Home", link: "/" },
         { title: "Movies", link: "/movies" },
@@ -75,8 +82,41 @@ export default {
       ],
     };
   },
+
+  computed: {
+    ...mapGetters(["getUserToken"]),
+  },
+
+  methods: {
+    ...mapMutations(["setUserToken", "setUserData"]),
+  },
+
   mounted() {
     core.index();
+
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log("logged in user: ", user);
+
+      if (user) {
+        user
+          .getIdToken(true)
+          .then((idToken) => {
+            var userInfo = {
+              token: idToken,
+              uid: user.uid,
+            };
+            this.setUserData(user);
+            this.setUserToken(userInfo);
+            console.log("logged in user token: ", userInfo);
+            console.log("logged in use r token GET: ", this.getUserToken);
+          })
+          .catch(function (error) {
+            console.log("error logging in: ", error);
+          });
+
+        this.user = user;
+      }
+    });
   },
   head() {
     return {
@@ -89,11 +129,12 @@ export default {
 };
 </script>
 <style>
-@import url("../assets/css/custom.css");
-@import url("../assets/css/frontend/dark.css");
 @import url("../assets/css/frontend/typography.css");
+
+/* @import url("../assets/css/custom.css"); */
+@import url("../assets/css/frontend/dark.css");
 @import url("../assets/css/frontend/variable.css");
 @import url("../assets/css/frontend/style.css");
 @import url("../assets/css/frontend/responsive.css");
-@import url("../assets/css/developer.css");
+/* @import url("../assets/css/developer.css"); */
 </style>

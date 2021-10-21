@@ -1,7 +1,9 @@
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
+// import 'firebase/database'
+import "firebase/firestore";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDwm-43q0gzomnsKgFbAHUJwyJLeg-0SPw",
   authDomain: "bbtv-9f617.firebaseapp.com",
   projectId: "bbtv-9f617",
@@ -11,11 +13,13 @@ var firebaseConfig = {
   measurementId: "G-D84TV5DEJF",
 };
 
-let app = nil;
+let app = null;
 
 // Initialize Firebase
 if (!firebase.apps.length) {
   app = firebase.initializeApp(firebaseConfig);
 }
+
+// console.log("firebase:", firebase);
 
 export default firebase;

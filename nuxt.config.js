@@ -35,7 +35,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    "~plugins/steamit.js",
+    "~plugins/bbtv.js",
+    "~plugins/firebase.js",
     "~/directives/index.js",
     { src: "~/plugins/apexchart.js", ssr: false },
   ],
@@ -93,9 +94,7 @@ export default {
     },
     babel: { compact: true },
   },
-  // server: {
-  //   port: process.env.PORT || 6400, // default: 3000
-  // },
+
   vue: {
     config: {
       ignoredElements: [

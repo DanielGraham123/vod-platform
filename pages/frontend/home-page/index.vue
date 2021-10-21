@@ -29,6 +29,7 @@ import Loader from "../../../components/core/loader/Loader";
 
 export default {
   layout: "FrontendLayout",
+
   components: {
     Home,
     favourite,

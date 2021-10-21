@@ -53,7 +53,7 @@ General
   text-shadow: none;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -138,7 +138,7 @@ h6,
   font-size: 1em;
 }
 .container-fluid {
-  padding: 0 100px;
+  padding: 0 60px;
 }
 .height-100-vh {
   height: 100vh;

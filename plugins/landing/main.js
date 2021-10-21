@@ -1,3 +1,4 @@
+//script to hide to and display the FAQs answers. i made extra in case more questions are added
 function myHid() {
   var a = document.getElementById("Hide");
 

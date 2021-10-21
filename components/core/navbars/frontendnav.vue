@@ -5,7 +5,7 @@
       <b-container fluid>
         <b-row>
           <b-col sm="12">
-            <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
               <a
                 href="javascript:void(0)"
                 class="navbar-toggler c-toggler collapsed"
@@ -26,7 +26,7 @@
               </nuxt-link>
               <!-- Navbar collapse -->
               <b-collapse id="navbarSupportedContent" :visible="sidebar" is-nav>
-                <div class="menu-main-menu-container">
+                <div class="menu-main-menu-container" v-if="loggedInUser">
                   <ul id="top-menu" class="navbar-nav ml-auto">
                     <li
                       v-for="(item, index) in items"
@@ -39,9 +39,21 @@
                     </li>
                   </ul>
                 </div>
+                <div class="menu-main-menu-container" v-else>
+                  <ul id="top-menu" class="navbar-nav ml-auto">
+                    <li class="menu-item">
+                      <button
+                        @click="$router.push('/auth/login')"
+                        class="btn btn-primary btn-link"
+                      >
+                        Sign In
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </b-collapse>
               <!--  -->
-              
+
               <div class="mobile-more-menu">
                 <b-navbar-toggle
                   target="dropdownMenuButton"
@@ -183,7 +195,7 @@
                                 </div>
                               </a>
                               <nuxt-link
-                                to="/frontend/user/Manage-profile"
+                                to="/profile"
                                 class="iq-sub-card setting-dropdown"
                               >
                                 <div class="media align-items-center">
@@ -245,7 +257,7 @@
                   </div>
                 </b-collapse>
               </div>
-              <div class="navbar-right menu-right">
+              <div class="navbar-right menu-right" v-if="loggedInUser">
                 <ul class="d-flex align-items-center list-inline m-0">
                   <li class="nav-item nav-icon" v-nav-toggle>
                     <a
@@ -370,7 +382,7 @@
                             </div>
                           </a>
                           <nuxt-link
-                            to="/frontend/user/Manage-profile"
+                            to="/profile"
                             class="iq-sub-card setting-dropdown"
                           >
                             <div class="media align-items-center">
@@ -408,7 +420,11 @@
                               </div>
                             </div>
                           </nuxt-link>
-                          <a class="iq-sub-card setting-dropdown">
+                          <a
+                            @click="logoutAction()"
+                            class="iq-sub-card setting-dropdown logout-link"
+                            v-if="loggedInUser"
+                          >
                             <div class="media align-items-center">
                               <div class="right-icon">
                                 <i class="ri-logout-circle-line text-primary" />
@@ -418,6 +434,20 @@
                               </div>
                             </div>
                           </a>
+                          <nuxt-link
+                            to="/auth/login"
+                            class="iq-sub-card setting-dropdown logout-link"
+                            v-else
+                          >
+                            <div class="media align-items-center">
+                              <div class="right-icon">
+                                <i class="ri-logout-circle-line text-primary" />
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="mb-0">Login</h6>
+                              </div>
+                            </div>
+                          </nuxt-link>
                         </div>
                       </div>
                     </div>
@@ -435,6 +465,8 @@
 </template>
 <script>
 import { core } from "../../../assets/app/app";
+import { mapMutations, mapGetters, mapActions } from "vuex";
+
 export default {
   name: "FrontendNav",
   props: {
@@ -445,25 +477,45 @@ export default {
     // eslint-disable-next-line vue/require-default-prop
     userprofile: { type: String },
   },
+
   data() {
     return {
       sidebar: false,
     };
   },
+
+  computed: {
+    ...mapGetters(["getUserToken", "getUserInfo"]),
+
+    loggedInUser() {
+      if (typeof window !== "undefined") {
+        return localStorage.getItem("userInfo")
+          ? JSON.parse(localStorage.getItem("userInfo"))
+          : this.getUserInfo;
+      }
+    },
+  },
+
   mounted() {
     core.index();
     document.addEventListener("click", this.closeSidebar, true);
+    console.log("this user:", this.loggedInUser);
   },
+
   destroyed() {
     document.removeEventListener("click", this.closeSidebar, true);
   },
+
   methods: {
+    ...mapActions(["logoutAction"]),
+
     closeSidebar(e) {
       if (!e.target.classList.contains("navbar-toggler-icon")) {
         this.sidebar = false;
         document.getElementsByTagName("body")[0].classList.remove("nav-open");
       }
     },
+
     openSidebar() {
       document.getElementsByTagName("body")[0].classList.add("nav-open");
       this.sidebar = true;
@@ -471,3 +523,35 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+/* @import url("../../../assets/css/custom.css");
+@import url("../../../assets/css/backend/variable.css");
+@import url("../../../assets/css/backend/dark.css");
+@import url("../../../assets/css/backend/responsive.css");*/
+/* @import url("../../../assets/css/backend/style.css"); */
+/* @import url("../../../assets/css/backend/typography.css");  */
+
+.logout-link:hover {
+  cursor: pointer;
+}
+
+header .navbar ul li.menu-item a:hover {
+  color: var(--iq-primary) !important;
+}
+
+a {
+  color: #fff;
+  color: var(--iq-white) !important;
+}
+
+li.menu-item {
+  button.btn-link {
+    color: var(--iq-black);
+    border-radius: 10px !important;
+    background-color: var(--iq-primary);
+    font-weight: 500;
+    padding: 7px 15px;
+  }
+}
+</style>

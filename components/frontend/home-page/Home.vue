@@ -1,55 +1,60 @@
 <template>
   <section id="home" class="iq-main-slider p-0">
     <Slick id="home-slider" class="slider m-0 p-0" :option="homeSliderOption">
-      <div
-        v-for="(data, index) in sliderData"
-        :key="index"
-        class="slide slick-bg s-bg-1"
-      >
-        <b-container fluid class="position-relative h-100">
+      <div v-for="(data, index) in sliderData" :key="index" class="slide">
+        <!-- slick-bg s-bg-1 -->
+
+        <div class="slick-backImg">
+          <img
+            src="~@/assets/images/frontend/slider/movieposter.jpg"
+            class="img-fluid"
+            alt="image"
+          />
+        </div>
+
+        <b-container fluid class="position-relative" style="top: 6em">
           <div class="slider-inner h-100">
             <b-row class="align-items-center h-100">
-              <b-col xl="6" lg="12" md="12">
-                <a href="#">
-                  <div
-                    class="channel-logo"
-                    data-animation-in="fadeInLeft"
-                    data-delay-in="0.5"
-                  >
-                    <img
-                      src="../../../assets/images/logo-full.png"
-                      class="c-logo"
-                      alt="BBtv"
-                    />
-                  </div>
-                </a>
-                <h1
+              <b-col xl="8" lg="12" md="12" class="px-5 pb-3">
+                <h2
                   class="slider-text big-title title text-uppercase"
                   data-animation-in="fadeInLeft"
                   data-delay-in="0.6"
                 >
                   {{ data.title }}
-                </h1>
+                </h2>
                 <div
-                  class="d-flex align-items-center"
+                  class="d-flex align-items-center mt-3"
                   data-animation-in="fadeInUp"
                   data-delay-in="1"
                 >
-                  <span class="badge badge-secondary p-2">{{ data.age }}+</span>
-                  <span class="ml-3">{{ data.sesson }}</span>
+                  <span class="badge badge-warning p-1 font-weight-bolder"
+                    >TOP <span class="d-block">10</span>
+                  </span>
+                  <span class="ml-3 movie-ranking"
+                    >Number 4 in Cameroon Today</span
+                  >
                 </div>
                 <p data-animation-in="fadeInUp" data-delay-in="1.2">
                   {{ data.text }}
                 </p>
+
                 <div
-                  class="d-flex align-items-center r-mb-23"
+                  class="d-flex align-items-center videoBtn r-mb-23 mt-5 pt-2"
                   data-animation-in="fadeInUp"
                   data-delay-in="1.2"
                 >
-                  <nuxt-link to="/frontend/show-detail" class="btn btn-hover">
+                  <nuxt-link
+                    to="/frontend/show-detail"
+                    class="btn btn-hover playBtn"
+                  >
                     <i class="fa fa-play mr-2" aria-hidden="true" />Play Now
                   </nuxt-link>
-                  <nuxt-link to="/frontend/show-detail" class="btn btn-link">
+                  <nuxt-link
+                    to="/frontend/show-detail"
+                    class="btn btn-link btn-secondary ml-3"
+                  >
+                    <i class="fa fa-info-circle mr-2" aria-hidden="true" />
                     More details
                   </nuxt-link>
                 </div>
@@ -57,8 +62,9 @@
             </b-row>
             <div class="trailor-video">
               <a
-                href="../../../assets/video/trailer.mp4"
                 class="video-open playbtn"
+                href="https://cdn.mos.cms.futurecdn.net/6GJnGNWCjG4p6jxpv43cKc-1024-80.jpg.webp"
+                target="_blank"
               >
                 <svg
                   version="1.1"
@@ -97,6 +103,8 @@
               </a>
             </div>
           </div>
+
+          <!-- @click="openTrailer('../../../assets/video/trailer.mp4')" -->
         </b-container>
       </div>
     </Slick>
@@ -119,6 +127,7 @@
 import Slick from "../../core/slider/Slick";
 export default {
   name: "Home",
+  middleware: "homeredirect",
   components: {
     Slick,
   },
@@ -126,7 +135,7 @@ export default {
     return {
       sliderData: [
         {
-          title: "bushland",
+          title: "The fisherman's Diary",
           age: "18",
           sesson: "2 Seasons",
           text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
@@ -184,7 +193,51 @@ export default {
       },
     };
   },
+  methods: {
+    openTrailer(path) {
+      let routeData = this.$router.resolve(path);
+      console.log("routeData", routeData);
+      window.open(routeData.href, "_blank");
+    },
+  },
   mounted() {},
-  methods: {},
 };
 </script>
+
+<style scoped>
+@import url("../../../assets/css/custom.css");
+
+a.btn {
+  color: white !important;
+}
+
+h2,
+.h2 {
+  font-size: 3.3em !important;
+}
+
+.btn.playBtn {
+  color: black !important;
+}
+
+.btn.moreBtn {
+  background-color: rgba(194, 190, 190, 0.699) !important;
+}
+</style>
+
+<style lang="scss" scoped>
+.videoBtn {
+  a.btn {
+    color: black !important;
+  }
+
+  a.btn-link.btn-secondary {
+    background: rgba(194, 190, 190, 0.699) !important;
+  }
+}
+
+.movie-ranking {
+  font-weight: 500;
+  font-size: 21px;
+}
+</style>

@@ -7,32 +7,35 @@
   </div>
 </template>
 <script>
-import Loader from '../components/core/loader/Loader'
-import logo from '../assets/images/logo.png'
-import { core } from '../assets/app/app'
+import Loader from "../components/core/loader/Loader";
+import logo from "../assets/images/logo.png";
+import { core } from "../assets/app/app";
 export default {
-  name: 'AuthLayout',
+  name: "AuthLayout",
   components: {
-    Loader
+    Loader,
   },
-  data () {
+  data() {
     return {
       options: {
         slidesPerView: 1,
-        loop: true
-      }
-    }
+        loop: true,
+      },
+    };
   },
-  mounted () {
-    core.index()
-  }
-}
+  mounted() {
+    setTimeout(function () {
+      core.index();
+    }, 1000);
+  },
+};
 </script>
 <style>
-@import url('../assets/css/custom.css');
-@import url('../assets/css/backend/variable.css');
-@import url('../assets/css/backend/dark.css');
-@import url('../assets/css/backend/responsive.css');
-@import url('../assets/css/backend/style.css');
-@import url('../assets/css/backend/typography.css');
+/* @import url("../assets/css/custom.css");
+@import url("../assets/css/backend/variable.css");
+@import url("../assets/css/backend/dark.css");
+@import url("../assets/css/backend/responsive.css");
+@import url("../assets/css/backend/style.css");
+@import url("../assets/css/backend/typography.css"); */
 </style>
+

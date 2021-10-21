@@ -54,3 +54,24 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@import url("../../../assets/css/backend/typography.css");
+/* @import url("../../../assets/css/custom.css"); */
+@import url("../../../assets/css/frontend/variable.css");
+@import url("../../../assets/css/frontend/dark.css");
+@import url("../../../assets/css/backend/responsive.css");
+@import url("../../../assets/css/frontend/style.css");
+
+.alert-danger {
+  color: var(--red) !important;
+  background-color: transparent !important;
+  border-color: var(--red) !important;
+}
+
+h3 {
+  color: var(--iq-primary);
+}
+</style>
+
+
