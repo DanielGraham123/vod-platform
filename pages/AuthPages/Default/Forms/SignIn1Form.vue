@@ -1,8 +1,8 @@
 <template>
   <ValidationObserver ref="form">
     <div>
-      <b-alert show variant="danger" v-if="formErrors">{{
-        formErrors.message
+      <b-alert show variant="danger" v-if="errorMessage">{{
+        errorMessage
       }}</b-alert>
     </div>
     <form class="mt-4" novalidate @submit.prevent="submitForm">
@@ -42,20 +42,16 @@
         </div>
       </ValidationProvider>
       <div class="sign-info">
-        <!-- <button type="submit" class="btn btn-hover">Sign in</button> -->
-
-        <b-button variant="primary" type="submit" :disabled="loading">
+        <b-button
+          variant="primary"
+          class="btn-block"
+          type="submit"
+          :disabled="loading"
+        >
           <b-spinner small v-if="loading"></b-spinner>
           <span v-if="!this.loading">Sign in</span>
           <span v-else>Sign in...</span>
         </b-button>
-
-        <!-- <div class="custom-control custom-checkbox d-inline-block">
-          <input :id="formType" type="checkbox" class="custom-control-input" />
-          <label class="custom-control-label" :for="formType"
-            >Remember Me</label
-          >
-        </div> -->
       </div>
     </form>
   </ValidationObserver>
@@ -96,6 +92,7 @@ export default {
     },
     formErrors: null,
     loading: false,
+    errorMessage: "",
   }),
 
   computed: {},
@@ -110,24 +107,32 @@ export default {
     ...mapActions(["loginAction"]),
 
     submitForm() {
-      this.loading = true;
+      if (this.user.email && this.user.password) {
+        this.loading = true;
 
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.user.email, this.user.password)
-        .then((user) => {
-          console.log("user on firebase:", user);
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(this.user.email, this.user.password)
+          .then((user) => {
+            console.log("user on firebase:", user);
 
-          this.setUserData(user);
+            this.setUserData(user);
 
-          this.loading = false;
-        })
-        .catch((error) => {
-          this.loading = false;
+            this.loading = false;
+          })
+          .catch((error) => {
+            this.loading = false;
 
-          this.formErrors = error;
-          console.log("error logging in ", error);
-        });
+            if (error.code == "auth/user-not-found") {
+              this.errorMessage = "Incorrect email or password!";
+            }
+
+            if (error.code == "auth/wrong-password") {
+              this.errorMessage = "Incorrect password!";
+            }
+            console.log("error logging in ", error);
+          });
+      }
 
       console.log("email: ", this.user.email);
       console.log("password: ", this.user.password);
@@ -140,11 +145,19 @@ export default {
 .btn-primary {
   background-color: #ffc107 !important;
   border-color: #ffc107 !important;
+  color: black;
+  font-weight: 500;
 }
 
 .btn-primary:hover {
   background-color: #dabf34 !important;
   border-color: #dabf34 !important;
+}
+
+.alert-danger {
+  color: var(--red) !important;
+  background-color: transparent !important;
+  border-color: var(--red) !important;
 }
 
 @media (max-width: 768px) {

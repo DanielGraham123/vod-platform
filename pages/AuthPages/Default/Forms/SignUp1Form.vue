@@ -1,5 +1,10 @@
 <template>
   <ValidationObserver ref="form">
+    <div>
+      <b-alert show variant="danger" v-if="errorMessage">{{
+        errorMessage
+      }}</b-alert>
+    </div>
     <form class="mt-4" novalidate @submit.prevent="submitForm">
       <ValidationProvider
         v-slot="{ errors }"
@@ -75,7 +80,16 @@
           ></label
         >
       </div>
-      <button type="submit" class="btn btn-hover btn-block">Sign Up</button>
+      <b-button
+        variant="primary"
+        class="btn-block"
+        type="submit"
+        :disabled="loading"
+      >
+        <b-spinner small v-if="loading"></b-spinner>
+        <span v-if="!this.loading">Sign Up</span>
+        <span v-else>Sign Up...</span>
+      </b-button>
     </form>
   </ValidationObserver>
 </template>
@@ -114,33 +128,65 @@ export default {
       password: "",
     },
     formErrors: "",
+    errorMessage: "",
+    loading: false,
   }),
   methods: {
     submitForm() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.user.email, this.user.password)
-        .then((user) => {
-          console.log("user on firebase:", user);
+      if (this.user.email && this.user.password && this.user.name) {
+        this.loading = true;
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.user.email, this.user.password)
+          .then((user) => {
+            this.loading = false;
+            console.log("user on firebase:", user);
 
-          this.$router.push("/home");
-        })
-        .catch((error) => {
-          this.formErrors = error;
-          console.log("form errors: ", this.formErrors);
-        });
-      console.log("email: ", this.user.email);
-      console.log("password: ", this.user.password);
+            this.$router.push("/home");
+          })
+          .catch((error) => {
+            this.loading = false;
+
+            if (error.code == "auth/invalid-email") {
+              this.errorMessage = "Incorrect email and password!";
+            } else {
+              this.errorMessage = error.message;
+            }
+
+            this.formErrors = error;
+            console.log("form errors: ", this.formErrors);
+          });
+        console.log("email: ", this.user.email);
+        console.log("password: ", this.user.password);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-/* @import url("../../../../assets/css/custom.css");
-@import url("../../../../assets/css/backend/variable.css");
-@import url("../../../../assets/css/backend/dark.css");
-@import url("../../../../assets/css/backend/responsive.css");
-@import url("../../../../assets/css/backend/style.css");
-@import url("../../../../assets/css/backend/typography.css"); */
+.btn-primary {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: black;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #dabf34 !important;
+  border-color: #dabf34 !important;
+}
+
+.alert-danger {
+  color: var(--red) !important;
+  background-color: transparent !important;
+  border-color: var(--red) !important;
+}
+
+@media (max-width: 768px) {
+  .btn-primary {
+    display: block;
+    width: 100%;
+  }
+}
 </style>

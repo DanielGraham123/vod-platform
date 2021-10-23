@@ -41,7 +41,7 @@
                   </ul>
                 </div>
                 <div class="menu-main-menu-container" v-else>
-                  <ul id="top-menu" class="navbar-nav ml-auto">
+                  <ul id="top-menu" class="navbar-nav ml-auto pr-0">
                     <li class="menu-item">
                       <button
                         @click="$router.push('/auth/login')"
@@ -571,16 +571,7 @@ li.menu-item {
 }
 
 .mobile-sign-in {
-  li.menu-item {
-    button.btn-link {
-      color: var(--iq-black);
-      border-radius: 10px !important;
-      background-color: var(--iq-primary);
-      font-weight: 500;
-      padding: 5px 13px;
-      border-color: var(--iq-primary);
-    }
-  }
+  display: none;
 }
 
 @media (max-width: 991px) {
@@ -603,11 +594,29 @@ li.menu-item {
   img.logo {
     width: 190px;
   }
+
+  .mobile-sign-in {
+    display: block;
+
+    li.menu-item {
+      button.btn-link {
+        color: var(--iq-black);
+        border-radius: 10px !important;
+        background-color: var(--iq-primary);
+        font-weight: 500;
+        padding: 5px 13px;
+        border-color: var(--iq-primary);
+      }
+    }
+  }
 }
 
 @media (max-width: 600px) {
   header#main-header {
     position: absolute !important;
   }
+}
+
+@media (max-width: 500px) {
 }
 </style>
