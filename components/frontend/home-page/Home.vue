@@ -12,7 +12,14 @@
           />
         </div>
 
-        <b-container fluid class="position-relative" style="top: 6em">
+        <b-container
+          fluid
+          class="
+            position-relative
+            slider-caption
+            d-none d-sm-none d-md-block d-lg-block d-xl-block
+          "
+        >
           <div class="slider-inner h-100">
             <b-row class="align-items-center h-100">
               <b-col xl="8" lg="12" md="12" class="px-5 pb-3">
@@ -35,12 +42,24 @@
                     >Number 4 in Cameroon Today</span
                   >
                 </div>
-                <p data-animation-in="fadeInUp" data-delay-in="1.2">
+                <p
+                  data-animation-in="fadeInUp"
+                  data-delay-in="1.2"
+                  class="movie-description"
+                >
                   {{ data.text }}
                 </p>
 
                 <div
-                  class="d-flex align-items-center videoBtn r-mb-23 mt-5 pt-2"
+                  class="
+                    d-flex
+                    align-items-center
+                    videoBtn
+                    r-mb-23
+                    mt-lg-5 mt-md-3
+                    pt-2
+                    d-block
+                  "
                   data-animation-in="fadeInUp"
                   data-delay-in="1.2"
                 >
@@ -106,6 +125,57 @@
 
           <!-- @click="openTrailer('../../../assets/video/trailer.mp4')" -->
         </b-container>
+        <div
+          class="
+            slider-inner
+            lower-caption
+            d-block d-sm-block d-md-none d-lg-none
+            px-3
+          "
+        >
+          <h2
+            class="slider-text big-title mb-3 title text-uppercase"
+            data-animation-in="fadeIn"
+            data-delay-in="0.6"
+          >
+            {{ data.title }}
+          </h2>
+
+          <div>
+            <p
+              data-animation-in="fadeIn"
+              data-delay-in="1.2"
+              class="movie-description mb-0 mt-2"
+            >
+              {{ data.text }}
+            </p>
+          </div>
+
+          <div
+            class="row justify-content-center videoBtn mt-2"
+            data-animation-in="fadeIn"
+            data-delay-in="1.2"
+          >
+            <div class="col-12 my-2">
+              <nuxt-link
+                to="/frontend/show-detail"
+                class="btn btn-hover btn-block playBtn"
+              >
+                <i class="fa fa-play mr-2" aria-hidden="true" />Play Now
+              </nuxt-link>
+            </div>
+
+            <div class="col-12">
+              <nuxt-link
+                to="/frontend/show-detail"
+                class="btn btn-link btn-block btn-secondary"
+              >
+                <i class="fa fa-info-circle mr-2" aria-hidden="true" />
+                More details
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
       </div>
     </Slick>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -185,7 +255,7 @@ export default {
           {
             breakpoint: 992,
             settings: {
-              dots: true,
+              dots: false,
               arrows: false,
             },
           },
@@ -239,5 +309,105 @@ h2,
 .movie-ranking {
   font-weight: 500;
   font-size: 21px;
+}
+
+.slider-caption {
+  top: 6.5em;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .iq-main-slider {
+    padding-top: 0 !important;
+  }
+
+  #home-slider .slick-backImg > img {
+    height: unset;
+  }
+
+  h2,
+  .h2 {
+    font-size: 2.3em !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .iq-main-slider {
+    padding-top: 0 !important;
+  }
+
+  h2.big-title {
+    font-size: 1.5em !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .movie-ranking {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .slider-caption {
+    top: 3.5em;
+  }
+
+  .movie-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px !important;
+  }
+
+  #home-slider .slide {
+    height: 260px;
+  }
+
+  #home-slider .slick-backImg > img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  #home-slider .slick-backImg {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.4;
+      // background: rgb(29, 28, 28);
+      // background: linear-gradient(
+      //   180deg,
+      //   rgba(29, 28, 28, 0) 0%,
+      //   rgba(72, 72, 76, 0.647963408996411) 35%,
+      //   rgba(6, 18, 20, 1) 100%
+      // );
+    }
+  }
+
+  .slider-inner {
+    padding-top: 15em;
+    height: auto;
+    position: unset;
+    padding-bottom: 0em !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #home-slider .slick-backImg > img {
+    object-fit: unset;
+    width: 100%;
+    height: 75vw;
+  }
 }
 </style>

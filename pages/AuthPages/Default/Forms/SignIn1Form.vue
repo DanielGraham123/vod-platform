@@ -50,12 +50,12 @@
           <span v-else>Sign in...</span>
         </b-button>
 
-        <div class="custom-control custom-checkbox d-inline-block">
+        <!-- <div class="custom-control custom-checkbox d-inline-block">
           <input :id="formType" type="checkbox" class="custom-control-input" />
           <label class="custom-control-label" :for="formType"
             >Remember Me</label
           >
-        </div>
+        </div> -->
       </div>
     </form>
   </ValidationObserver>
@@ -145,5 +145,12 @@ export default {
 .btn-primary:hover {
   background-color: #dabf34 !important;
   border-color: #dabf34 !important;
+}
+
+@media (max-width: 768px) {
+  .btn-primary {
+    display: block;
+    width: 100%;
+  }
 }
 </style>

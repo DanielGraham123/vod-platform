@@ -11,6 +11,7 @@ import "./flatpicker";
 import "./global";
 import { ValidationObserver, ValidationProvider } from "vee-validate";
 import { BSpinner } from "bootstrap-vue";
+import VueTruncate from "vue-truncate-filter";
 
 // eslint-disable-next-line import/no-named-as-default,no-unused-vars
 let skrollrJs;
@@ -20,6 +21,9 @@ if (typeof window !== "undefined") {
   require("magnific-popup/dist/jquery.magnific-popup.min");
   require("jquery.appear");
 }
+
+Vue.use(VueTruncate);
+
 Vue.use(BootstrapVue);
 Vue.use(VueFlatPicker);
 Vue.use(VueRetina, { retina });

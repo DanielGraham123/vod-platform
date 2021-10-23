@@ -9,6 +9,7 @@
               <a
                 href="javascript:void(0)"
                 class="navbar-toggler c-toggler collapsed"
+                :class="!loggedInUser ? 'd-none' : ''"
                 @click="openSidebar"
               >
                 <div class="navbar-toggler-icon" data-toggle="collapse">
@@ -54,7 +55,10 @@
               </b-collapse>
               <!--  -->
 
-              <div class="mobile-more-menu">
+              <div
+                class="mobile-more-menu"
+                :class="!loggedInUser ? 'd-none' : ''"
+              >
                 <b-navbar-toggle
                   target="dropdownMenuButton"
                   class="more-toggle"
@@ -237,7 +241,11 @@
                                   </div>
                                 </div>
                               </nuxt-link>
-                              <a class="iq-sub-card setting-dropdown">
+                              <a
+                                @click="logoutAction()"
+                                v-if="loggedInUser"
+                                class="iq-sub-card setting-dropdown"
+                              >
                                 <div class="media align-items-center">
                                   <div class="right-icon">
                                     <i
@@ -256,6 +264,19 @@
                     </ul>
                   </div>
                 </b-collapse>
+              </div>
+
+              <div class="mobile-sign-in" v-if="!loggedInUser">
+                <ul id="top-menu" class="navbar-nav ml-auto pr-0">
+                  <li class="menu-item">
+                    <button
+                      @click="$router.push('/auth/login')"
+                      class="btn btn-primary btn-link"
+                    >
+                      Sign In
+                    </button>
+                  </li>
+                </ul>
               </div>
               <div class="navbar-right menu-right" v-if="loggedInUser">
                 <ul class="d-flex align-items-center list-inline m-0">
@@ -525,13 +546,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* @import url("../../../assets/css/custom.css");
-@import url("../../../assets/css/backend/variable.css");
-@import url("../../../assets/css/backend/dark.css");
-@import url("../../../assets/css/backend/responsive.css");*/
-/* @import url("../../../assets/css/backend/style.css"); */
-/* @import url("../../../assets/css/backend/typography.css");  */
-
 .logout-link:hover {
   cursor: pointer;
 }
@@ -552,6 +566,48 @@ li.menu-item {
     background-color: var(--iq-primary);
     font-weight: 500;
     padding: 7px 15px;
+    border-color: var(--iq-primary);
+  }
+}
+
+.mobile-sign-in {
+  li.menu-item {
+    button.btn-link {
+      color: var(--iq-black);
+      border-radius: 10px !important;
+      background-color: var(--iq-primary);
+      font-weight: 500;
+      padding: 5px 13px;
+      border-color: var(--iq-primary);
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  img.logo {
+    width: 145px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  header#main-header {
+    padding: 0.5em;
+  }
+
+  #home-slider .slide {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  img.logo {
+    width: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  header#main-header {
+    position: absolute !important;
   }
 }
 </style>

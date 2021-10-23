@@ -11,8 +11,8 @@
                 <h3 class="mb-3 text-center">Sign in</h3>
                 <sign-in1-form
                   form-type="jwt"
-                  email="admin@demo.com"
-                  password="admin123"
+                  email=""
+                  password=""
                 />
               </div>
             </div>
