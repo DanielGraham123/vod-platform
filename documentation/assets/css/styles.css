@@ -13,7 +13,7 @@
   --doc-secondary-color: rgba(180, 122, 243, 1);
 }
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
   color: #494d55;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;

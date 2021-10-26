@@ -1,6 +1,9 @@
 <template>
   <!-- TOP Nav Bar -->
-  <header id="main-header">
+  <header
+    id="main-header"
+    :class="[$route.name == 'landing' ? 'absolute-header' : '']"
+  >
     <div class="main-header">
       <b-container fluid>
         <b-row>
@@ -546,6 +549,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+header#main-header.absolute-header {
+  position: absolute !important;
+  background: transparent !important;
+}
+
+.iq-user-dropdown {
+  width: unset !important;
+}
 .logout-link:hover {
   cursor: pointer;
 }

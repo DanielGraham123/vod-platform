@@ -9,11 +9,7 @@
             <div class="sign-in-page-data">
               <div class="sign-in-from w-100 m-auto">
                 <h3 class="mb-3 text-center">Sign in</h3>
-                <sign-in1-form
-                  form-type="jwt"
-                  email=""
-                  password=""
-                />
+                <sign-in1-form form-type="jwt" email="" password="" />
               </div>
             </div>
             <div class="mt-3">
@@ -56,12 +52,12 @@ export default {
 </script>
 
 <style scoped>
-@import url("../../../assets/css/backend/typography.css");
+/* @import url("../../../assets/css/backend/typography.css"); */
 /* @import url("../../../assets/css/custom.css"); */
-@import url("../../../assets/css/frontend/variable.css");
+/* @import url("../../../assets/css/frontend/variable.css");
 @import url("../../../assets/css/frontend/dark.css");
 @import url("../../../assets/css/backend/responsive.css");
-@import url("../../../assets/css/frontend/style.css");
+@import url("../../../assets/css/frontend/style.css"); */
 
 .alert-danger {
   color: var(--red) !important;
@@ -70,7 +66,7 @@ export default {
 }
 
 h3 {
-  color: var(--iq-primary);
+  color: var(--iq-primary) !important;
 }
 </style>
 

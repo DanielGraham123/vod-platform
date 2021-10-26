@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 body a {
   text-decoration: none;
   color: black;
+  font-family: "Montserrat", sans-serif;
 }
 
 #background {
@@ -28,7 +31,6 @@ body a {
   font-size: 25px;
   color: yellow;
   z-index: 10px;
-  font-weight: bold;
   margin-left: 5%;
   margin-top: 5px;
 }
@@ -56,7 +58,6 @@ body a {
   display: inline-block;
   width: 100%;
   color: white;
-  font-weight: bold;
 } /*first an second email sign up respectively*/
 #email {
   text-align: center;
@@ -83,7 +84,7 @@ body a {
   border: none;
   text-align: center;
   height: 35px;
-  font-weight: bold;
+
   cursor: pointer;
 }
 #em a {
@@ -112,7 +113,7 @@ body a {
   z-index: 2px;
   width: 100%;
   color: white;
-  font-weight: bold;
+
   padding: 50px;
   overflow: hidden;
 }
@@ -152,7 +153,7 @@ body a {
   border: none;
   background-color: transparent;
   font-size: 14px;
-  font-weight: bold;
+
   /* text-align: right; */
   top: 0;
   right: 0;
@@ -237,7 +238,7 @@ body a {
   width: 300px;
   height: 50px;
   background-color: yellow;
-  font-weight: bold;
+
   color: white;
   border: none;
   cursor: pointer;

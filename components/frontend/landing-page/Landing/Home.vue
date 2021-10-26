@@ -9,21 +9,30 @@
         Boundless African Movies,<br />
         TV shows, and Expect<br />
         more...<br />
-        <span style="font-size: 15px">
-          Ready to watch? Start your journey with BBtv</span
-        >
+        <div class="ready">
+          Ready to watch? Enter your email to start your journey with BBTV.
+        </div>
         <!--email signup-->
-        <div id="email">
-          <form class="d-flex justify-content-center">
-            <input
-              type="email"
-              placeholder="Email address"
-              style="height: 35px; color: black; width: 250px; font-size: 16px"
-            />
-            <a href="pass.html" class="btn btn-primary btn-link" id="em"
-              >Sign Up <i class="fas fa-angle-right" style="font-size: 16px"></i
-            ></a>
-          </form>
+        <div id="email" class>
+          <div class="d-flex align-items-center justify-content-center">
+            <div class="form-group">
+              <div class="input-group">
+                <input
+                  type="email"
+                  name="email-signup"
+                  id=""
+                  class="form-control email-form"
+                  placeholder="E-mail"
+                />
+
+                <div class="input-group-append">
+                  <button class="btn btn-primary px-3">
+                    Get Started &nbsp;<i class="fas fa-angle-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -74,74 +83,43 @@
         Frequently Asked<br />
         Question.
       </div>
-      <!--frequently asked questions section-->
-      <div id="faq">
-        <div id="faq1" style="text-align: left">What is BBtv?</div>
-        <span id="readmore" onclick="myHid()"> +</span>
-      </div>
-      <div id="Hide" style="display: none">
-        It is important to Pray and ask God for understanding and a retentive
-        memory before studying or you can pray for whatever else you like or at
-        least Read the Bible. But remember not to pray only during the exam
-        period but throughout.Do well to Study and not only pray because GOD
-        only help those who help themselves.
-      </div>
+      <faq></faq>
 
-      <div id="faq">
-        <div id="faq1" style="text-align: left">How much does BBtv Cost?</div>
-        <span id="readmore1" onclick="myHid1()"> +</span>
+      <div class="pb-2 ready">
+        Ready to watch? Enter your email to start your journey with BBTV.
       </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="form-group">
+          <div class="input-group">
+            <input
+              type="email"
+              name="email-signup"
+              id=""
+              class="form-control email-form"
+              placeholder="E-mail"
+            />
 
-      <div id="Hide1" style="display: none">
-        It is important to Pray and ask God for understanding and a retentive
-        memory before studying or you can pray for whatever else you like or at
-        least Read the Bible. But remember not to pray only during the exam
-        period but throughout.Do well to Study and not only pray because GOD
-        only help those who help themselves.
-      </div>
-
-      <div id="faq">
-        <div id="faq1" style="text-align: left">What?</div>
-        <span id="readmore2" onclick="myHid2()"> +</span>
-      </div>
-      <div id="Hide2" style="display: none">
-        It is important to Pray and ask God for understanding and a retentive
-        memory before studying or you can pray for whatever else you like or at
-        least Read the Bible. But remember not to pray only during the exam
-        period but throughout.Do well to Study and not only pray because GOD
-        only help those who help themselves.
-      </div>
-      <div id="faq">
-        <div id="faq1" style="text-align: left">What?</div>
-        <span id="readmore3" onclick="myHid3()"> +</span>
-      </div>
-      <div id="Hide3" style="display: none">
-        It is important to Pray and ask God for understanding and a retentive
-        memory before studying or you can pray for whatever else you like or at
-        least Read the Bible. But remember not to pray only during the exam
-        period but throughout.Do well to Study and not only pray because GOD
-        only help those who help themselves.
-      </div>
-      <div id="email1">
-        <form class="d-flex justify-content-center">
-          <input
-            type="email"
-            placeholder="Email address"
-            style="height: 35px; color: black; width: 250px"
-          />
-
-          <a href="pass.html" class="btn btn-primary btn-link" id="em"
-            >Sign Up <i class="fas fa-angle-right" style="font-size: 16px"></i
-          ></a>
-        </form>
+            <div class="input-group-append">
+              <button class="btn btn-primary px-3">
+                Get Started &nbsp;<i class="fas fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Faq from "./FAQ.vue";
+
 export default {
   middleware: "redirect",
+
+  components: {
+    Faq,
+  },
 
   head() {
     return {
@@ -170,4 +148,58 @@ export default {
 
 <style scoped>
 @import url("../../../../assets/css/landing-page/design.css");
+header#main-header {
+  position: absolute !important;
+}
+
+.form-control.email-form {
+  height: auto;
+  color: black;
+  width: 350px;
+  font-size: 16px;
+  background: white;
+  padding: 0px 12px;
+  font-weight: 500;
+  font-size: 17px;
+  border: none;
+}
+
+.ready {
+  font-size: 17px;
+  padding-top: 5px;
+}
+
+.form-control.email-form:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  #caption {
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: 1.3rem;
+  }
+
+  .form-control.email-form {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  #caption {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    font-size: 1.3rem;
+  }
+
+  .ready {
+    font-size: 0.75rem !important;
+  }
+  .input-group-append {
+    margin: 5px auto;
+  }
+  .input-group {
+    right: -0.5em;
+  }
+}
 </style>
