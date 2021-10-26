@@ -105,13 +105,13 @@ body a {
 }
 
 /*caption divs under the  fisherman's diary photo*/
-#cruise {
+.cruise {
   position: relative;
   text-align: center;
   height: auto;
   background-color: black;
   z-index: 2px;
-  width: 100%;
+  /* width: 100%; */
   color: white;
 
   padding: 50px;

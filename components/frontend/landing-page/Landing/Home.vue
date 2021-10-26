@@ -5,34 +5,39 @@
       <!-- overlay-->
       <div id="overlay"></div>
 
-      <div id="caption">
-        Boundless African Movies,<br />
-        TV shows, and Expect<br />
-        more...<br />
-        <div class="ready">
-          Ready to watch? Enter your email to start your journey with BBTV.
-        </div>
+      <div class="caption">
         <!--email signup-->
-        <div id="email" class>
-          <div class="d-flex align-items-center justify-content-center">
+        <div class="inner-caption">
+          <h1 class="mb-2">
+            Boundless African Movies, TV shows, and Expect more...
+          </h1>
+          <h2 class="mt-3">Watch Anywhere. Cancel anytime.</h2>
+          <form class="email-form">
+            <h3 class="email-title">
+              Ready to watch? Enter your email to begin your journey with BBTV.
+            </h3>
             <div class="form-group">
-              <div class="input-group">
+              <div class="input-group mb-3">
                 <input
                   type="email"
                   name="email-signup"
                   id=""
-                  class="form-control email-form"
+                  class="form-control email-input"
                   placeholder="E-mail"
+                  aria-describedby="email-append"
                 />
 
                 <div class="input-group-append">
-                  <button class="btn btn-primary px-3">
+                  <button
+                    class="btn btn-primary px-3 align-items-center d-flex"
+                    id="email-append"
+                  >
                     Get Started &nbsp;<i class="fas fa-angle-right"></i>
                   </button>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -40,7 +45,7 @@
     <div class="divider"></div>
     <!-- <div  class="container"> -->
     <!--The advert section below the fisherman's dairy image-->
-    <div id="cruise" class="row">
+    <div class="cruise row">
       <div class="col-md-6">
         <div class="" id="cruise1">
           Cruise on all devices<br />
@@ -60,7 +65,7 @@
     <!-- </div> -->
     <div class="divider"></div>
 
-    <div id="cruise" class="row">
+    <div class="cruise row">
       <div class="col-md-6">
         <img
           src="../../../../assets/css/landing-page/images/download.gif"
@@ -76,36 +81,41 @@
 
     <div class="divider"></div>
 
-    <div id="cruise">
-      <div
-        style="z-index: 10px; font-weight: bold; font-size: 25px; margin: 10px"
-      >
-        Frequently Asked<br />
-        Question.
-      </div>
-      <faq></faq>
+    <div class="row bg-black">
+      <div class="col-12 text-center">
+        <h2 class="py-3 mt-3 mb-0">
+          <!-- style="z-index: 10px; font-weight: bold; font-size: 25px; margin: 10px" -->
+          Frequently Asked Questions.
+        </h2>
 
-      <div class="pb-2 ready">
-        Ready to watch? Enter your email to start your journey with BBTV.
-      </div>
-      <div class="d-flex align-items-center justify-content-center">
-        <div class="form-group">
-          <div class="input-group">
-            <input
-              type="email"
-              name="email-signup"
-              id=""
-              class="form-control email-form"
-              placeholder="E-mail"
-            />
+        <faq></faq>
 
-            <div class="input-group-append">
-              <button class="btn btn-primary px-3">
-                Get Started &nbsp;<i class="fas fa-angle-right"></i>
-              </button>
+        <form class="email-form pb-4">
+          <h3 class="email-title">
+            Ready to watch? Enter your email to start your journey with BBTV.
+          </h3>
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                name="email-signup"
+                id=""
+                class="form-control email-input"
+                placeholder="E-mail"
+                aria-describedby="email-append"
+              />
+
+              <div class="input-group-append">
+                <button
+                  class="btn btn-primary px-3 align-items-center d-flex"
+                  id="email-append"
+                >
+                  Get Started &nbsp;<i class="fas fa-angle-right"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -124,9 +134,9 @@ export default {
   head() {
     return {
       script: [
-        {
-          src: "landing/main.js",
-        },
+        // {
+        //   src: "landing/main.js",
+        // },
       ],
     };
   },
@@ -148,20 +158,45 @@ export default {
 
 <style scoped>
 @import url("../../../../assets/css/landing-page/design.css");
-header#main-header {
-  position: absolute !important;
+
+* {
+  overflow: hidden;
 }
 
-.form-control.email-form {
+.bg-black {
+  background: #000;
+}
+
+.btn {
+  font-weight: 500 !important;
+}
+
+.form-control.email-input {
   height: auto;
-  color: black;
+  color: var(--iq-primary);
   width: 350px;
   font-size: 16px;
-  background: white;
-  padding: 0px 12px;
+  background: transparent !important;
+  padding: 0px 13px;
   font-weight: 500;
   font-size: 17px;
-  border: none;
+}
+
+.email-form {
+  margin-top: 0.7em;
+}
+
+.email-form > .form-group {
+  max-width: 600px;
+  padding: 0.85rem;
+  margin: 0 auto;
+}
+
+.email-title {
+  padding: 0 5%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 400;
 }
 
 .ready {
@@ -169,37 +204,117 @@ header#main-header {
   padding-top: 5px;
 }
 
-.form-control.email-form:focus {
+.form-control.email-input:focus {
   box-shadow: none;
+  border-color: var(--iq-primary);
+}
+
+.caption {
+  padding: 70px 45px;
+  top: 3.5em;
+  position: absolute;
+  text-align: center;
+  right: 0;
+  left: 0;
+  font-size: 1.625rem !important;
+}
+
+.inner-caption {
+  position: relative;
+  width: 100%;
+  padding: 75px 0;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 1;
+  font-weight: 400;
+}
+
+.caption h1,
+.caption h2 {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.caption h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.7em;
+}
+
+.caption h2 {
+  font-size: 1.4rem;
+}
+
+.caption h3,
+.email-form h3 {
+  font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
-  #caption {
-    padding-left: 3em;
-    padding-right: 3em;
+  .caption {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    top: 1.5em;
+  }
+
+  .caption h1 {
     font-size: 1.3rem;
   }
 
-  .form-control.email-form {
+  .caption h2 {
+    font-size: 1.1rem;
+  }
+
+  .caption h3,
+  .email-form h3 {
+    font-size: 0.9rem;
+  }
+
+  .input-group-append {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 499px) and (max-width: 546px) {
+  .form-control.email-input {
     margin-bottom: 15px;
   }
 }
 
 @media (max-width: 500px) {
-  #caption {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    font-size: 1.3rem;
+  #background {
+    height: 516px;
   }
 
-  .ready {
-    font-size: 0.75rem !important;
+  .caption {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    top: 1em;
   }
+
+  .form-control.email-input {
+    margin-bottom: 10px;
+  }
+
+  .caption h1 {
+    font-size: 1.1rem;
+  }
+
+  .caption h2 {
+    font-size: 0.9rem;
+  }
+
+  .caption h3,
+  .email-form h3 {
+    font-size: 0.8rem;
+  }
+
   .input-group-append {
     margin: 5px auto;
   }
-  .input-group {
-    right: -0.5em;
+
+  .email-form h3 {
   }
 }
 </style>

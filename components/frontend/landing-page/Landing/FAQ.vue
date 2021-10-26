@@ -15,6 +15,8 @@
           :href="'#collapse-' + index"
         >
           <button class="btn text-left text-white p-1">{{ faq.title }}</button>
+
+          <i class="fa fa-plus float-right"></i>
         </div>
         <div
           :id="'collapse-' + index"
@@ -31,17 +33,9 @@
 </template>
 
 <script>
-export default {
-  head() {
-    return {
-      script: [
-        {
-          src: "/landing/faq.js",
-        },
-      ],
-    };
-  },
+import $ from "jquery";
 
+export default {
   data() {
     return {
       faqList: [
@@ -68,27 +62,64 @@ export default {
       ],
     };
   },
+
+  head() {
+    return {
+      script: [
+        {
+          src: "https://code.jquery.com/jquery-3.6.0.js",
+          type: "text/javascript",
+          body: true,
+        },
+
+        {
+          src: "/landing/faq.js",
+          type: "text/javascript",
+          body: true,
+        },
+      ],
+    };
+  },
+
+  mounted() {
+    $(".collapse.show").each(function () {
+      console.log("show is on");
+
+      $(this)
+        .prev(".card-header")
+        .find(".fa")
+        .addClass("fa-minus")
+        .removeClass("fa-plus");
+    });
+
+    // Toggle plus minus icon on show hide of collapse element
+    $(".collapse")
+      .on("show.bs.collapse", function () {
+        $(this)
+          .prev(".card-header")
+          .find(".fa")
+          .removeClass("fa-plus")
+          .addClass("fa-minus");
+      })
+      .on("hide.bs.collapse", function () {
+        $(this)
+          .prev(".card-header")
+          .find(".fa")
+          .removeClass("fa-minus")
+          .addClass("fa-plus");
+      });
+  },
 };
 </script>
 
 <style scoped>
 .accordion {
   width: 75%;
-  margin: 2em auto;
+  margin: 1em auto;
 }
 
 .btn:focus {
   box-shadow: none;
-}
-
-.accordion .card-header:after {
-  font-family: "Font Awesome\ 5 Free";
-  content: "\f068";
-  float: right;
-}
-.accordion .card-header.collapsed:after {
-  /* symbol for "collapsed" panels */
-  content: "\f067";
 }
 
 .accordion > .card {
@@ -115,7 +146,7 @@ export default {
 
 p {
   margin-bottom: 0;
-  font-size: 19px;
+  font-size: 17.5px;
   font-weight: 500;
   text-align: initial;
 }
@@ -131,6 +162,10 @@ p {
   .accordion {
     width: 100%;
     margin: 2em auto;
+  }
+
+  p {
+    font-size: 15px;
   }
 
   .btn {

@@ -2025,7 +2025,7 @@ span.flatpickr-weekday,
   z-index: 999;
   position: fixed;
   margin: 0px;
-  color: var(--iq-white);
+  color: var(--iq-black);
   background: var(--iq-primary);
   bottom: 30px;
   right: 25px;
@@ -2040,7 +2040,7 @@ span.flatpickr-weekday,
   transition: all 0.3s ease-in-out;
 }
 #back-to-top .top:hover {
-  color: var(--iq-white) !important;
+  color: var(--iq-black) !important;
   background: var(--iq-primary);
 }
 #back-to-top {
