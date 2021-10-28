@@ -230,7 +230,7 @@
                                 </div>
                               </nuxt-link>
                               <nuxt-link
-                                to="/frontend/user/pricing-plan"
+                                to="/pricing-plan"
                                 class="iq-sub-card setting-dropdown"
                               >
                                 <div class="media align-items-center">
@@ -432,7 +432,7 @@
                             </div>
                           </nuxt-link>
                           <nuxt-link
-                            to="/frontend/user/pricing-plan"
+                            to="/pricing-plan"
                             class="iq-sub-card setting-dropdown"
                           >
                             <div class="media align-items-center">

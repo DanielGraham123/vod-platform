@@ -22,6 +22,9 @@ import Login from "~/pages/AuthPages/Default/SignIn1";
 import SignUp from "~/pages/AuthPages/Default/SignUp1";
 import UserProfile from "~/pages/frontend/user/Manage-profile";
 
+// Pricing Plan
+import PricingPlan from "~/pages/frontend/user/pricing-plan";
+
 Vue.use(Router);
 
 export function createRouter() {
@@ -34,6 +37,11 @@ export function createRouter() {
         component: Landing,
       },
       {
+        path: "/home",
+        name: "home",
+        component: Home,
+      },
+      {
         path: "/signup/password",
         name: "signup-password",
         component: Password,
@@ -43,10 +51,12 @@ export function createRouter() {
         name: "signup-plan",
         component: Plan,
       },
+
+      // pricing
       {
-        path: "/home",
-        name: "home",
-        component: Home,
+        path: "/pricing-plan",
+        name: "pricing-plan",
+        component: PricingPlan,
       },
 
       // movies

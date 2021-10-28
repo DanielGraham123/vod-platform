@@ -12,30 +12,44 @@
             Boundless African Movies, TV shows, and Expect more...
           </h1>
           <h2 class="mt-3">Watch Anywhere. Cancel anytime.</h2>
-          <form class="email-form">
+          <form class="email-form" @submit.prevent="submitEmail">
             <h3 class="email-title mx-4 mx-md-auto mx-lg-auto">
               Ready to watch? Enter your email to begin your journey with BBTV.
             </h3>
-            <div class="form-group">
-              <div class="input-group mb-3">
-                <input
-                  type="email"
-                  name="email-signup"
-                  id=""
-                  class="form-control email-input"
-                  placeholder="E-mail"
-                  aria-describedby="email-append"
-                />
 
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-primary px-3 align-items-center d-flex"
-                    id="email-append"
-                  >
-                    Get Started &nbsp;<i class="fas fa-angle-right"></i>
-                  </button>
+            <div class="form-group">
+              <ValidationProvider
+                v-slot="{ errors }"
+                vid="email"
+                name="email"
+                rules="email"
+              >
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    name="email-signup"
+                    v-model="email"
+                    class="form-control email-input"
+                    :class="'mb-0' + (errors.length > 0 ? ' is-invalid' : '')"
+                    placeholder="E-mail"
+                    aria-describedby="email-append"
+                  />
+
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-primary px-3 align-items-center d-flex"
+                      id="email-append"
+                      type="submit"
+                    >
+                      Get Started &nbsp;<i class="fas fa-angle-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="invalid-feedback">
+                    <span>{{ errors[0] }}</span>
+                  </div>
                 </div>
-              </div>
+              </ValidationProvider>
             </div>
           </form>
         </div>
@@ -90,30 +104,42 @@
 
         <faq></faq>
 
-        <form class="email-form pb-4">
+        <form class="email-form pb-5" @submit.prevent="submitEmail">
           <h3 class="email-title mx-md-auto mx-lg-auto mx-4">
             Ready to watch? Enter your email to start your journey with BBTV.
           </h3>
           <div class="form-group">
-            <div class="input-group mb-3">
-              <input
-                type="email"
-                name="email-signup"
-                id=""
-                class="form-control email-input"
-                placeholder="E-mail"
-                aria-describedby="email-append"
-              />
+            <ValidationProvider
+              v-slot="{ errors }"
+              vid="email_"
+              name="email"
+              rules="email"
+            >
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  name="email-signup"
+                  v-model="email_"
+                  class="form-control email-input"
+                  :class="'mb-0' + (errors.length > 0 ? ' is-invalid' : '')"
+                  placeholder="E-mail"
+                  aria-describedby="email-append"
+                />
 
-              <div class="input-group-append">
-                <button
-                  class="btn btn-primary px-3 align-items-center d-flex"
-                  id="email-append"
-                >
-                  Get Started &nbsp;<i class="fas fa-angle-right"></i>
-                </button>
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-primary px-3 align-items-center d-flex"
+                    id="email-append"
+                  >
+                    Get Started &nbsp;<i class="fas fa-angle-right"></i>
+                  </button>
+                </div>
+
+                <div class="invalid-feedback">
+                  <span>{{ errors[0] }}</span>
+                </div>
               </div>
-            </div>
+            </ValidationProvider>
           </div>
         </form>
       </div>
@@ -123,6 +149,11 @@
 
 <script>
 import Faq from "./FAQ.vue";
+import { mapMutations } from "vuex";
+import { extend } from "vee-validate";
+import { email } from "vee-validate/dist/rules.umd";
+
+extend("email", email);
 
 export default {
   middleware: "redirect",
@@ -142,19 +173,38 @@ export default {
         //   src: "landing/main.js",
         // },
       ],
+      link: [
+        // {
+        //    rel: "stylesheet",
+        //   href: "css/custom.css",
+        // }
+      ],
     };
   },
 
   data() {
     return {
       email: "",
+      email_: "",
     };
   },
 
   methods: {
+    ...mapMutations(["setSignUpEmail"]),
+
     submitEmail() {
-      console.log("input email:", this.email);
-      this.$router.push({ name: "signup-password" });
+      if (this.email || this.email_) {
+        if (this.email) {
+          console.log("input email:", this.email);
+
+          this.setSignUpEmail(this.email);
+        } else if (this.email_) {
+          this.setSignUpEmail(this.email_);
+          console.log("input email:", this.email_);
+        }
+
+        this.$router.push({ name: "signup-password" });
+      }
     },
   },
 };
@@ -253,6 +303,12 @@ export default {
 .caption h3,
 .email-form h3 {
   font-size: 1.2rem;
+}
+
+div.invalid-feedback {
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: capitalize;
 }
 
 @media (max-width: 768px) {

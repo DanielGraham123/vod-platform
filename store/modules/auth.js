@@ -7,6 +7,7 @@ const state = () => ({
   userToken: null,
   errorMsg: null,
   loginLoader: false,
+  signupEmail: "",
 });
 
 const mutations = {
@@ -21,6 +22,11 @@ const mutations = {
   setUserToken(state, userToken) {
     localStorage.setItem("userToken", JSON.stringify(userToken));
     state.userToken = userToken;
+  },
+
+  setSignUpEmail(state, email) {
+    localStorage.setItem("signUpEmail", email);
+    state.signupEmail = email;
   },
 
   setLoader(state, val) {
@@ -61,6 +67,14 @@ const getters = {
       return localStorage.getItem("userToken")
         ? JSON.parse(localStorage.getItem("userToken"))
         : state.userToken;
+    }
+  },
+
+  getSignUpEmail(state) {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("signUpEmail")
+        ? JSON.parse(localStorage.getItem("signUpEmail"))
+        : state.signupEmail;
     }
   },
 };

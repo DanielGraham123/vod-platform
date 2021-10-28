@@ -1,5 +1,5 @@
 <template>
-  <div id="next-body">
+  <div id="next-body" class="choose-plan">
     <button
       style="
         height: 70px;
@@ -39,8 +39,11 @@
         style="color: yellow; font-size: 20px"
       ></i
       >No ADDS and No extra fees<br />
-      <a href="plan.html" id="next-button" class="btn btn-primary btn-link"
-        >next</a
+      <router-link
+        to="/pricing-plan"
+        id="next-button"
+        class="btn btn-primary btn-link"
+        >next</router-link
       >
     </div>
   </div>
