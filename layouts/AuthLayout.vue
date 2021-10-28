@@ -15,6 +15,41 @@ export default {
   components: {
     Loader,
   },
+  head() {
+    return {
+      bodyAttrs: {
+        class: "auth-layout",
+      },
+
+      // link: [
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/custom.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/backend/variable.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/backend/dark.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/backend/responsive.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/backend/style.css",
+      //   },
+
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/backend/typography.css",
+      //   },
+      // ],
+    };
+  },
   data() {
     return {
       options: {
@@ -31,13 +66,12 @@ export default {
 };
 </script>
 <style>
-@import url("../assets/css/backend/typography.css");
-
+/* @import url("../assets/css/backend/typography.css");
 @import url("../assets/css/custom.css");
 @import url("../assets/css/backend/variable.css");
 @import url("../assets/css/backend/dark.css");
 @import url("../assets/css/backend/responsive.css");
-@import url("../assets/css/backend/style.css");
+@import url("../assets/css/backend/style.css"); */
 
 /* @import url("../../../assets/css/backend/typography.css");
 

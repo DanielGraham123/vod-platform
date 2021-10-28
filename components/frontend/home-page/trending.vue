@@ -159,7 +159,7 @@
                             <div class="p-btns">
                               <div class="d-flex align-items-center p-0">
                                 <nuxt-link
-                                  to="/frontend/show-detail"
+                                  to="/movies/show-detail"
                                   class="btn btn-hover mr-2"
                                   tabindex="0"
                                 >
@@ -206,7 +206,7 @@
                               fadeInUp
                             "
                           >
-                            <nuxt-link to="/frontend/show-detail" tabindex="0">
+                            <nuxt-link to="/movies/show-detail" tabindex="0">
                               <div class="channel-logo">
                                 <img
                                   src="../../../assets/images/logo-full.png"
@@ -240,7 +240,7 @@
                               >
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -251,7 +251,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -269,7 +269,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 1
                                       </nuxt-link>
                                       <span class="text-primary">2.25 m</span>
@@ -283,7 +283,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -294,7 +294,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -312,7 +312,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 2
                                       </nuxt-link>
                                       <span class="text-primary">3.23 m</span>
@@ -326,7 +326,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -337,7 +337,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -355,7 +355,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 3
                                       </nuxt-link>
                                       <span class="text-primary">2 m</span>
@@ -369,7 +369,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -380,7 +380,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -398,7 +398,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 4
                                       </nuxt-link>
                                       <span class="text-primary">1.12 m</span>
@@ -412,7 +412,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -423,7 +423,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -441,7 +441,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 5
                                       </nuxt-link>
                                       <span class="text-primary">2.54 m</span>
@@ -494,7 +494,7 @@
                               >
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -505,7 +505,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -523,7 +523,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 1
                                       </nuxt-link>
                                       <span class="text-primary">2.25 m</span>
@@ -537,7 +537,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -548,7 +548,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -566,7 +566,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 2
                                       </nuxt-link>
                                       <span class="text-primary">3.23 m</span>
@@ -580,7 +580,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -591,7 +591,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -609,7 +609,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 3
                                       </nuxt-link>
                                       <span class="text-primary">2 m</span>
@@ -623,7 +623,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -634,7 +634,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -652,7 +652,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 4
                                       </nuxt-link>
                                       <span class="text-primary">1.12 m</span>
@@ -666,7 +666,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -677,7 +677,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -695,7 +695,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 5
                                       </nuxt-link>
                                       <span class="text-primary">2.54 m</span>
@@ -748,7 +748,7 @@
                               >
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -759,7 +759,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -777,7 +777,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 1
                                       </nuxt-link>
                                       <span class="text-primary">2.25 m</span>
@@ -791,7 +791,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -802,7 +802,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -820,7 +820,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 2
                                       </nuxt-link>
                                       <span class="text-primary">3.23 m</span>
@@ -834,7 +834,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -845,7 +845,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -863,7 +863,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 3
                                       </nuxt-link>
                                       <span class="text-primary">2 m</span>
@@ -877,7 +877,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -888,7 +888,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -906,7 +906,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 4
                                       </nuxt-link>
                                       <span class="text-primary">1.12 m</span>
@@ -920,7 +920,7 @@
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
-                                    <nuxt-link to="/frontend/show-detail">
+                                    <router-link to="/movies/show-detail">
                                       <img
                                         src="../../../assets/images/frontend/episodes/01.jpg"
                                         class="img-fluid"
@@ -931,7 +931,7 @@
                                     <div class="episode-play-info">
                                       <div class="episode-play">
                                         <nuxt-link
-                                          to="/frontend/show-detail"
+                                          to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
@@ -949,7 +949,7 @@
                                         justify-content-between
                                       "
                                     >
-                                      <nuxt-link to="/frontend/show-detail">
+                                      <router-link to="/movies/show-detail">
                                         Episode 5
                                       </nuxt-link>
                                       <span class="text-primary">2.54 m</span>

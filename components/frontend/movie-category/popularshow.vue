@@ -3,36 +3,47 @@
     <b-container>
       <b-row>
         <b-col sm="12" class="overflow-hidden">
-          <div class="iq-main-header d-flex align-items-center justify-content-between">
-            <h4 class="main-title">
-              Bollywood Blockbusters
-            </h4>
+          <div
+            class="
+              iq-main-header
+              d-flex
+              align-items-center
+              justify-content-between
+            "
+          >
+            <h4 class="main-title">Bollywood Blockbusters</h4>
             <div class="d-flex slick-aerrow-block">
               <button
                 class="slick-prev slick-arrow"
                 aria-label="Previous"
                 type="button"
-                style="display: block;"
+                style="display: block"
                 @click="prev()"
-              >
-              </button>
+              ></button>
               <button
                 class="slick-next slick-arrow"
                 aria-label="Next"
                 type="button"
-                style="display: block;"
+                style="display: block"
                 @click="next()"
-              >
-              </button>
+              ></button>
             </div>
           </div>
           <div class="favorites-contens">
-            <VueSlickCarousel class="favorites-slider list-inline  row p-0 mb-0" ref="dSlick" v-bind="sliderOption">
-              <li v-for="(item,index) in sliderData" :key="index" class="slide-item">
-                <nuxt-link to="/frontend/movie-detail">
+            <VueSlickCarousel
+              class="favorites-slider list-inline row p-0 mb-0"
+              ref="dSlick"
+              v-bind="sliderOption"
+            >
+              <li
+                v-for="(item, index) in sliderData"
+                :key="index"
+                class="slide-item"
+              >
+                <router-link to="/movies/movie-detail">
                   <div class="block-images position-relative">
                     <div class="img-box">
-                      <img :src="item.image" class="img-fluid" alt="">
+                      <img :src="item.image" class="img-fluid" alt="" />
                     </div>
                     <div class="block-description">
                       <h6>{{ item.title }}</h6>
@@ -43,19 +54,27 @@
                         <span class="text-white">{{ item.series }}</span>
                       </div>
                       <div class="hover-buttons">
-                        <span class="btn btn-hover"><i class="fa fa-play mr-1" aria-hidden="true" />
-                          Play Now</span>
+                        <span class="btn btn-hover"
+                          ><i class="fa fa-play mr-1" aria-hidden="true" /> Play
+                          Now</span
+                        >
                       </div>
                     </div>
                     <div class="block-social-info">
                       <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li><span><i class="ri-volume-mute-fill" /></span></li>
-                        <li><span><i class="ri-heart-fill" /></span></li>
-                        <li><span><i class="ri-add-line" /></span></li>
+                        <li>
+                          <span><i class="ri-volume-mute-fill" /></span>
+                        </li>
+                        <li>
+                          <span><i class="ri-heart-fill" /></span>
+                        </li>
+                        <li>
+                          <span><i class="ri-add-line" /></span>
+                        </li>
                       </ul>
                     </div>
                   </div>
-                </nuxt-link>
+                </router-link>
               </li>
             </VueSlickCarousel>
           </div>
@@ -65,21 +84,51 @@
   </section>
 </template>
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
+import VueSlickCarousel from "vue-slick-carousel";
 export default {
-  name: 'PopularShow',
+  name: "PopularShow",
   components: {
-    VueSlickCarousel
+    VueSlickCarousel,
   },
-  data () {
+  data() {
     return {
       sliderData: [
-        { image: require('../../../assets/images/frontend/tvthrillers/01.jpg'), title: 'Day of Darkness', age: '15+', series: '2 Seasons' },
-        { image: require('../../../assets/images/frontend/tvthrillers/02.jpg'), title: 'Day of Darkness', age: '15+', series: '2 Seasons' },
-        { image: require('../../../assets/images/frontend/tvthrillers/03.jpg'), title: 'Day of Darkness', age: '15+', series: '2 Seasons' },
-        { image: require('../../../assets/images/frontend/tvthrillers/04.jpg'), title: 'Day of Darkness', age: '15+', series: '2 Seasons' },
-        { image: require('../../../assets/images/frontend/tvthrillers/05.jpg'), title: 'Day of Darkness', age: '15+', series: '2 Seasons' },
-        { image: require('../../../assets/images/frontend/tvthrillers/01.jpg'), title: 'Day of Darkness', age: '15+', series: '2 Seasons' }
+        {
+          image: require("../../../assets/images/frontend/tvthrillers/01.jpg"),
+          title: "Day of Darkness",
+          age: "15+",
+          series: "2 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/tvthrillers/02.jpg"),
+          title: "Day of Darkness",
+          age: "15+",
+          series: "2 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/tvthrillers/03.jpg"),
+          title: "Day of Darkness",
+          age: "15+",
+          series: "2 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/tvthrillers/04.jpg"),
+          title: "Day of Darkness",
+          age: "15+",
+          series: "2 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/tvthrillers/05.jpg"),
+          title: "Day of Darkness",
+          age: "15+",
+          series: "2 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/tvthrillers/01.jpg"),
+          title: "Day of Darkness",
+          age: "15+",
+          series: "2 Seasons",
+        },
       ],
       sliderOption: {
         dots: false,
@@ -96,36 +145,35 @@ export default {
               slidesToShow: 3,
               slidesToScroll: 1,
               infinite: true,
-              dots: true
-            }
+              dots: true,
+            },
           },
           {
             breakpoint: 768,
             settings: {
               slidesToShow: 2,
-              slidesToScroll: 1
-            }
+              slidesToScroll: 1,
+            },
           },
           {
             breakpoint: 480,
             settings: {
               slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      }
-    }
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },
+    };
   },
-  mounted () {
-  },
-  methods : {
-    next () {
-      this.$refs.dSlick.next()
+  mounted() {},
+  methods: {
+    next() {
+      this.$refs.dSlick.next();
     },
-    prev () {
-      this.$refs.dSlick.prev()
-    }
-  }
-}
+    prev() {
+      this.$refs.dSlick.prev();
+    },
+  },
+};
 </script>

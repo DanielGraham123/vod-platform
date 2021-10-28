@@ -160,6 +160,28 @@ export default {
   border-color: var(--red) !important;
 }
 
+.form-control {
+  background-color: #141414 !important;
+  background-color: var(--iq-body-bg) !important;
+  /* border: 1px solid transparent !important; */
+  height: 46px !important;
+  position: relative;
+  color: #d1d0cf;
+  color: var(--iq-body-text) !important;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.form-control:focus {
+  background-color: transparent;
+}
+
+input.form-control {
+  background-color: #141414 !important;
+  color: #d1d0cf !important;
+}
+
 @media (max-width: 768px) {
   .btn-primary {
     display: block;

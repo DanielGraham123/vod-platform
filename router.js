@@ -7,8 +7,15 @@ import Password from "~/pages/frontend/signup-pages/password.vue";
 import Plan from "~/pages/frontend/signup-pages/plan.vue";
 
 import Home from "~/pages/frontend/home-page/index";
+
+// Movies
 import Movies from "~/pages/frontend/movie-category/index";
+import ShowDetail from "~/pages/frontend/show-detail/index";
+import MovieDetail from "~/pages/frontend/movie-detail/index";
+
+// TV Shows
 import TVShows from "~/pages/frontend/category-page";
+import SingleShow from "~/pages/frontend/show-single";
 
 // Auth Pages
 import Login from "~/pages/AuthPages/Default/SignIn1";
@@ -41,15 +48,34 @@ export function createRouter() {
         name: "home",
         component: Home,
       },
+
+      // movies
       {
         path: "/movies",
         name: "movies",
         component: Movies,
       },
       {
+        path: "/movies/show-detail",
+        name: "show-detail",
+        component: ShowDetail,
+      },
+      {
+        path: "/movies/movie-detail",
+        name: "movie-detail",
+        component: MovieDetail,
+      },
+
+      // tv shows
+      {
         path: "/tv-shows",
         name: "tv-shows",
         component: TVShows,
+      },
+      {
+        path: "/tv-shows/single-show",
+        name: "single-show",
+        component: SingleShow,
       },
 
       // Auth links

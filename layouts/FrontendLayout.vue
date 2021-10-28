@@ -67,6 +67,11 @@ import "firebase/auth";
 
 export default {
   name: "FrontendLayout",
+  head: {
+    bodyAttrs: {
+      class: "",
+    },
+  },
   data() {
     return {
       profile,

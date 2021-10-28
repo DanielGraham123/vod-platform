@@ -70,12 +70,13 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extractCSS: {
-      allChunks: true,
-    },
     splitChunks: {
       layouts: true,
     },
+    extractCSS: {
+      allChunks: true,
+    },
+
     vendor: ["jquery", "bootstrap", "vue-apexchart"],
     extend(config, ctx) {
       const vueLoader = config.module.rules.find(

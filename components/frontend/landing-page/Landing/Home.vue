@@ -13,7 +13,7 @@
           </h1>
           <h2 class="mt-3">Watch Anywhere. Cancel anytime.</h2>
           <form class="email-form">
-            <h3 class="email-title">
+            <h3 class="email-title mx-4 mx-md-auto mx-lg-auto">
               Ready to watch? Enter your email to begin your journey with BBTV.
             </h3>
             <div class="form-group">
@@ -91,7 +91,7 @@
         <faq></faq>
 
         <form class="email-form pb-4">
-          <h3 class="email-title">
+          <h3 class="email-title mx-md-auto mx-lg-auto mx-4">
             Ready to watch? Enter your email to start your journey with BBTV.
           </h3>
           <div class="form-group">
@@ -126,6 +126,7 @@ import Faq from "./FAQ.vue";
 
 export default {
   middleware: "redirect",
+  layout: "default",
 
   components: {
     Faq,
@@ -133,6 +134,9 @@ export default {
 
   head() {
     return {
+      bodyAttrs: {
+        class: "landing-layout",
+      },
       script: [
         // {
         //   src: "landing/main.js",

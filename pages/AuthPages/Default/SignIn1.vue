@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sign-in-form">
     <b-container>
       <b-row
         class="justify-content-center align-items-center height-self-center"
@@ -38,7 +38,7 @@
 <script>
 import SignIn1Form from "./Forms/SignIn1Form";
 export default {
-  layout: "AuthLayout",
+  // layout: "AuthLayout",
   name: "SignIn1",
   components: { SignIn1Form },
   data: () => ({}),
@@ -52,12 +52,13 @@ export default {
 </script>
 
 <style scoped>
-/* @import url("../../../assets/css/backend/typography.css"); */
-/* @import url("../../../assets/css/custom.css"); */
-/* @import url("../../../assets/css/frontend/variable.css");
-@import url("../../../assets/css/frontend/dark.css");
+@import url("../../../assets/css/backend/typography.css");
+
+@import url("../../../assets/css/custom.css");
+@import url("../../../assets/css/backend/variable.css");
+@import url("../../../assets/css/backend/dark.css");
 @import url("../../../assets/css/backend/responsive.css");
-@import url("../../../assets/css/frontend/style.css"); */
+@import url("../../../assets/css/backend/style.css");
 
 .alert-danger {
   color: var(--red) !important;
@@ -68,6 +69,50 @@ export default {
 h3 {
   color: var(--iq-primary) !important;
 }
+
+.height-self-center {
+  height: 100vh;
+  border-radius: 15px;
+}
+
+.sign-in-form {
+  height: 100vh;
+  position: relative;
+  background: url(../../../assets/images/login/login.jpg) no-repeat scroll 0 0;
+  background-size: cover;
+}
+
+.form-control {
+  background-color: #141414 !important;
+  background-color: var(--iq-body-bg) !important;
+  border: 1px solid transparent !important;
+  height: 46px !important;
+  position: relative;
+  color: #d1d0cf;
+  color: var(--iq-body-text) !important;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.form-control:focus {
+  color: #d1d0cf !important;
+
+  background-color: #141414 !important;
+  background-color: var(--iq-body-bg) !important;
+}
+
+input.form-control {
+  background-color: #141414 !important;
+  color: #d1d0cf !important;
+}
+
+/* .form-control:focus {
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid #ffc107;
+  border: 1px solid var(--iq-primary);
+} */
 </style>
 
 

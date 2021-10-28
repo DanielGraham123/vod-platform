@@ -1,27 +1,27 @@
 <template>
-<div>
-     <Banner/>
-     <div class="main-content">
-            <Detail />
-            <LatestEpisode/>
-     </div>
+  <div>
+    <Banner />
+    <div class="main-content">
+      <Detail />
+      <LatestEpisode />
+    </div>
   </div>
 </template>
 <script>
-import { core } from '../../../assets/app/app'
-import Banner from '../../../components/frontend/show-detail/BannerVideo'
-import Detail from '../../../components/frontend/show-detail/Detail'
-import LatestEpisode from '../../../components/frontend/show-detail/LatestEpisode'
+import { core } from "../../../assets/app/app";
+import Banner from "../../../components/frontend/movie-detail/BannerVideo";
+import Detail from "../../../components/frontend/movie-detail/Detail";
+import LatestEpisode from "../../../components/frontend/show-detail/LatestEpisode";
 export default {
-  layout: 'FrontendLayout',
-  name: 'ShowDetail',
+  layout: "FrontendLayout",
+  name: "ShowDetail",
   components: {
     Banner,
     Detail,
-    LatestEpisode
+    LatestEpisode,
   },
-  mounted () {
-    core.index()
-  }
-}
+  mounted() {
+    core.index();
+  },
+};
 </script>

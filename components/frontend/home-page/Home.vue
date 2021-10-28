@@ -64,13 +64,13 @@
                   data-delay-in="1.2"
                 >
                   <nuxt-link
-                    to="/frontend/show-detail"
+                    to="/movies/show-detail"
                     class="btn btn-hover playBtn"
                   >
                     <i class="fa fa-play mr-2" aria-hidden="true" />Play Now
                   </nuxt-link>
                   <nuxt-link
-                    to="/frontend/show-detail"
+                    to="/movies/show-detail"
                     class="btn btn-link btn-secondary ml-3"
                   >
                     <i class="fa fa-info-circle mr-2" aria-hidden="true" />
@@ -158,7 +158,7 @@
           >
             <div class="col-12 my-2">
               <nuxt-link
-                to="/frontend/show-detail"
+                to="/movies/show-detail"
                 class="btn btn-hover btn-block playBtn"
               >
                 <i class="fa fa-play mr-2" aria-hidden="true" />Play Now
@@ -167,7 +167,7 @@
 
             <div class="col-12">
               <nuxt-link
-                to="/frontend/show-detail"
+                to="/movies/show-detail"
                 class="btn btn-link btn-block btn-secondary"
               >
                 <i class="fa fa-info-circle mr-2" aria-hidden="true" />
@@ -198,6 +198,7 @@ import Slick from "../../core/slider/Slick";
 export default {
   name: "Home",
   middleware: "homeredirect",
+  layout: "FrontendLayout",
   components: {
     Slick,
   },

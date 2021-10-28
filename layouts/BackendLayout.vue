@@ -336,6 +336,13 @@ export default {
   components: {
     LayoutFooter,
   },
+  head() {
+    return {
+      bodyAttrs: {
+        class: "backend-layout",
+      },
+    };
+  },
   data() {
     return {
       verticalMenu: SideBarItems,

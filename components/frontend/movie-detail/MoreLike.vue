@@ -44,7 +44,7 @@
                 v-for="(item, index) in favoriteData"
                 :key="index"
               >
-                <nuxt-link to="/frontend/movie-detail">
+                <router-link to="/movies/movie-detail">
                   <div class="block-images position-relative">
                     <div class="img-box">
                       <img :src="item.image" class="img-fluid" alt="" />
@@ -78,7 +78,7 @@
                       </ul>
                     </div>
                   </div>
-                </nuxt-link>
+                </router-link>
               </li>
             </VueSlickCarousel>
           </div>
