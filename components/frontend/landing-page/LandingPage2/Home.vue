@@ -1,81 +1,82 @@
 <template>
-  <div id="next-body">
-    <button id="yellowcircle">
-      <i
-        class="fa fa-check"
-        aria-hidden="true"
-        style="color: yellow; font-size: 40px"
-      ></i>
-    </button>
-    <br />
-    <!--contains the password, confirm password-->
-    <span>STEP 1 0F 3</span>
-    <br />
-    <span>
-      <b> WELCOME BACK!</b>
-    </span>
-    <br />
-
-    <div id="passwordbox">
-      Enter your password and you will soon be Watching.
-      <br />
-
-      <input
-        id="password"
-        class="password"
-        type="password"
-        name="password"
-        placeholder="Password"
-        required
-        minlength="6"
-      />
-      <input
-        id="confirm"
-        class="password"
-        type="password"
-        name="confirm
-            password"
-        placeholder="Confirm Password"
-        required
-      />
-      <!-- An element to toggle between password visibility -->
-      <a
-        href="/signup/plan"
-        type="submit"
-        id="next-button"
-        class="btn btn-primary btn-link"
-        >next</a
+  <div class="sign-up-form">
+    <b-container>
+      <b-row
+        class="justify-content-center align-items-center height-self-center"
       >
-    </div>
+        <b-col lg="5" md="12" class="align-self-center">
+          <div class="sign-user_card">
+            <div class="sign-in-page-data">
+              <div class="sign-in-from w-100 m-auto">
+                <h3 class="mb-3 text-center">Sign Up</h3>
+                <sign-up1-form form-type="jwt" />
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-center links">
+                Already have an account?
+                <nuxt-link to="/auth/login" class="text-primary ml-2">
+                  Sign in
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-export default {
-  head() {
-    return {
-      script: [
-        {
-          src: "landing/password.js",
-        },
-      ],
-    };
-  },
-  data() {
-    return {
-      password: "",
-    };
-  },
+import SignUp1Form from "./SignUp1Form";
 
-  methods: {
-    submitPassword() {
-      console.log("input email:", this.password);
-    },
-  },
+export default {
+  name: "SignUp1",
+
+  // layout: "AuthLayout",
+
+  components: { SignUp1Form },
+  data: () => ({}),
+  methods: {},
 };
 </script>
 
-
 <style scoped>
-@import url("../../../../assets/css/landing-page/design.css");
+@import url("../../../../assets/css/backend/typography.css");
+
+@import url("../../../../assets/css/custom.css");
+@import url("../../../../assets/css/backend/variable.css");
+@import url("../../../../assets/css/backend/dark.css");
+@import url("../../../../assets/css/backend/responsive.css");
+@import url("../../../../assets/css/backend/style.css");
+
+h3 {
+  color: var(--iq-primary);
+}
+
+.height-self-center {
+  height: 100vh;
+  border-radius: 15px;
+}
+
+.sign-up-form {
+  height: 100vh;
+  position: relative;
+  background: url(../../../../assets/images/login/login.jpg) no-repeat scroll 0
+    0;
+  background-size: cover;
+}
+
+.form-control {
+  background-color: #141414;
+  /* background-color: var(--iq-body-bg); */
+  border: 1px solid transparent;
+  height: 46px;
+  position: relative;
+  color: #d1d0cf;
+  color: var(--iq-body-text);
+  font-size: 16px;
+  width: 100%;
+  border-radius: 6px;
+}
 </style>

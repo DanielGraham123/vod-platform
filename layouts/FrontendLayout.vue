@@ -80,7 +80,7 @@ export default {
       logo: loader,
       user: null,
       headerItem: [
-        { title: "Home", link: "/" },
+        { title: "Home", link: "/home" },
         { title: "Movies", link: "/movies" },
         { title: "Tv Shows", link: "/tv-shows" },
         { title: "Tv Channels", link: "/tv-shows" },

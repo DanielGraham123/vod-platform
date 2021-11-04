@@ -22,5 +22,12 @@ export default {
       core.index();
     }, 1000);
   },
+  // beforeResolve(to, from, next) {
+  //   if (!this.$store.getters.getUserToken) {
+  //     next("/");
+  //   } else {
+  //     next("/home");
+  //   }
+  // },
 };
 </script>

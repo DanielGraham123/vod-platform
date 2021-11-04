@@ -1,7 +1,10 @@
-export default function ({ store, redirect }) {
-  if (!store.getters.getUserToken) {
-    return redirect("/");
-  } else {
-    return redirect("/home")
-  }
+export default function ({ app }) {
+  console.log("getUsertoken: ", app.store.getters.getUserToken);
+  app.router.beforeResolve((to, from, next) => {
+    if (to.name === "landing" && app.store.getters.getUserToken) {
+      next("/home");
+    } else {
+      next();
+    }
+  });
 }

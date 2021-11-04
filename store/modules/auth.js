@@ -25,7 +25,7 @@ const mutations = {
   },
 
   setSignUpEmail(state, email) {
-    localStorage.setItem("signUpEmail", email);
+    localStorage.setItem("signUpEmail", JSON.stringify(email));
     state.signupEmail = email;
   },
 

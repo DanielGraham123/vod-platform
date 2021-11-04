@@ -156,7 +156,6 @@ import { email } from "vee-validate/dist/rules.umd";
 extend("email", email);
 
 export default {
-  middleware: "redirect",
   layout: "default",
 
   components: {
@@ -203,7 +202,7 @@ export default {
           console.log("input email:", this.email_);
         }
 
-        this.$router.push({ name: "signup-password" });
+        this.$router.push("/auth/signup");
       }
     },
   },

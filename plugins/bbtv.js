@@ -9,6 +9,7 @@ import "flatpickr/dist/flatpickr.css";
 import "./vue-select";
 import "./flatpicker";
 import "./global";
+// import { VeeValidate } from "vee-validate";
 import { ValidationObserver, ValidationProvider } from "vee-validate";
 import { BSpinner } from "bootstrap-vue";
 import VueTruncate from "vue-truncate-filter";
@@ -23,6 +24,7 @@ if (typeof window !== "undefined") {
 }
 
 Vue.use(VueTruncate);
+// Vue.use(VeeValidate, { inject: false });
 
 Vue.use(BootstrapVue);
 Vue.use(VueFlatPicker);

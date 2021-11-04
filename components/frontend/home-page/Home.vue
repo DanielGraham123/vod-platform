@@ -197,7 +197,6 @@
 import Slick from "../../core/slider/Slick";
 export default {
   name: "Home",
-  middleware: "homeredirect",
   layout: "FrontendLayout",
   components: {
     Slick,

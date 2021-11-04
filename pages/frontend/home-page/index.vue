@@ -29,6 +29,7 @@ import Loader from "../../../components/core/loader/Loader";
 
 export default {
   layout: "FrontendLayout",
+  middleware: "homeredirect",
 
   components: {
     Home,
@@ -45,6 +46,22 @@ export default {
     setTimeout(function () {
       core.index();
     }, 1000);
+    // console.log("get user token:", this.$store.getters.getUserToken);
   },
+  // beforeRouteLeave(to, from, next) {
+  //     console.log("get user token:", this.$store.getters.getUserToken);
+
+  //     if (to.name == "landing" && this.$store.getters.getUserToken) {
+  //       console.log("going to landing");
+  //       next("/home");
+  //     } else if (!this.$store.getters.getUserToken) {
+  //       next("/");
+  //     } else {
+  //       next();
+  //     }
+  //   },
+  // beforeResolve(to, from, next) {
+
+  // },
 };
 </script>
