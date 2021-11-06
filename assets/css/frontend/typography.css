@@ -48,8 +48,8 @@ General
   text-shadow: none;
 }
 ::selection {
-  background: var(--iq-primary);
-  color: var(--iq-white);
+  background: #6c696354;
+  color: var(--iq-primary);
   text-shadow: none;
 }
 body {

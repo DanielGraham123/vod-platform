@@ -1,5 +1,5 @@
 <template>
-  <div data-spy="scroll" data-offset="80">
+  <div data-spy="scroll" data-offset="80" class="front-layout">
     <frontendnav
       :items="headerItem"
       :userprofile="profile"
@@ -67,10 +67,40 @@ import "firebase/auth";
 
 export default {
   name: "FrontendLayout",
-  head: {
-    bodyAttrs: {
-      class: "",
-    },
+  head() {
+    return {
+      bodyAttrs: {
+        class: "front-layout",
+      },
+
+      //   link: [
+      //     {
+      //       rel: "stylesheet",
+      //       href: "/css/custom.css",
+      //     },
+      //     {
+      //       rel: "stylesheet",
+      //       href: "/css/frontend/variable.css",
+      //     },
+      //     {
+      //       rel: "stylesheet",
+      //       href: "/css/frontend/dark.css",
+      //     },
+      //     {
+      //       rel: "stylesheet",
+      //       href: "/css/frontend/responsive.css",
+      //     },
+      //     {
+      //       rel: "stylesheet",
+      //       href: "/css/frontend/style.css",
+      //     },
+
+      //     {
+      //       rel: "stylesheet",
+      //       href: "/css/frontend/typography.css",
+      //     },
+      //   ],
+    };
   },
   data() {
     return {
@@ -128,18 +158,22 @@ export default {
       bodyAttrs: {
         "data-spy": "scroll",
         "data-offset": "80",
+        class: "front-layout",
       },
     };
   },
 };
 </script>
-<style>
-@import url("../assets/css/frontend/typography.css");
-
-/* @import url("../assets/css/custom.css"); */
-@import url("../assets/css/frontend/dark.css");
-@import url("../assets/css/frontend/variable.css");
-@import url("../assets/css/frontend/style.css");
-@import url("../assets/css/frontend/responsive.css");
-/* @import url("../assets/css/developer.css"); */
+<style lang="scss">
+.front-layout {
+  &::v-deep {
+    @import url("../assets/css/frontend/typography.css");
+    @import url("../assets/css/custom.css");
+    @import url("../assets/css/frontend/dark.css");
+    @import url("../assets/css/frontend/variable.css");
+    @import url("../assets/css/frontend/style.css");
+    @import url("../assets/css/frontend/responsive.css");
+    @import url("../assets/css/developer.css");
+  }
+}
 </style>

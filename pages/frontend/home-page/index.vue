@@ -42,6 +42,38 @@ export default {
     thriller,
     Loader,
   },
+
+  head() {
+    return {
+      // link: [
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/custom.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/frontend/variable.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/frontend/dark.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/frontend/responsive.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/frontend/style.css",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "css/frontend/typography.css",
+      //   },
+      // ],
+    };
+  },
+
   mounted() {
     setTimeout(function () {
       core.index();
@@ -65,3 +97,14 @@ export default {
   // },
 };
 </script>
+
+<style scoped>
+/* @import url("../../../assets/css/frontend/typography.css");
+
+@import url("../../../assets/css/custom.css");
+@import url("../../../assets/css/frontend/dark.css");
+@import url("../../../assets/css/frontend/variable.css");
+@import url("../../../assets/css/frontend/style.css");
+@import url("../../../assets/css/frontend/responsive.css");
+@import url("../../../assets/css/developer.css"); */
+</style>

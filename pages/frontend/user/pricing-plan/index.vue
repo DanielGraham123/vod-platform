@@ -115,7 +115,15 @@
                       >
                     </td>
                     <td class="text-center">
-                      <a href="#" class="btn btn-hover btn-black shadow-sm mt-3"
+                      <a
+                        href="#"
+                        class="
+                          btn btn-hover
+                          mid-purchbtn
+                          btn-black
+                          shadow-sm
+                          mt-3
+                        "
                         >Purchase</a
                       >
                     </td>
@@ -137,9 +145,41 @@
 <script>
 import { core } from "../../../../assets/app/app";
 export default {
-  layout: "default",
+  layout: "FrontendLayout",
   name: "PricingPlan",
   components: {},
+
+  head() {
+    return {
+      link: [
+        {
+          rel: "stylesheet",
+          href: "/css/custom.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/variable.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/dark.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/responsive.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/style.css",
+        },
+
+        {
+          rel: "stylesheet",
+          href: "/css/backend/typography.css",
+        },
+      ],
+    };
+  },
   mounted() {
     core.index();
   },
@@ -148,6 +188,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 .text-dark {
@@ -172,7 +213,7 @@ a.btn,
 
 .small,
 small {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 .m-profile {
@@ -183,8 +224,27 @@ small {
   background-size: cover;
 }
 
+.m-profile .sign-user_card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  -webkit-box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%),
+    0 6px 20px 0 rgb(0 0 0 / 19%);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: block;
+  margin: 0 auto;
+}
+
 .btn {
   color: var(--iq-dark) !important;
+}
+
+.mid-purchbtn.btn-hover:before {
+  background: transparent !important;
 }
 
 .btn.btn-black {

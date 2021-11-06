@@ -18,6 +18,34 @@ export default {
       bodyAttrs: {
         class: "default-layout",
       },
+
+      link: [
+        {
+          rel: "stylesheet",
+          href: "/css/custom.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/variable.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/dark.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/responsive.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/css/backend/style.css",
+        },
+
+        {
+          rel: "stylesheet",
+          href: "/css/backend/typography.css",
+        },
+      ],
     };
   },
   data() {
@@ -31,13 +59,21 @@ export default {
   mounted() {
     core.index();
   },
+
+  created() {
+    this.$forceUpdate();
+  },
 };
 </script>
-<style>
-@import url("../assets/css/custom.css");
-@import url("../assets/css/backend/variable.css");
-@import url("../assets/css/backend/dark.css");
-@import url("../assets/css/backend/responsive.css");
-@import url("../assets/css/backend/style.css");
-@import url("../assets/css/backend/typography.css");
+<style lang='scss'>
+.default-layout {
+  &::v-deep {
+    @import url("../assets/css/custom.css");
+    @import url("../assets/css/backend/variable.css");
+    @import url("../assets/css/backend/dark.css");
+    @import url("../assets/css/backend/responsive.css");
+    @import url("../assets/css/backend/style.css");
+    @import url("../assets/css/backend/typography.css");
+  }
+}
 </style>
