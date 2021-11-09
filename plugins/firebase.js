@@ -22,4 +22,4 @@ if (!firebase.apps.length) {
 
 // console.log("firebase:", firebase);
 
-export default firebase;
+export const db = firebase.firestore();

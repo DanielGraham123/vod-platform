@@ -5,10 +5,11 @@
       :userprofile="profile"
       :home-u-r-l="url"
       :logo="logo"
+      v-if="$route.name != 'pricing-plan'"
     />
 
     <nuxt />
-    <Footer :copyrighttext="text">
+    <Footer :copyrighttext="text" v-if="$route.name != 'pricing-plan'">
       <template v-slot:column1>
         <ul class="f-link list-unstyled mb-0">
           <li><a href="#">About Us</a></li>
@@ -174,6 +175,21 @@ export default {
     @import url("../assets/css/frontend/style.css");
     @import url("../assets/css/frontend/responsive.css");
     @import url("../assets/css/developer.css");
+  }
+
+  .btn-primary {
+    background-color: var(--iq-primary) !important;
+    border-color: var(--iq-primary) !important;
+    color: black;
+    font-weight: 500;
+  }
+
+  legend {
+    font-weight: 400;
+  }
+
+  .custom-control-label {
+    color: #d1d0cf !important;
   }
 }
 </style>

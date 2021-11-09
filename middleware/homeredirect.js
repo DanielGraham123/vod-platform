@@ -3,7 +3,9 @@ export default function ({ app }) {
   app.router.beforeResolve((to, from, next) => {
     if (to.name === "landing" && app.store.getters.getUserToken) {
       next("/home");
-    } else {
+    }
+
+    if (app.store.getters.getUserToken) {
       next();
     }
   });

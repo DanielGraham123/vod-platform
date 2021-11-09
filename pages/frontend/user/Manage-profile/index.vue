@@ -5,81 +5,206 @@
         <div class="col-lg-10">
           <div class="sign-user_card">
             <div class="row">
-              <div class="col-lg-2">
-                <div class="upload_profile d-inline-block">
-                  <img
-                    :src="profileImage"
-                    class="profile-pic rounded-circle img-fluid"
-                    alt="user"
-                  />
-                  <div class="p-image">
-                    <a @click="$refs.profilePic.click()">
-                      <i class="ri-pencil-line upload-button"></i>
-                    </a>
-                    <input
-                      class="file-upload"
-                      type="file"
-                      ref="profilePic"
-                      accept="image/*"
-                      @change="onFileChange"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-10 device-margin">
-                <div class="profile-from">
-                  <h4 class="mb-3">Manage Profile</h4>
-                  <form
-                    class="mt-4"
-                    action="index.html"
-                    @submit.prevent="submitProfile"
-                  >
-                    <div class="form-group">
-                      <label>Name</label>
-                      <input
-                        type="text"
-                        class="form-control mb-0"
-                        id="exampleInputl2"
-                        placeholder="Enter Your Name"
-                        autocomplete="off"
-                        v-model="username"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>Date of Birth</label>
-                      <input
-                        type="text"
-                        class="form-control date-input basicFlatpickr mb-0"
-                        placeholder="Enter Date"
-                        id="exampleInputPassword2"
-                      />
-                    </div>
-                    <div class="form-group d-flex flex-md-row flex-column">
-                      <div class="iq-custom-select d-inline-block manage-gen">
-                        <select name="cars" class="form-control pro-dropdown">
-                          <option value="female">Female</option>
-                          <option value="male">Male</option>
-                        </select>
+              <!-- <div class="col-lg-2"> -->
+
+              <!-- </div> -->
+              <div class="col-lg-12 device-margin">
+                <b-tabs
+                  fill
+                  content-class="mt-3"
+                  active-nav-item-class="font-weight-bold text-uppercase bg-transparent"
+                  active-tab-class="font-weight-bold text-primary"
+                >
+                  <!-- Manage Profile tab -->
+                  <b-tab title="Manage Profile" active title-link-class="">
+                    <div class="row">
+                      <!-- Profile image -->
+                      <div class="col-md-2 mt-3 profile-wrapper">
+                        <div class="upload_profile d-inline-block">
+                          <img
+                            :src="profileImage"
+                            class="profile-pic rounded-circle img-fluid"
+                            alt="user"
+                          />
+                          <div class="p-image">
+                            <a @click="$refs.profilePic.click()">
+                              <i class="ri-pencil-line upload-button"></i>
+                            </a>
+                            <input
+                              class="file-upload"
+                              type="file"
+                              ref="profilePic"
+                              accept="image/*"
+                              @change="onFileChange"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Profile Info -->
+                      <div class="col-md-10 mt-3">
+                        <div class="profile-from">
+                          <form class="row" @submit.prevent="submitProfile">
+                            <div class="form-group col-12">
+                              <label>Full Name</label>
+                              <input
+                                type="text"
+                                class="form-control mb-0"
+                                id="exampleInputl2"
+                                placeholder="Your Full Name"
+                                autocomplete="off"
+                                v-model="fullname"
+                                required
+                              />
+                            </div>
+                            <!-- Phone Number -->
+                            <div class="form-group col-12">
+                              <label>Phone Number</label>
+                              <input
+                                type="text"
+                                class="
+                                  form-control
+                                  date-input
+                                  basicFlatpickr
+                                  mb-0
+                                "
+                                v-model="phoneNumber"
+                                placeholder="Your Phone Number"
+                                id="phone-number"
+                              />
+                            </div>
+
+                            <!-- Male or Female -->
+                            <b-form-group
+                              label="Gender"
+                              v-slot="{ ariaDescribedby }"
+                              class="col-12 col-md-6"
+                            >
+                              <b-form-radio-group
+                                v-model="selectedGender"
+                                :aria-describedby="ariaDescribedby"
+                                name="gender-radios"
+                                :options="genderOptions"
+                                id="gender-group"
+                              ></b-form-radio-group>
+
+                              <!-- <div class="mt-3">
+                                <strong>{{ selectedGender }}</strong>
+                              </div> -->
+                            </b-form-group>
+
+                            <div class="form-group col-12 col-md-6 mt-3">
+                              <b-button
+                                variant="primary"
+                                class="float-right btnblock"
+                                type="submit"
+                                :disabled="loading"
+                              >
+                                <b-spinner small v-if="loading"></b-spinner>
+                                <span v-if="!this.loading">Save Profile</span>
+                                <span v-else>Saving...</span>
+                              </b-button>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
-                    <div class="d-flex">
-                      <b-button
-                        variant="primary"
-                        class="mr-3"
-                        type="submit"
-                        :disabled="loading"
-                      >
-                        <b-spinner small v-if="loading"></b-spinner>
-                        <span v-if="!this.loading">Save</span>
-                        <span v-else>Saving...</span>
-                      </b-button>
-                      <button class="btn btn-danger" @click="$router.go(-1)">
-                        Cancel
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                  </b-tab>
+
+                  <b-tab title="Account Settings">
+                    <!-- Account settings form -->
+                    <form @submit.prevent="submitSettings" class="row pt-3">
+                      <div class="form-group col-12 col-md-6">
+                        <label>Username</label>
+                        <input
+                          type="text"
+                          class="form-control mb-0"
+                          id="username-set"
+                          placeholder="Your Username"
+                          autocomplete="off"
+                          v-model="username"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-group col-12 col-md-6">
+                        <label>Email Address</label>
+                        <input
+                          type="email"
+                          class="form-control mb-0"
+                          id="email-set"
+                          placeholder="Your Email address"
+                          autocomplete="off"
+                          v-model="email"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-group col-12 col-md-6">
+                        <label>New Password</label>
+                        <input
+                          type="password"
+                          class="form-control mb-0"
+                          id="password-set"
+                          placeholder="Change Your Password"
+                          autocomplete="off"
+                          v-model="password"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-group col-12 col-md-6">
+                        <label>Confirm Password</label>
+                        <input
+                          type="password"
+                          class="form-control mb-0"
+                          id="confirm-set"
+                          placeholder="Confirm Your Password"
+                          autocomplete="off"
+                          v-model="confirmPassword"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-group col-12 col-md-6 my-auto">
+                        <b-form-checkbox
+                          id="checkbox-1"
+                          v-model="acceptNews"
+                          name="checkbox-1"
+                          value="accepted"
+                          unchecked-value="not_accepted"
+                          class="mb-3"
+                        >
+                          Subscribe to newsletters?
+                        </b-form-checkbox>
+
+                        <!-- <div>
+                          State: <strong>{{ acceptNews }}</strong>
+                        </div> -->
+                      </div>
+
+                      <div class="form-group col-12 col-md-6 mt-3">
+                        <!-- <button
+                          class="btn btn-primary btn-md float-right"
+                          type="submit"
+                        >
+                          Save Changes
+                        </button> -->
+
+                        <b-button
+                          variant="primary"
+                          class="float-md-right btnblock"
+                          type="submit"
+                          :disabled="loading2"
+                        >
+                          <b-spinner small v-if="loading2"></b-spinner>
+                          <span v-if="!this.loading2">Save Changes</span>
+                          <span v-else>Saving...</span>
+                        </b-button>
+                      </div>
+                    </form>
+                  </b-tab>
+                </b-tabs>
               </div>
             </div>
           </div>
@@ -94,27 +219,38 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { mapGetters, mapActions } from "vuex";
 
+import { db } from "../../../../plugins/firebase.js";
+
 export default {
   layout: "FrontendLayout",
+
   name: "ManageProfile",
+
   components: {},
   mounted() {
     core.index();
   },
   data() {
     return {
-      //   selected: null,
-      //   options: [
-      //     { value: null, text: 'male' },
-      //     { value: 'a', text: 'female' }
-      //   ],
+      genderOptions: [
+        { value: "male", text: "Male" },
+        { value: "female", text: "Female" },
+      ],
       //   config: {
       //     dateFormat: 'Y-m-d'
       //   }
       loading: false,
+      loading2: false,
       image: null,
       username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
       firabaseUser: null,
+      acceptNews: "not_accepted",
+      selectedGender: "",
+      fullname: "",
+      phoneNumber: "",
     };
   },
 
@@ -134,7 +270,34 @@ export default {
     submitProfile() {
       console.log("working on profile");
       this.loading = true;
-      if (this.username) {
+      if (this.fullname || this.phoneNumber) {
+        db.collection("profiles")
+          .add({
+            full_name: this.fullname,
+            phone_number: this.phoneNumber,
+            gender: this.selectedGender,
+          })
+          .then((docRef) => {
+            this.loading = false;
+            console.log("Document written with ID: ", docRef.id);
+            console.log("Document written: ", docRef);
+          })
+          .catch((error) => {
+            this.loading = false;
+            console.error("Error adding document: ", error);
+          });
+      }
+    },
+
+    submitSettings() {
+      this.loading2 = true;
+
+      if (
+        this.username &&
+        this.email &&
+        this.password &&
+        this.confirmPassword
+      ) {
         firebase
           .auth()
           .currentUser.updateProfile({
@@ -147,11 +310,13 @@ export default {
               "success update profile:",
               firebase.auth().currentUser.displayName
             );
-            this.loading = false;
-            this.logoutAction();
+
+            this.loading2 = false;
+
+            // this.logoutAction();
           })
           .catch((error) => {
-            this.loading = false;
+            this.loading2 = false;
             console.log("error update profile:", error);
           });
       }
@@ -177,8 +342,9 @@ export default {
 
   created() {
     if (this.getUserInfo) {
-      if (firebase.auth().currentUser.displayName) {
-        this.username = firebase.auth().currentUser.displayName;
+      if (this.getUserInfo.displayName) {
+        this.username = this.getUserInfo.displayName;
+        this.email = this.getUserInfo.email;
       }
 
       console.log("current user: ", this.getUserInfo);
@@ -188,12 +354,33 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 .upload_profile {
   height: 112px !important;
 }
 
 .profile-pic.img-fluid {
   height: 100% !important;
+}
+
+.nav-tabs .bg {
+  border-bottom: 2px solid var(--iq-white) !important;
+}
+
+@media (max-width: 768px) {
+  .btnblock {
+    width: 100%;
+    display: block;
+  }
+
+  .profile-wrapper {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .sign-user_card {
+    margin-top: 35px;
+  }
 }
 </style>
