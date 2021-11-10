@@ -129,7 +129,7 @@
                     <!-- Account settings form -->
                     <form @submit.prevent="submitSettings" class="row pt-3">
                       <!-- Profile image Settings -->
-                      <div class="col-md-2 mt-3 profile-wrapper">
+                      <div class="col-md-2 col-12 mt-3 profile-wrapper">
                         <div class="upload_profile d-inline-block">
                           <img
                             :src="profileImage"
@@ -152,87 +152,89 @@
                       </div>
 
                       <!-- Info settings -->
-                      <div class="col-md-10 row">
-                        <div class="form-group col-12 col-md-6">
-                          <label>Username</label>
-                          <input
-                            type="text"
-                            class="form-control mb-0"
-                            id="username-set"
-                            placeholder="Your Username"
-                            autocomplete="off"
-                            v-model="username"
-                            required
-                          />
-                        </div>
+                      <div class="col-md-10 col-12">
+                        <div class="row">
+                          <div class="form-group col-12 col-md-6">
+                            <label>Username</label>
+                            <input
+                              type="text"
+                              class="form-control mb-0"
+                              id="username-set"
+                              placeholder="Your Username"
+                              autocomplete="off"
+                              v-model="username"
+                              required
+                            />
+                          </div>
 
-                        <div class="form-group col-12 col-md-6">
-                          <label>Email Address</label>
-                          <input
-                            type="email"
-                            class="form-control mb-0"
-                            id="email-set"
-                            placeholder="Your Email address"
-                            autocomplete="off"
-                            v-model="email"
-                            required
-                          />
-                        </div>
+                          <div class="form-group col-12 col-md-6">
+                            <label>Email Address</label>
+                            <input
+                              type="email"
+                              class="form-control mb-0"
+                              id="email-set"
+                              placeholder="Your Email address"
+                              autocomplete="off"
+                              v-model="email"
+                              required
+                            />
+                          </div>
 
-                        <div class="form-group col-12 col-md-6">
-                          <label>New Password</label>
-                          <input
-                            type="password"
-                            class="form-control mb-0"
-                            id="password-set"
-                            placeholder="Change Your Password"
-                            autocomplete="off"
-                            v-model="password"
-                            required
-                          />
-                        </div>
+                          <div class="form-group col-12 col-md-6">
+                            <label>New Password</label>
+                            <input
+                              type="password"
+                              class="form-control mb-0"
+                              id="password-set"
+                              placeholder="Change Your Password"
+                              autocomplete="off"
+                              v-model="password"
+                              required
+                            />
+                          </div>
 
-                        <div class="form-group col-12 col-md-6">
-                          <label>Confirm Password</label>
-                          <input
-                            type="password"
-                            class="form-control mb-0"
-                            id="confirm-set"
-                            placeholder="Confirm Your Password"
-                            autocomplete="off"
-                            v-model="confirmPassword"
-                            required
-                          />
-                        </div>
+                          <div class="form-group col-12 col-md-6">
+                            <label>Confirm Password</label>
+                            <input
+                              type="password"
+                              class="form-control mb-0"
+                              id="confirm-set"
+                              placeholder="Confirm Your Password"
+                              autocomplete="off"
+                              v-model="confirmPassword"
+                              required
+                            />
+                          </div>
 
-                        <div class="form-group col-12 col-md-6 my-auto">
-                          <b-form-checkbox
-                            id="checkbox-1"
-                            v-model="acceptNews"
-                            name="checkbox-1"
-                            value="accepted"
-                            unchecked-value="not_accepted"
-                            class="mb-3"
-                          >
-                            Subscribe to newsletters?
-                          </b-form-checkbox>
+                          <div class="form-group col-12 col-md-6 my-auto">
+                            <b-form-checkbox
+                              id="checkbox-1"
+                              v-model="acceptNews"
+                              name="checkbox-1"
+                              value="accepted"
+                              unchecked-value="not_accepted"
+                              class="mb-3"
+                            >
+                              Subscribe to newsletters?
+                            </b-form-checkbox>
 
-                          <!-- <div>
+                            <!-- <div>
                           State: <strong>{{ acceptNews }}</strong>
                         </div> -->
-                        </div>
+                          </div>
 
-                        <div class="form-group col-12 col-md-6 mt-3">
-                          <b-button
-                            variant="primary"
-                            class="float-md-right btnblock"
-                            type="submit"
-                            :disabled="loading2"
-                          >
-                            <b-spinner small v-if="loading2"></b-spinner>
-                            <span v-if="!this.loading2">Save Changes</span>
-                            <span v-else>Saving...</span>
-                          </b-button>
+                          <div class="form-group col-12 col-md-6 mt-3">
+                            <b-button
+                              variant="primary"
+                              class="float-md-right btnblock"
+                              type="submit"
+                              :disabled="loading2"
+                            >
+                              <b-spinner small v-if="loading2"></b-spinner>
+                              <span v-if="!this.loading2">Save Changes</span>
+                              <span v-else>Saving...</span>
+                            </b-button>
+                          </div>
                         </div>
                       </div>
                     </form>
