@@ -191,5 +191,53 @@ export default {
   .custom-control-label {
     color: #d1d0cf !important;
   }
+
+  input.form-control[readonly].dpp {
+    background-color: transparent !important;
+    opacity: 1;
+  }
+
+  .vdp-datepicker__calendar .cell.selected {
+    background: var(--iq-primary) !important;
+    color: var(--iq-body-bg);
+  }
+
+  .vdp-datepicker__calendar {
+    font-weight: 500;
+    color: var(--iq-body-text);
+  }
+
+  .vdp-datepicker__calendar header .prev:not(.disabled):hover,
+  .vdp-datepicker__calendar header .next:not(.disabled):hover,
+  .vdp-datepicker__calendar header .up:not(.disabled):hover {
+    background: var(--iq-primary) !important;
+    color: var(--iq-body-bg) !important;
+  }
+
+  .vdp-datepicker__calendar {
+    position: absolute;
+    z-index: 100;
+    background: var(--iq-body-bg) !important;
+    width: 300px;
+    border: 1px dotted var(--iq-primary) !important;
+    color: var(--iq-body-text) !important;
+    font-weight: 500;
+    /* box-shadow: 2px 3px 2px 2px; */
+  }
+
+  .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
+  .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
+  .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
+    border: 1px solid var(--iq-primary) !important;
+  }
+
+  .vdp-datepicker__calendar header .prev:after {
+    border-right: 10px solid #fff !important;
+  }
+
+  .vdp-datepicker__calendar header .next:after {
+    border-left: 10px solid #fff !important;
+    margin-left: 5px;
+  }
 }
 </style>

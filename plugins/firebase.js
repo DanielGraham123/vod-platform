@@ -13,13 +13,19 @@ const firebaseConfig = {
   measurementId: "G-D84TV5DEJF",
 };
 
-let app = null;
-
 // Initialize Firebase
+// if (!firebase.apps.length) {
+// let app = firebase.initializeApp(firebaseConfig);
+// db = app.firestore();
+// }
+var app;
+
 if (!firebase.apps.length) {
   app = firebase.initializeApp(firebaseConfig);
+} else {
+  app = firebase.app(); // if already initialized, use that one
 }
 
-// console.log("firebase:", firebase);
+// console.log("firebase db:", app.firestore());
 
-export const db = firebase.firestore();
+export const db = app.firestore();

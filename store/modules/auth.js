@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 // import router from "../../router";
+import { db } from "../../plugins/firebase.js";
 
 const state = () => ({
   userData: null,
@@ -8,6 +9,8 @@ const state = () => ({
   errorMsg: null,
   loginLoader: false,
   signupEmail: "",
+
+  userProfile: null,
 });
 
 const mutations = {
@@ -17,6 +20,15 @@ const mutations = {
     console.log("SET USER DATA", user);
 
     this.app.router.push("/home");
+  },
+
+  setUserProfile(state, profile) {
+    localStorage.setItem("userProfile", JSON.stringify(profile));
+
+    state.userProfile = profile;
+    console.log("SET USER PROFILE", profile);
+
+    // this.app.router.push("/home");
   },
 
   setUserToken(state, userToken) {
@@ -62,6 +74,14 @@ const getters = {
     }
   },
 
+  getUserProfile(state) {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("userProfile")
+        ? JSON.parse(localStorage.getItem("userProfile"))
+        : state.userProfile;
+    }
+  },
+
   getUserToken(state) {
     if (typeof window !== "undefined") {
       return localStorage.getItem("userToken")
@@ -90,6 +110,25 @@ const actions = {
       })
       .catch((error) => {
         commit("logoutError", error);
+      });
+  },
+
+  async fetchUserProfile({ commit }, userfId) {
+    const docRef = await db.collection("profiles").doc(userfId);
+
+    docRef
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          console.log("Profile Document data:", doc.data());
+
+          commit("setUserProfile", doc.data());
+        } else {
+          console.log("No such document!");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
       });
   },
 };

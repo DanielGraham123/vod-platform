@@ -39,6 +39,7 @@ export default {
     "~plugins/firebase.js",
     "~/directives/index.js",
     { src: "~/plugins/apexchart.js", ssr: false },
+    { src: "~/plugins/vue-datepicker", ssr: false },
   ],
 
   router: {
