@@ -100,7 +100,7 @@ extend("min", {
       valid: value.length >= 6,
     };
   },
-  message: "Must be at least 6 characters",
+  // message: "Must be at least 6 characters",
   computesRequired: true,
 });
 extend("confirmed", {
