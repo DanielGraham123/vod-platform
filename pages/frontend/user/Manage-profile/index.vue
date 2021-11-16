@@ -535,7 +535,9 @@ export default {
   created() {
     if (this.getUserInfo) {
       if (this.getUserInfo.displayName) {
-        this.username = this.getUserInfo.displayName;
+        this.username = this.getUserInfo.displayName
+          ? this.getUserInfo.displayName
+          : "";
         this.email = this.getUserInfo.email;
 
         this.fetchUserProfile(this.getUserInfo.uid)
@@ -551,6 +553,10 @@ export default {
             console.log("errors in fetchuserprofile: ", error);
           });
       }
+      this.username = this.getUserInfo.displayName
+        ? this.getUserInfo.displayName
+        : "";
+      this.email = this.getUserInfo.email;
 
       console.log("current user: ", this.getUserInfo);
     }

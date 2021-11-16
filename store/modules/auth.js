@@ -55,6 +55,8 @@ const mutations = {
 
     localStorage.setItem("userInfo", null);
     localStorage.setItem("userToken", null);
+    localStorage.setItem("userProfile", null);
+    localStorage.setItem("signUpEmail", null);
     console.log("in logout mutation");
     this.app.router.push("/auth/login");
   },
