@@ -184,6 +184,11 @@ export default {
     font-weight: 500;
   }
 
+  .btn-primary:hover {
+    background-color: var(--iq-primary-hover) !important;
+    border-color: var(--iq-primary-hover) !important;
+  }
+
   legend {
     font-weight: 400;
   }
@@ -238,6 +243,53 @@ export default {
   .vdp-datepicker__calendar header .next:after {
     border-left: 10px solid #fff !important;
     margin-left: 5px;
+  }
+
+  li.slide-item {
+    position: relative;
+    padding: 0 3px !important;
+  }
+
+  .container-fluid {
+    // padding: 0 40px !important;
+  }
+
+  .img-box > img {
+    height: 10em !important;
+  }
+
+  .btn-float {
+    color: var(--iq-light);
+  }
+
+  .btn-float:hover {
+    color: var(--iq-primary);
+  }
+
+  .btn-float.btn:focus {
+    outline: 0;
+    box-shadow: none !important;
+  }
+
+  .modal-content {
+    border: none !important;
+  }
+
+  .modal-header {
+    align-items: center !important;
+    border-bottom: none;
+  }
+
+  #iq-favorites .bg-dark,
+  #iq-tv-shows .bg-dark {
+    background-color: var(--iq-black) !important;
+  }
+  .bg-black {
+    background-color: var(--iq-body-bg) !important;
+  }
+
+  .modal-body.bg-black {
+    background-color: var(--iq-body-bg) !important;
   }
 }
 </style>

@@ -1,0 +1,40 @@
+.selected-item {
+  border: 3px solid white;
+}
+
+.pad-hover {
+  padding-left: 1.1em !important;
+  padding-right: 1em !important;
+}
+
+.btn.btn-empty {
+  background-color: transparent !important;
+  border: 1px dotted white;
+  color: #fff !important;
+  padding: 10px 17px;
+}
+
+.btn-empty.btn-default {
+  border: none !important;
+}
+
+.btn-empty.btn:hover {
+  color: var(--iq-primary) !important;
+  border-color: var(--iq-primary) !important;
+}
+
+.btn-secondary:focus {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none;
+}
+
+.modal-content {
+  border: none !important;
+}
+
+img.modal-image {
+  position: absolute;
+  top: -33px;
+  height: 117%;
+}

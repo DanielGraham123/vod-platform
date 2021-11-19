@@ -12,9 +12,9 @@
             "
           >
             <h4 class="main-title">Trending</h4>
-            <nuxt-link to="/tv-shows" class="text-primary">
+            <router-link to="/tv-shows" class="text-primary">
               View all
-            </nuxt-link>
+            </router-link>
           </div>
           <div class="trending-contens">
             <Slick
@@ -30,7 +30,7 @@
                 </a>
               </li>
             </Slick>
-            <!-- <Slick
+            <Slick
               id="trending-slider"
               class="list-inline p-0 m-0 d-flex align-items-center"
               :option="trendingOption"
@@ -158,7 +158,7 @@
                             </p>
                             <div class="p-btns">
                               <div class="d-flex align-items-center p-0">
-                                <nuxt-link
+                                <router-link
                                   to="/movies/show-detail"
                                   class="btn btn-hover mr-2"
                                   tabindex="0"
@@ -167,7 +167,7 @@
                                     class="fa fa-play mr-2"
                                     aria-hidden="true"
                                   />Play Now
-                                </nuxt-link>
+                                </router-link>
                                 <a href="#" class="btn btn-link" tabindex="0"
                                   ><i class="ri-add-line" />My List</a
                                 >
@@ -206,7 +206,7 @@
                               fadeInUp
                             "
                           >
-                            <nuxt-link to="/movies/show-detail" tabindex="0">
+                            <router-link to="/movies/show-detail" tabindex="0">
                               <div class="channel-logo">
                                 <img
                                   src="../../../assets/images/logo-full.png"
@@ -214,7 +214,7 @@
                                   alt="stramit"
                                 />
                               </div>
-                            </nuxt-link>
+                            </router-link>
                             <h1 class="trending-text big-title text-uppercase">
                               the hero camp
                             </h1>
@@ -246,16 +246,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">1</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -271,7 +271,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 1
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2.25 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -289,16 +289,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">2</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -314,7 +314,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 2
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">3.23 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -332,16 +332,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">3</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -357,7 +357,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 3
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -375,16 +375,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">4</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -400,7 +400,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 4
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">1.12 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -418,16 +418,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">5</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -443,7 +443,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 5
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2.54 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -500,16 +500,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">1</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -525,7 +525,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 1
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2.25 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -543,16 +543,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">2</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -568,7 +568,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 2
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">3.23 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -586,16 +586,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">3</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -611,7 +611,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 3
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -629,16 +629,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">4</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -654,7 +654,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 4
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">1.12 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -672,16 +672,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">5</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -697,7 +697,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 5
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2.54 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -754,16 +754,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">1</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -779,7 +779,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 1
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2.25 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -797,16 +797,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">2</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -822,7 +822,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 2
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">3.23 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -840,16 +840,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">3</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -865,7 +865,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 3
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -883,16 +883,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">4</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -908,7 +908,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 4
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">1.12 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -926,16 +926,16 @@
                                         class="img-fluid"
                                         alt=""
                                       />
-                                    </nuxt-link>
+                                    </router-link>
                                     <div class="episode-number">5</div>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <nuxt-link
+                                        <router-link
                                           to="/movies/show-detail"
                                           tabindex="0"
                                         >
                                           <i class="ri-play-fill" />
-                                        </nuxt-link>
+                                        </router-link>
                                       </div>
                                     </div>
                                   </div>
@@ -951,7 +951,7 @@
                                     >
                                       <router-link to="/movies/show-detail">
                                         Episode 5
-                                      </nuxt-link>
+                                      </router-link>
                                       <span class="text-primary">2.54 m</span>
                                     </div>
                                     <p class="mb-0">
@@ -970,7 +970,7 @@
                   </div>
                 </div>
               </li>
-            </Slick> -->
+            </Slick>
           </div>
         </b-col>
       </b-row>
@@ -1044,6 +1044,7 @@ export default {
         centerMode: true,
         centerPadding: 0,
         focusOnSelect: true,
+
         responsive: [
           {
             breakpoint: 1024,

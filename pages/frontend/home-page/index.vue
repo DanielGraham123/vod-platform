@@ -6,10 +6,10 @@
     <div class="main-content">
       <favourite />
       <upcomming />
-      <top />
+      <!-- <top /> -->
       <suggestion />
-      <detail />
-      <trending />
+      <!-- <detail /> -->
+      <tvshows />
       <thriller />
     </div>
   </div>
@@ -24,6 +24,7 @@ import top from "../../../components/frontend/home-page/top-ten";
 import suggestion from "../../../components/frontend/home-page/suggestion";
 import detail from "../../../components/frontend/home-page/detail";
 import trending from "../../../components/frontend/home-page/trending";
+import tvshows from "../../../components/frontend/home-page/tv-shows";
 import thriller from "../../../components/frontend/home-page/thriller";
 import Loader from "../../../components/core/loader/Loader";
 
@@ -41,6 +42,7 @@ export default {
     trending,
     thriller,
     Loader,
+    tvshows,
   },
 
   head() {

@@ -23,22 +23,21 @@
                         <!-- Profile Info -->
                         <div class="col-md-12 mt-3">
                           <div class="profile-from">
-                            <div>
+                            <!-- Alert -->
+                            <div class="">
                               <b-alert
                                 show
                                 variant="danger"
                                 v-if="errorMessage"
                                 >{{ errorMessage }}</b-alert
                               >
-                            </div>
-
-                            <div>
                               <b-alert
-                                show
                                 variant="success"
                                 v-if="successMessage"
-                                v-model="showDismissibleAlert"
+                                :show="dismissCountDown"
                                 dismissible
+                                @dismissed="dismissCountDown = 0"
+                                @dismiss-count-down="countDownChanged"
                                 >{{ successMessage }}</b-alert
                               >
                             </div>
@@ -149,14 +148,18 @@
 
                     <!-- Account Settings tab -->
                     <b-tab title="Account Settings">
+                      <!-- Alert -->
+                      <div class="">
+                        <b-alert show variant="danger" v-if="errorMessage">{{
+                          errorMessage
+                        }}</b-alert>
+                        <b-alert show variant="danger" v-if="successMessage">{{
+                          successMessage
+                        }}</b-alert>
+                      </div>
+
                       <!-- Account settings form -->
                       <form @submit.prevent="submitSettings" class="row pt-3">
-                        <div>
-                          <b-alert show variant="danger" v-if="errorMessage">{{
-                            errorMessage
-                          }}</b-alert>
-                        </div>
-
                         <!-- Profile image Settings -->
                         <div class="col-md-2 col-12 mt-3 profile-wrapper">
                           <div class="upload_profile d-inline-block">
@@ -241,7 +244,7 @@
 
                             <ValidationProvider
                               v-slot="{ errors }"
-                              rules="required|min6:6"
+                              rules="min6:6"
                               vid="password"
                               class="col-12 col-md-6"
                             >
@@ -258,7 +261,6 @@
                                     'mb-0' +
                                     (errors.length > 0 ? ' is-invalid' : '')
                                   "
-                                  required
                                 />
                                 <div class="invalid-feedback">
                                   <span>{{ errors[0] }}</span>
@@ -270,7 +272,7 @@
                               v-slot="{ errors }"
                               vid="confirmPassword"
                               name="Confirm Password"
-                              rules="required|confirmed:password"
+                              rules="confirmed:password"
                               class="col-12 col-md-6"
                             >
                               <div class="form-group">
@@ -286,7 +288,6 @@
                                     'mb-0' +
                                     (errors.length > 0 ? ' is-invalid' : '')
                                   "
-                                  required
                                 />
                                 <div class="invalid-feedback">
                                   <span> {{ errors[0] }}</span>
@@ -341,7 +342,7 @@
 import { core } from "../../../../assets/app/app";
 import firebase from "firebase/app";
 import "firebase/auth";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 import Loader from "../../../../components/core/loader/Loader";
 import { extend } from "vee-validate";
 import { required, confirmed, min, length } from "vee-validate/dist/rules.umd";
@@ -414,6 +415,10 @@ export default {
       errorMessage2: "",
       successMessage: "",
       showDismissibleAlert: false,
+
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
   },
 
@@ -425,10 +430,61 @@ export default {
         ? this.image
         : require("../../../../assets/images/frontend/user/user.jpg");
     },
+
+    displayName() {
+      return this.getUserInfo.displayName ? this.getUserInfo.displayName : "";
+    },
+
+    userEmail() {
+      return this.getUserInfo.email;
+    },
   },
 
   methods: {
     ...mapActions(["logoutAction", "fetchUserProfile"]),
+    ...mapMutations(["setUserProfile"]),
+
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
+
+    getProfileInfo() {
+      if (this.getUserInfo.displayName) {
+        this.username = this.displayName;
+        this.email = this.userEmail;
+
+        this.fetchUserProfile(this.getUserInfo.uid)
+          .then((response) => {
+            console.log("profile action: ", response);
+
+            this.firstName = this.getUserProfile.full_name.split(" ")[0];
+            this.lastName = this.getUserProfile.full_name.split(" ")[1];
+            this.phoneNumber = this.getUserProfile.phone_number;
+            this.selectedGender = this.getUserProfile.gender;
+
+            this.acceptNews = this.getUserProfile.newsletter
+              ? this.getUserProfile.newsletter
+              : "not_accepted";
+
+            this.dob = new Date(this.getUserProfile.dob.seconds * 1000);
+
+            console.log("this date: ", this.dob);
+          })
+          .catch((error) => {
+            console.log("errors in fetchuserprofile: ", error);
+          });
+      }
+      this.username = this.getUserInfo.displayName
+        ? this.getUserInfo.displayName
+        : "";
+
+      this.email = this.getUserInfo.email;
+
+      console.log("current user: ", this.getUserInfo);
+    },
 
     submitProfile() {
       console.log("working on profile");
@@ -436,16 +492,22 @@ export default {
       if (this.fullname || this.phoneNumber || this.selectedGender) {
         db.collection("profiles")
           .doc(String("" + this.getUserInfo.uid))
-          .set({
-            full_name: this.firstName + " " + this.lastName,
-            phone_number: this.phoneNumber,
-            gender: this.selectedGender,
-            dob: this.dob,
-          })
+          .set(
+            {
+              full_name: this.firstName + " " + this.lastName,
+              phone_number: this.phoneNumber,
+              gender: this.selectedGender,
+              dob: this.dob,
+              newsletter: this.acceptNews,
+            },
+            { merge: true }
+          )
           .then((docRef) => {
             this.loading = false;
             this.successMessage = "Your Profile has been updated!";
             console.log("Document written with ID: ", docRef);
+            this.showAlert();
+            this.getProfileInfo();
           })
           .catch((error) => {
             this.loading = false;
@@ -457,6 +519,7 @@ export default {
     submitSettings() {
       this.loading2 = true;
       let fireUser = firebase.auth().currentUser;
+
       if (
         this.username != this.getUserInfo.displayName ||
         this.email != this.getUserInfo.email
@@ -475,6 +538,7 @@ export default {
             );
 
             this.loading2 = false;
+            this.getProfileInfo();
 
             // this.logoutAction();
           })
@@ -483,8 +547,10 @@ export default {
             console.log("error update profile:", error);
           });
       } else if (
-        (this.username && this.email) ||
-        (this.password && this.confirmPassword)
+        this.username == this.getUserInfo.displayName &&
+        this.email == this.getUserInfo.email &&
+        this.password &&
+        this.confirmPassword
       ) {
         fireUser
           .updatePassword(this.password)
@@ -506,6 +572,23 @@ export default {
 
             // this.errorMessage2 = error.message;
             console.log("error updating password: ", error);
+          });
+      } else {
+        db.collection("profiles")
+          .doc(String("" + this.getUserInfo.uid))
+          .set(
+            {
+              newsletter: this.acceptNews,
+            },
+            { merge: true }
+          )
+          .then((docRef) => {
+            this.loading2 = false;
+            console.log("Document written with ID: ", docRef);
+          })
+          .catch((error) => {
+            this.loading2 = false;
+            console.error("Error adding document: ", error);
           });
       }
     },
@@ -534,31 +617,7 @@ export default {
 
   created() {
     if (this.getUserInfo) {
-      if (this.getUserInfo.displayName) {
-        this.username = this.getUserInfo.displayName
-          ? this.getUserInfo.displayName
-          : "";
-        this.email = this.getUserInfo.email;
-
-        this.fetchUserProfile(this.getUserInfo.uid)
-          .then(() => {
-            console.log("profile action: ", this.getUserProfile);
-
-            this.firstName = this.getUserProfile.full_name.split(" ")[0];
-            this.lastName = this.getUserProfile.full_name.split(" ")[1];
-            this.phoneNumber = this.getUserProfile.phone_number;
-            this.selectedGender = this.getUserProfile.gender;
-          })
-          .catch((error) => {
-            console.log("errors in fetchuserprofile: ", error);
-          });
-      }
-      this.username = this.getUserInfo.displayName
-        ? this.getUserInfo.displayName
-        : "";
-      this.email = this.getUserInfo.email;
-
-      console.log("current user: ", this.getUserInfo);
+      this.getProfileInfo();
     }
   },
 };
