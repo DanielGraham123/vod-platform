@@ -256,6 +256,13 @@ export default {
 
   .img-box > img {
     height: 10em !important;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .img-box > img {
+      height: auto !important;
+    }
   }
 
   .btn-float {
@@ -284,12 +291,27 @@ export default {
   #iq-tv-shows .bg-dark {
     background-color: var(--iq-black) !important;
   }
+
   .bg-black {
     background-color: var(--iq-body-bg) !important;
   }
 
+  .bg-selected {
+    background: linear-gradient(90deg, #000000ad 50%, transparent);
+  }
+
   .modal-body.bg-black {
     background-color: var(--iq-body-bg) !important;
+  }
+
+  @media (min-width: 768px) {
+    li.slide-item:first-child:hover .block-images {
+      width: 225px;
+    }
+
+    li.slide-item:last-child:hover .block-images {
+      width: 225px;
+    }
   }
 }
 </style>

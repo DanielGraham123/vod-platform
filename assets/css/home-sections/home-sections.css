@@ -2,11 +2,6 @@
   border: 3px solid white;
 }
 
-.pad-hover {
-  padding-left: 1.1em !important;
-  padding-right: 1em !important;
-}
-
 .btn.btn-empty {
   background-color: transparent !important;
   border: 1px dotted white;
@@ -34,9 +29,26 @@
   border: none !important;
 }
 
-img.modal-image {
-  position: absolute;
-  top: -33px;
-  height: 117%;
+.bg-section {
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #000), to(transparent));
+  background: linear-gradient(90deg, #000 50%, transparent);
+}
+
+@media (min-width: 1200px) {
+  img.modal-image {
+    height: 117%;
+  }
+}
+
+@media (min-width: 960px) {
+  .pad-hover {
+    padding-left: 1.1em !important;
+    padding-right: 1em !important;
+  }
+  img.modal-image {
+    position: absolute;
+    top: -33px;
+    height: 107vh;
+  }
 }
 /*# sourceMappingURL=home-sections.css.map */

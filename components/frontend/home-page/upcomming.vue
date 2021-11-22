@@ -35,11 +35,12 @@
               ></button>
             </div>
           </div>
-          <div class="upcoming-contens">
+          <div class="upcoming-contents">
             <VueSlickCarousel
               class="favorites-slider list-inline row p-0 mb-0"
               ref="dSlick"
               v-bind="upCommingSliderOption"
+              :class="{ 'pad-hover': isHovering }"
             >
               <li
                 v-for="(item, index) in upComming"
@@ -99,95 +100,103 @@
       hide-footer
       hide-header
       size="xl"
-      body-class="bg-black"
+      body-class="bg-black p-0"
       id="movie-modal"
+      v-if="selectedItem"
     >
-      <div class="container py-3">
-        <div class="row" v-if="selectedItem">
-          <div class="col-md-5">
-            <h2 class="mb-4 font-weight-bold">{{ selectedItem.title }}</h2>
-
-            <p class="">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia
-              vero est tempora voluptatibus possimus corrupti culpa, voluptate
-              accusamus non eveniet voluptatum aliquid error, facilis iure dolor
-              nostrum quibusdam vel blanditiis adipisci minima architecto
-              consequatur. Odit, ullam? Est sint deleniti adipisci error
-              aliquid. Voluptatum maxime quibusdam, nam voluptas suscipit
-              delectus explicabo? Voluptatum maxime quibusdam, nam voluptas
-              suscipit delectus explicabo?
-            </p>
-
-            <div class="d-flex align-items-center pb-3">
-              <span class="text-success">20-03-2012</span>
-              <span class="ml-3">{{ selectedItem.time }}</span>
-            </div>
-
-            <!-- genres -->
-            <div class="d-flex align-items-center pb-3">
-              <span class="text-secondary">Genres: </span>
-              <span
-                class="ml-2 text-capitalize"
-                v-for="(genre, index) in genres"
-                :key="'genre' + index"
-                >{{ genre + (genres.length - 1 > index ? ", " : "") }}
-              </span>
-            </div>
-
-            <!-- buttons -->
-            <div class="d-flex align-items-center justify-content-between pt-3">
-              <div>
-                <button
-                  class="btn btn-empty"
-                  v-b-tooltip.hover
-                  title="Add to Watch List"
-                >
-                  <i class="fa fa-plus-square"></i>
-                </button>
-
-                <button
-                  class="btn btn-empty"
-                  v-b-tooltip.hover
-                  title="Add to Favorite List"
-                >
-                  <i class="fa fa-heart"></i>
-                </button>
-                <button
-                  class="btn btn-empty"
-                  v-b-tooltip.hover
-                  title="Share with friends"
-                >
-                  <i class="fa fa-share-alt"></i>
-                </button>
-              </div>
-
-              <div class="">
-                <button
-                  class="btn btn-primary"
-                  @click.prevent="$router.push('/movies/movie-detail')"
-                >
-                  <i class="fa fa-play mr-1" aria-hidden="true" />
-                  Play Now
-                </button>
-              </div>
-            </div>
+      <div
+        class="container"
+        :style="[
+          selectedItem.image
+            ? {
+                background: 'url(' + selectedItem.image + ') left no-repeat',
+                width: 'fit-content',
+              }
+            : { background: '#bbb' },
+        ]"
+      >
+        <div class="row bg-selected">
+          <div class="col-md-12 position-absolute">
+            <button
+              class="btn btn-empty btn-default px-2 py-0 mt-3 float-right"
+              @click="$bvModal.hide('movie-modal')"
+            >
+              <i class="fa fa-times"></i>
+            </button>
           </div>
 
-          <div class="col-md-7 py-0">
-            <div class="">
-              <button
-                class="btn btn-empty btn-default px-2 py-0 float-right"
-                @click="$bvModal.hide('movie-modal')"
-              >
-                <i class="fa fa-times"></i>
-              </button>
-
+          <div class="col-lg-6 col-md-12 col-12 bg-section">
+            <div class="p-4">
               <div>
-                <img
-                  :src="selectedItem.image"
-                  class="img-fluid modal-image"
-                  alt=""
-                />
+                <h2 class="mb-4 mt-2 font-weight-bold d-block">
+                  {{ selectedItem.title }}
+                </h2>
+              </div>
+              <p class="">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Officia vero est tempora voluptatibus possimus corrupti culpa,
+                voluptate accusamus non eveniet voluptatum aliquid error,
+                facilis iure dolor nostrum quibusdam vel blanditiis adipisci
+                minima architecto consequatur. Odit, ullam? Est sint deleniti
+                adipisci error aliquid. Voluptatum maxime quibusdam, nam
+                voluptas suscipit delectus explicabo? Voluptatum maxime
+                quibusdam, nam voluptas suscipit delectus explicabo?
+              </p>
+
+              <div class="d-flex align-items-center pb-3">
+                <span class="text-success">20-03-2012</span>
+                <span class="ml-3">{{ selectedItem.time }}</span>
+              </div>
+
+              <!-- genres -->
+              <div class="d-flex align-items-center pb-3">
+                <span class="text-secondary">Genres: </span>
+                <span
+                  class="ml-2 text-capitalize"
+                  v-for="(genre, index) in genres"
+                  :key="'genre' + index"
+                  >{{ genre + (genres.length - 1 > index ? ", " : "") }}
+                </span>
+              </div>
+
+              <!-- buttons -->
+              <div
+                class="d-flex align-items-center justify-content-between pt-3"
+              >
+                <div>
+                  <button
+                    class="btn btn-empty"
+                    v-b-tooltip.hover
+                    title="Add to Watch List"
+                  >
+                    <i class="fa fa-plus-square"></i>
+                  </button>
+
+                  <button
+                    class="btn btn-empty"
+                    v-b-tooltip.hover
+                    title="Add to Favorite List"
+                  >
+                    <i class="fa fa-heart"></i>
+                  </button>
+                  <button
+                    class="btn btn-empty"
+                    v-b-tooltip.hover
+                    title="Share with friends"
+                  >
+                    <i class="fa fa-share-alt"></i>
+                  </button>
+                </div>
+
+                <div class="">
+                  <button
+                    class="btn btn-primary"
+                    @click.prevent="$router.push('/movies/movie-detail')"
+                  >
+                    <i class="fa fa-play mr-1" aria-hidden="true" />
+                    Play Now
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -244,14 +253,17 @@ export default {
         speed: 300,
         autoplay: false,
         slidesToShow: 5,
-        slidesToScroll: 1,
-        edgeFriction: 0.35,
+        slidesToScroll: 5,
+        edgeFriction: 0.3,
+        touchThreshold: 8,
+        centerMode: true,
+        centerPadding: "15px",
 
         responsive: [
           {
             breakpoint: 1200,
             settings: {
-              slidesToShow: 3,
+              slidesToShow: 4,
               slidesToScroll: 1,
               infinite: true,
               dots: true,
@@ -259,6 +271,13 @@ export default {
           },
           {
             breakpoint: 768,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 600,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 1,
