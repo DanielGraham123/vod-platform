@@ -222,6 +222,8 @@
   }
   header .navbar ul li {
     display: block;
+    margin-left: 26px;
+    margin-right: -9px;
   }
   .iq-main-slider {
     padding-top: 60px !important;

@@ -303,7 +303,7 @@ header .navbar ul li {
 }
 header .navbar ul li.menu-item a {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   position: relative;
   padding: 0px 0px 0px 10px;
   line-height: 70px;
@@ -989,7 +989,7 @@ li.slide-item .block-description .parallax-ratting span {
 }
 .trending-info {
   position: relative;
-  z-index: 99;
+  z-index: 1;
 }
 .trending-info .trending-dec {
   margin-bottom: 30px;

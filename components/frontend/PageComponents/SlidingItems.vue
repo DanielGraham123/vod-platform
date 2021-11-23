@@ -1,5 +1,5 @@
 <template>
-  <section id="iq-favorites">
+  <div>
     <b-container fluid>
       <b-row>
         <b-col sm="12" class="overflow-hidden px-sm-auto px-lg-0">
@@ -14,7 +14,7 @@
             <div class="">
               <h4 v-b-tooltip.hover class="main-title" title="View All">
                 <router-link to="/movies" class="text-white">
-                  Your Favorites
+                  {{ title }}
                 </router-link>
               </h4>
             </div>
@@ -42,9 +42,10 @@
               v-bind="favOption"
               class="favorites-slider list-inline row p-0 mb-0"
               :class="{ 'pad-hover': isHovering }"
+              v-if="dataItems"
             >
               <li
-                v-for="(item, index) in favoriteData"
+                v-for="(item, index) in dataItems"
                 :key="'fav' + index"
                 class="slide-item"
                 @mouseover="isHovering = true"
@@ -55,7 +56,16 @@
                   :class="{ 'selected-item': favIndex === index && selected }"
                 >
                   <div class="img-box">
-                    <img :src="item.image" class="img-fluid" alt="" />
+                    <img
+                      :src="item.image"
+                      :style="[
+                        title === 'TV Shows'
+                          ? { height: '24em !important' }
+                          : {},
+                      ]"
+                      class="img-fluid"
+                      alt=""
+                    />
                   </div>
                   <div
                     class="
@@ -151,7 +161,7 @@
               </div>
 
               <!-- genres -->
-              <div class="d-flex align-items-center pb-3">
+              <div class="d-flex align-items-center pb-3" v-if="genres">
                 <span class="text-secondary">Genres: </span>
                 <span
                   class="ml-2 text-capitalize"
@@ -211,68 +221,33 @@
         </div>
       </div>
     </b-modal>
-  </section>
+  </div>
 </template>
+
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
-// import $ from "jquery";
+
 export default {
-  name: "Favourite",
+  props: {
+    dataItems: {
+      type: Array,
+      required: true,
+    },
+    genres: {
+      type: Array,
+      required: false,
+    },
+    title: {
+      type: String,
+      required: true,
+      default: "Section",
+    },
+  },
   components: {
     VueSlickCarousel,
   },
   data() {
     return {
-      favoriteData: [
-        {
-          image: require("../../../assets/images/frontend/favorite/01.jpg"),
-          title: "The Last Breath",
-          age: "5+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/02.jpg"),
-          title: "Last Night",
-          age: "22+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/03.jpg"),
-          title: "1980",
-          age: "25+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/04.jpg"),
-          title: "1980",
-          age: "25+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/05.jpg"),
-          title: "1980",
-          age: "25+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/03.jpg"),
-          title: "1980",
-          age: "25+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/04.jpg"),
-          title: "1980",
-          age: "25+",
-          time: "2h 30m",
-        },
-        {
-          image: require("../../../assets/images/frontend/favorite/05.jpg"),
-          title: "1980",
-          age: "25+",
-          time: "2h 30m",
-        },
-      ],
       favOption: {
         dots: false,
         arrows: false,
@@ -321,14 +296,11 @@ export default {
           },
         ],
       },
-
       selected: false,
       selectedItem: null,
       favIndex: null,
       prevIndex: null,
       isHovering: false,
-
-      genres: ["Action", "Romance", "Drama"],
     };
   },
 

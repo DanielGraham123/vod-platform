@@ -1,5 +1,5 @@
 <template>
-  <section id="iq-favorites">
+  <section id="iq-tv-shows">
     <b-container fluid>
       <b-row>
         <b-col sm="12" class="overflow-hidden px-sm-auto px-lg-0">
@@ -14,7 +14,7 @@
             <div class="">
               <h4 v-b-tooltip.hover class="main-title" title="View All">
                 <router-link to="/movies" class="text-white">
-                  Your Favorites
+                  TV Shows
                 </router-link>
               </h4>
             </div>
@@ -277,7 +277,7 @@ export default {
         dots: false,
         arrows: false,
         infinite: true,
-        speed: 200,
+        speed: 300,
         autoplay: false,
         slidesToShow: 5,
         slidesToScroll: 5,
@@ -285,8 +285,6 @@ export default {
         touchThreshold: 8,
         centerMode: true,
         centerPadding: "15px",
-        initialSlide: 0,
-        swipeToSlide: true,
 
         responsive: [
           {
@@ -351,4 +349,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url("../../../assets/css/home-sections/home-sections.css");
+#iq-tv-shows .img-box > img {
+  height: 24em !important;
+}
 </style>

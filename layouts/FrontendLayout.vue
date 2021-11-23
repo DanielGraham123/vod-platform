@@ -111,10 +111,10 @@ export default {
       logo: loader,
       user: null,
       headerItem: [
-        { title: "Home", link: "/home" },
-        { title: "Movies", link: "/movies" },
-        { title: "Tv Shows", link: "/tv-shows" },
-        { title: "Tv Channels", link: "/tv-shows" },
+        { title: "Home", link: "/home", icon: "fa-home" },
+        { title: "Movies", link: "/movies", icon: "fa-film" },
+        { title: "Tv Shows", link: "/tv-shows", icon: "fa-tv" },
+        { title: "Tv Channels", link: "/tv-shows", icon: "fa-tv" },
       ],
     };
   },

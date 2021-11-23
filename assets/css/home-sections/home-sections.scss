@@ -31,6 +31,10 @@
 .bg-section {
   background: linear-gradient(90deg, #000 50%, transparent);
 }
+.btn-outline-primary {
+  padding: 7px 14px !important;
+  border-radius: 50% !important;
+}
 
 @media (min-width: 1200px) {
   img.modal-image {
@@ -48,5 +52,50 @@
     position: absolute;
     top: -33px;
     height: 107vh;
+  }
+}
+
+@media (max-width: 470px) {
+  .play-modal {
+    display: none;
+  }
+
+  .play-modal-sm {
+    display: block;
+  }
+
+  h2.movie-title {
+    font-size: 29px;
+    font-weight: 600 !important;
+  }
+}
+
+@media (min-width: 469px) {
+  .play-modal {
+    display: block;
+  }
+
+  .play-modal-sm {
+    display: none;
+  }
+}
+
+@media (max-width: 431px) {
+  .btn-primary {
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  .btn-empty {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  p.movie-desc {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
