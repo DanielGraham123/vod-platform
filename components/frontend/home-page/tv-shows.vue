@@ -1,14 +1,13 @@
 <template>
-  <section id="iq-favorites">
+  <section id="iq-tv-shows">
     <SlidingItems
       :dataItems="favoriteData"
-      :title="'Your Favorites'"
+      :title="'TV Shows'"
       :genres="genres"
     ></SlidingItems>
   </section>
 </template>
 <script>
-// import $ from "jquery";
 import SlidingItems from "../PageComponents/SlidingItems";
 export default {
   name: "Favourite",
@@ -75,4 +74,3 @@ export default {
   methods: {},
 };
 </script>
-

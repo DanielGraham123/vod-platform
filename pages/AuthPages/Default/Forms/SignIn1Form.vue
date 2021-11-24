@@ -104,7 +104,7 @@ export default {
 
   methods: {
     ...mapMutations(["setUserData"]),
-    ...mapActions(["loginAction"]),
+    ...mapActions(["loginAction", "fetchUserProfile"]),
 
     submitForm() {
       if (this.user.email && this.user.password) {
@@ -117,6 +117,11 @@ export default {
             console.log("user on firebase:", user);
 
             this.setUserData(user);
+            this.fetchUserProfile(firebase.auth().currentUser.uid).then(
+              (resp) => {
+                console.log("set user profile", resp);
+              }
+            );
 
             this.loading = false;
           })

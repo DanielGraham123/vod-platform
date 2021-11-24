@@ -125,6 +125,7 @@ const actions = {
           console.log("Profile Document data:", doc.data());
 
           commit("setUserProfile", doc.data());
+          return doc.data();
         } else {
           console.log("No such document!");
         }

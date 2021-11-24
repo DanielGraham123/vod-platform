@@ -1,94 +1,18 @@
 <template>
   <section id="iq-upcoming-movie">
-    <b-container>
-      <b-row>
-        <b-col sm="12" class="overflow-hidden">
-          <div
-            class="
-              iq-main-header
-              d-flex
-              align-items-center
-              justify-content-between
-            "
-          >
-            <h4 class="main-title">Best Of International Shows</h4>
-            <div class="d-flex slick-aerrow-block">
-              <button
-                class="slick-prev slick-arrow"
-                aria-label="Previous"
-                type="button"
-                style="display: block"
-                @click="prev()"
-              ></button>
-              <button
-                class="slick-next slick-arrow"
-                aria-label="Next"
-                type="button"
-                style="display: block"
-                @click="next()"
-              ></button>
-            </div>
-          </div>
-          <div class="favorites-contens">
-            <Slick
-              class="favorites-slider list-inline row p-0 mb-0"
-              ref="dSlick"
-              :option="sliderOption"
-            >
-              <li
-                v-for="(item, index) in sliderData"
-                :key="index"
-                class="slide-item"
-              >
-                <router-link to="/tv-shows/single-show">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img :src="item.image" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6>{{ item.title }}</h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">
-                          {{ item.age }}
-                        </div>
-                        <span class="text-white">{{ item.series }}</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover"
-                          ><i class="fa fa-play mr-1" aria-hidden="true" /> Play
-                          Now</span
-                        >
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li>
-                          <span><i class="ri-volume-mute-fill" /></span>
-                        </li>
-                        <li>
-                          <span><i class="ri-heart-fill" /></span>
-                        </li>
-                        <li>
-                          <span><i class="ri-add-line" /></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </router-link>
-              </li>
-            </Slick>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+    <SlidingItems
+      :dataItems="sliderData"
+      :title="'Latest TV Shows'"
+      :genres="genres"
+    ></SlidingItems>
   </section>
 </template>
 <script>
-import Slick from "../../../components/core/slider/Slick";
+import SlidingItems from "../PageComponents/SlidingItems";
 export default {
   name: "PopularShow",
   components: {
-    Slick,
+    SlidingItems,
   },
   data() {
     return {
@@ -130,50 +54,10 @@ export default {
           series: "2 Seasons",
         },
       ],
-      sliderOption: {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 300,
-        autoplay: false,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: true,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-        ],
-      },
+      genres: ["Action", "Gospel", "Drama"],
     };
   },
   mounted() {},
-  methods: {
-    next() {
-      this.$refs.dSlick.next();
-    },
-    prev() {
-      this.$refs.dSlick.prev();
-    },
-  },
+  methods: {},
 };
 </script>
