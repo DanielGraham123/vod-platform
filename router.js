@@ -16,6 +16,9 @@ import MovieDetail from "~/pages/frontend/movie-detail/index";
 import TVShows from "~/pages/frontend/category-page";
 import SingleShow from "~/pages/frontend/show-single";
 
+// TV Channels
+import TVchannels from "~/pages/frontend/channel/index";
+
 // Auth Pages
 import Login from "~/pages/AuthPages/Default/SignIn1";
 import SignUp from "~/pages/frontend/signup-pages/password.vue";
@@ -81,6 +84,13 @@ export function createRouter() {
         name: "single-show",
         component: SingleShow,
       },
+
+// tvchannels
+{
+  path: "/TVchannels",
+  name: "TVchannels",
+  component: TVchannels,
+},
 
       // Auth links
       {

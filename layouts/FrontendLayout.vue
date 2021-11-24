@@ -114,7 +114,7 @@ export default {
         { title: "Home", link: "/home" },
         { title: "Movies", link: "/movies" },
         { title: "Tv Shows", link: "/tv-shows" },
-        { title: "Tv Channels", link: "/tv-shows" },
+        { title: "Tv Channels", link: "/TVchannels" },
       ],
     };
   },
