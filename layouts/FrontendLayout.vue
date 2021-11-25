@@ -250,13 +250,67 @@ export default {
     padding: 0 3px !important;
   }
 
-  .container-fluid {
-    // padding: 0 40px !important;
-  }
-
   .img-box > img {
     height: 10em !important;
     width: 100%;
+  }
+
+  .owl-carousel .owl-item {
+    height: 450px !important;
+  }
+
+  .owl-carousel .owl-nav {
+    overflow: hidden;
+    height: 0px;
+  }
+
+  .owl-carousel .nav-btn {
+    height: 47px;
+    position: absolute;
+    width: 26px;
+    cursor: pointer;
+    top: 196px !important;
+  }
+
+  .owl-carousel .owl-prev.disabled,
+  .owl-carousel .owl-next.disabled {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
+  .owl-carousel .prev-slide {
+    // background: url(~@/assets/icon/nav-icon.png) no-repeat scroll 0 0;
+    left: 19px;
+    font-size: 25px;
+  }
+  .owl-carousel .next-slide {
+    // background: url(~@/assets/icon/nav-icon.png) no-repeat scroll -24px 0px;
+    right: 19px;
+    font-size: 25px;
+  }
+  .owl-carousel .prev-slide:hover {
+    background-position: 0px -53px;
+  }
+  .owl-carousel .next-slide:hover {
+    background-position: -24px -53px;
+  }
+
+  .section_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 450px;
+  }
+
+  .owl-nav .owl-next {
+    position: inherit;
+    left: 0;
+  }
+
+  .owl-nav .owl-prev {
+    position: inherit;
+    right: 0;
   }
 
   @media (max-width: 600px) {

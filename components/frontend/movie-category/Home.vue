@@ -1,20 +1,18 @@
 <template>
   <section class="iq-main-slider p-0">
-    <Slick id="tvshows-slider" :option="sliderOption">
-      <div v-for="(item,index) in sliderData" :key="index">
-        <div class="shows-img">
-          <img :src="item.image" class="w-100" alt="">
-          <div class="shows-content">
-            <h4 class="text-white mb-1">{{item.title}}</h4>
-            <div class="movie-time d-flex align-items-center">
-              <div class="badge badge-secondary p-1 mr-2">{{item.age}}</div>
-              <span class="text-white">{{item.series}}</span>
-            </div>
-          </div>
-        </div>
+    <div class="owl-carousel owl-theme" v-if="sliderData">
+      <div v-for="(item, index) in sliderData" :key="index">
+        <div
+          class="section_bg"
+          :style="{
+            background: 'url(' + item.image + ') center top / cover no-repeat',
+          }"
+        ></div>
+        <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
       </div>
-    </Slick>
-    <div class="dropdown genres-box">
+    </div>
+
+    <!-- <div class="dropdown genres-box">
       <b-dropdown id="dropdownMenuButton40" menu-class="three-column">
         <template v-slot:button-content>
           <b-link href="#" style="color:#fff"> Genres</b-link>
@@ -32,72 +30,85 @@
         <b-dropdown-item href="#">Children & Family</b-dropdown-item>
         <b-dropdown-item href="#">Award-Winning</b-dropdown-item>
       </b-dropdown>
-    </div>
+    </div> -->
   </section>
 </template>
 <script>
-import Slick from '../../../components/core/slider/Slick'
-
+import Slick from "../../../components/core/slider/Slick";
+import SliderCaption from "../PageComponents/SliderCaption";
+import $ from "jquery";
 export default {
-  name: 'Slider',
+  name: "Slider",
   components: {
-    Slick
+    Slick,
+    SliderCaption,
   },
-  mounted () {
-  },
-  data () {
+
+  data() {
     return {
       sliderData: [
         {
-          image: require('../../../assets/images/frontend/movie-banner/1.jpg'),
-          title: 'Open Dead Shot',
-          age: '18+',
-          series: '3 Seasons'
+          image: require("../../../assets/images/frontend/movie-banner/1.jpg"),
+          title: "Open Dead Shot",
+          age: "18+",
+          series: "3 Seasons",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         },
         {
-          image: require('../../../assets/images/frontend/movie-banner/2.jpg'),
-          title: 'The Lost Journey',
-          age: '18+',
-          series: '3 Seasons'
+          image: require("../../../assets/images/frontend/movie-banner/2.jpg"),
+          title: "The Lost Journey",
+          age: "18+",
+          series: "3 Seasons",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         },
         {
-          image: require('../../../assets/images/frontend/movie-banner/3.jpg'),
-          title: 'Boop Bitty',
-          age: '18+',
-          series: '3 Seasons'
-        }
+          image: require("../../../assets/images/frontend/movie-banner/3.jpg"),
+          title: "Boop Bitty",
+          age: "18+",
+          series: "3 Seasons",
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+        },
       ],
-      sliderOption: {
-        centerMode: true,
-        centerPadding: '200px',
-        slidesToShow: 1,
-        nextArrow: '<button class="NextArrow"><i class="ri-arrow-right-s-line"></i></button>',
-        prevArrow: '<button class="PreArrow"><i class="ri-arrow-left-s-line"></i></button>',
-        arrows: true,
-        dots: false,
-        responsive: [
-          {
-            breakpoint: 991,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '20px',
-              slidesToShow: 1
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '20px',
-              slidesToShow: 1
-            }
-          }
-        ]
-      }
+    };
+  },
 
-    }
-  }
-}
+  mounted() {
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      items: 1,
+      nav: false,
+      dots: false,
+      responsiveClass: true,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 1,
+        },
+        1000: {
+          items: 1,
+        },
+      },
+    });
+  },
+};
 </script>
+
+<style scoped>
+.section_bg:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(19, 23, 32, 0.5) 0%, #141414 100%);
+  pointer-events: none;
+}
+</style>

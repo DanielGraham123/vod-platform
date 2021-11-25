@@ -1,9 +1,9 @@
 <template>
   <section class="iq-main-slider p-0">
     <Slick id="tvshows-slider" :option="sliderOption">
-      <div v-for="(item,index) in sliderData" :key="index">
+      <div v-for="(item, index) in sliderData" :key="index">
         <div class="shows-img">
-          <img :src="item.image" class="w-100" alt="">
+          <img :src="item.image" class="w-100" alt="" />
           <div class="shows-content">
             <h4 class="text-white mb-1">
               {{ item.title }}
@@ -21,70 +21,61 @@
     <div class="dropdown genres-box">
       <b-dropdown id="dropdownMenuButton40" menu-class="three-column">
         <template v-slot:button-content>
-          <b-link href="#" style="color:#fff">
-            Genres
-          </b-link>
+          <b-link href="#" style="color: #fff"> Genres </b-link>
         </template>
-        <b-dropdown-item href="#">
-          Share
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Delete
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Punjabi
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          English
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Comedies
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Action
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Romance
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Dramas
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Bollywood
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Hollywood
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Children & Family
-        </b-dropdown-item>
-        <b-dropdown-item href="#">
-          Award-Winning
-        </b-dropdown-item>
+        <b-dropdown-item href="#"> Share </b-dropdown-item>
+        <b-dropdown-item href="#"> Delete </b-dropdown-item>
+        <b-dropdown-item href="#"> Punjabi </b-dropdown-item>
+        <b-dropdown-item href="#"> English </b-dropdown-item>
+        <b-dropdown-item href="#"> Comedies </b-dropdown-item>
+        <b-dropdown-item href="#"> Action </b-dropdown-item>
+        <b-dropdown-item href="#"> Romance </b-dropdown-item>
+        <b-dropdown-item href="#"> Dramas </b-dropdown-item>
+        <b-dropdown-item href="#"> Bollywood </b-dropdown-item>
+        <b-dropdown-item href="#"> Hollywood </b-dropdown-item>
+        <b-dropdown-item href="#"> Children & Family </b-dropdown-item>
+        <b-dropdown-item href="#"> Award-Winning </b-dropdown-item>
       </b-dropdown>
     </div>
   </section>
 </template>
 <script>
-import Slick from '../../../components/core/slider/Slick'
+import Slick from "../../../components/core/slider/Slick";
 export default {
-  name: 'Slider',
+  name: "Slider",
   components: {
-    Slick
+    Slick,
   },
-  data () {
+  data() {
     return {
       sliderData: [
-        { image: require('../../../assets/images/frontend/shows-banner/show-1.jpg'), title: 'The Hero Camp', age: '18+', series: '3 Seasons' },
-        { image: require('../../../assets/images/frontend/shows-banner/show-2.jpg'), title: 'The Hero Camp', age: '18+', series: '3 Seasons' },
-        { image: require('../../../assets/images/frontend/shows-banner/show-3.jpg'), title: 'The Hero Camp', age: '18+', series: '3 Seasons' }
+        {
+          image: require("../../../assets/images/frontend/shows-banner/show-1.jpg"),
+          title: "The Hero Camp",
+          age: "18+",
+          series: "3 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/shows-banner/show-2.jpg"),
+          title: "The Hero Camp",
+          age: "18+",
+          series: "3 Seasons",
+        },
+        {
+          image: require("../../../assets/images/frontend/shows-banner/show-3.jpg"),
+          title: "The Hero Camp",
+          age: "18+",
+          series: "3 Seasons",
+        },
       ],
       sliderOption: {
         centerMode: true,
-        centerPadding: '200px',
+        centerPadding: "200px",
         slidesToShow: 1,
-        nextArrow: '<button class="NextArrow"><i class="ri-arrow-right-s-line"></i></button>',
-        prevArrow: '<button class="PreArrow"><i class="ri-arrow-left-s-line"></i></button>',
+        nextArrow:
+          '<button class="NextArrow"><i class="ri-arrow-right-s-line"></i></button>',
+        prevArrow:
+          '<button class="PreArrow"><i class="ri-arrow-left-s-line"></i></button>',
         arrows: true,
         dots: false,
         responsive: [
@@ -93,24 +84,23 @@ export default {
             settings: {
               arrows: false,
               centerMode: true,
-              centerPadding: '20px',
-              slidesToShow: 1
-            }
+              centerPadding: "20px",
+              slidesToShow: 1,
+            },
           },
           {
             breakpoint: 480,
             settings: {
               arrows: false,
               centerMode: true,
-              centerPadding: '20px',
-              slidesToShow: 1
-            }
-          }
-        ]
-      }
-    }
+              centerPadding: "20px",
+              slidesToShow: 1,
+            },
+          },
+        ],
+      },
+    };
   },
-  mounted () {
-  }
-}
+  mounted() {},
+};
 </script>
