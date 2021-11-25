@@ -114,7 +114,7 @@ export default {
         { title: "Home", link: "/home", icon: "fa-home" },
         { title: "Movies", link: "/movies", icon: "fa-film" },
         { title: "Tv Shows", link: "/tv-shows", icon: "fa-tv" },
-        { title: "Tv Channels", link: "/tv-shows", icon: "fa-tv" },
+        { title: "Tv Channels", link: "/TVchannels", icon: "fa-tv" },
       ],
     };
   },
@@ -250,9 +250,9 @@ export default {
     padding: 0 3px !important;
   }
 
-  .container-fluid {
-    // padding: 0 40px !important;
-  }
+  // .container-fluid {
+  //   // padding: 0 40px !important;
+  // }
 
   .img-box > img {
     height: 10em !important;
