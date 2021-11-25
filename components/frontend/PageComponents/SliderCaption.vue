@@ -10,7 +10,7 @@
     >
       <div class="slider-inner h-100">
         <b-row class="align-items-center h-100">
-          <b-col xl="8" lg="12" md="12" class="pb-3">
+          <b-col xl="8" lg="12" md="12" class="px-5 pb-3">
             <h2
               class="slider-text big-title title text-uppercase"
               data-animation-in="fadeInLeft"

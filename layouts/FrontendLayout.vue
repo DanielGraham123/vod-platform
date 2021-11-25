@@ -71,6 +71,8 @@ export default {
   head() {
     return {
       bodyAttrs: {
+        "data-spy": "scroll",
+        "data-offset": "80",
         class: "front-layout",
       },
 
@@ -153,15 +155,6 @@ export default {
         this.user = user;
       }
     });
-  },
-  head() {
-    return {
-      bodyAttrs: {
-        "data-spy": "scroll",
-        "data-offset": "80",
-        class: "front-layout",
-      },
-    };
   },
 };
 </script>
