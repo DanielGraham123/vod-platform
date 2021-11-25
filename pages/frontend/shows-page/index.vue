@@ -12,10 +12,10 @@
 
 <script>
 import { core } from "../../../assets/app/app";
-import Home from "../../../components/frontend/movie-category/Home";
-import popularshow from "../../../components/frontend/movie-category/popularshow";
-import international from "../../../components/frontend/movie-category/internationalshow";
-import recommend from "../../../components/frontend/movie-category/recommend";
+import Home from "../../../components/frontend/shows-page/Home";
+import popularshow from "../../../components/frontend/shows-page/popularshow";
+import international from "../../../components/frontend/shows-page/internationalshow";
+import recommend from "../../../components/frontend/shows-page/recommend";
 import Loader from "../../../components/core/loader/Loader";
 
 export default {
@@ -34,6 +34,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>

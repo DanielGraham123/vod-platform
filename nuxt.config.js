@@ -12,8 +12,18 @@ export default {
         content: process.env.npm_package_description || "",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    scripts: [],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "stylesheet",
+        href: "/owlcarousel/owl.carousel.min.css",
+      },
+    ],
+    scripts: [
+      {
+        src: "/owlcarousel/owl.carousel.min.js",
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -40,6 +50,7 @@ export default {
     "~/directives/index.js",
     { src: "~/plugins/apexchart.js", ssr: false },
     { src: "~/plugins/vue-datepicker", ssr: false },
+    { src: "~/plugins/v-owl-carousel.js", ssr: false },
     // { src: "~/plugins/vue-awesome-swiper", mode: "client" },
   ],
 
