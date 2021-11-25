@@ -301,6 +301,7 @@ export default {
     left: 0;
     right: 0;
     height: 450px;
+    z-index: -1;
   }
 
   .owl-nav .owl-next {

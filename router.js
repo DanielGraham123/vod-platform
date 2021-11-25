@@ -13,7 +13,7 @@ import ShowDetail from "~/pages/frontend/show-detail/index";
 import MovieDetail from "~/pages/frontend/movie-detail/index";
 
 // TV Shows
-import TVShows from "~/pages/frontend/category-page";
+import TVShows from "~/pages/frontend/shows-page";
 import SingleShow from "~/pages/frontend/show-single";
 
 // Auth Pages

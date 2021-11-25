@@ -1,22 +1,5 @@
 <template>
   <section id="home" class="iq-main-slider p-0">
-    <!-- <Slick id="home-slider" class="slider m-0 p-0" :option="homeSliderOption">
-      <div v-for="(data, index) in sliderData" :key="index" class="slide">
-
-        <div class="slick-backImg">
-          <img
-            src="~@/assets/images/frontend/slider/movieposter.jpg"
-            class="img-fluid"
-            alt="image"
-          />
-        </div>
-
-        <SliderCaption :title="data.title" :text="data.text"></SliderCaption>
-
-        <div class="dark-overlay"></div>
-      </div>
-    </Slick> -->
-
     <div class="owl-carousel owl-theme" v-if="sliderData">
       <div v-for="(item, index) in sliderData" :key="index">
         <div
@@ -96,26 +79,6 @@ export default {
           text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         },
       ],
-      homeSliderOption: {
-        autoplay: false,
-        speed: 800,
-        lazyLoad: "progressive",
-        arrows: true,
-        dots: false,
-        prevArrow:
-          '<div class="slick-nav prev-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
-        nextArrow:
-          '<div class="slick-nav next-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
-        responsive: [
-          {
-            breakpoint: 992,
-            settings: {
-              dots: false,
-              arrows: false,
-            },
-          },
-        ],
-      },
     };
   },
   methods: {
