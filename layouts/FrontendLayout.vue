@@ -114,7 +114,7 @@ export default {
         { title: "Home", link: "/home", icon: "fa-home" },
         { title: "Movies", link: "/movies", icon: "fa-film" },
         { title: "Tv Shows", link: "/tv-shows", icon: "fa-tv" },
-        { title: "Tv Channels", link: "/tv-shows", icon: "fa-tv" },
+        { title: "Tv Channels", link: "/TVchannels", icon: "fa-tv" },
       ],
     };
   },
