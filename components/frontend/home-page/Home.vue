@@ -12,7 +12,7 @@
       </div>
     </div> -->
 
-    <div
+    <!-- <div
       v-swiper:homeSwiper="swiperOption"
       class="w-5/6 ml-auto relative"
       :loadtheme="true"
@@ -35,7 +35,22 @@
       </div>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
-    </div>
+    </div> -->
+
+    <swiper ref="homeSwiper" class="swiper" :options="swiperOption">
+      <swiper-slide v-for="(item, index) in sliderData" :key="index">
+        <div
+          class="section_bg"
+          :style="{
+            background: 'url(' + item.image + ') center top / cover no-repeat',
+          }"
+        ></div>
+        <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
+      </swiper-slide>
+
+      <div class="swiper-button-prev" @click="prev()" slot="button-prev"></div>
+      <div class="swiper-button-next" @click="next()" slot="button-next"></div>
+    </swiper>
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol
@@ -52,6 +67,7 @@
     </svg>
   </section>
 </template>
+
 <script>
 import Slick from "../../core/slider/Slick";
 import SliderCaption from "../PageComponents/SliderCaption.vue";
@@ -59,7 +75,7 @@ import $ from "jquery";
 import Vue from "vue";
 import { directive } from "vue-awesome-swiper";
 import { Navigation } from "swiper";
-// import { Swiper, SwiperSlide s} from "swiper/vue";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
 import "swiper/swiper.min.css";
 
@@ -69,6 +85,8 @@ export default {
   components: {
     Slick,
     SliderCaption,
+    Swiper,
+    SwiperSlide,
   },
   directives: {
     swiper: directive,
@@ -120,39 +138,29 @@ export default {
       ],
 
       swiperOption: {
-        // slidesPerView: 1,
-        // spaceBetween: -10,
-        // slidesPerGroup: 1,
         loop: true,
-        // loopFillGroupWithBlank: true,
-        // pagination: {
-        //   el: ".swiper-pagination",
-        //   clickable: true,
-        // },
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            // will set `translateZ(-400px)` on previous slides
+            translate: [0, 0, -400],
+          },
+          next: {
+            // will set `translateX(100%)` on next slides
+            translate: ["100%", 0, 0],
+          },
+        },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        // breakpoints: {
-        //   1024: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 10,
-        //   },
-        //   768: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 10,
-        //   },
-        //   640: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 10,
-        //   },
-        //   320: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 10,
-        //   },
-        // },
       },
     };
+  },
+  computed: {
+    swiper() {
+      return this.$refs.homeSwiper.$swiper;
+    },
   },
   methods: {
     openTrailer(path) {
@@ -160,39 +168,14 @@ export default {
       console.log("routeData", routeData);
       window.open(routeData.href, "_blank");
     },
+    next() {
+      this.swiper.slideNext(1, 1000, false);
+    },
+    prev() {
+      this.swiper.slidePrev(1, 1000, false);
+    },
   },
-  mounted() {
-    // $(document).ready(function () {
-    //   $(".owl-carousel").owlCarousel({
-    //     loop: true,
-    //     items: 1,
-    //     nav: true,
-    //     dots: false,
-    //     navText: [
-    //       "<i class='fa fa-chevron-left nav-btn prev-slide'></i>",
-    //       "<i class='fa fa-chevron-right nav-btn next-slide'></i>",
-    //     ],
-    //     responsiveClass: true,
-    //     autoplay: false,
-    //     autoplayTimeout: 6000,
-    //     autoplayHoverPause: false,
-    //     responsive: {
-    //       0: {
-    //         items: 1,
-    //         nav: false,
-    //       },
-    //       600: {
-    //         items: 1,
-    //         nav: false,
-    //       },
-    //       1000: {
-    //         items: 1,
-    //       },
-    //     },
-    //   });
-    // });
-    this.homeSwiper.slideTo(1, 1000, false);
-  },
+  mounted() {},
 
   beforeMount() {},
 };
@@ -200,10 +183,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.swiper-pagination-bullet.swiper-pagination-bullet-active::after {
-  // @apply w-48 h-48 ;
-}
-
 .swiper-container {
   height: 100% !important;
   overflow: hidden !important;

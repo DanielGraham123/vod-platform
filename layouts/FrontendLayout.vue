@@ -311,6 +311,11 @@ export default {
     right: 0;
   }
 
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    color: white !important;
+  }
+
   @media (max-width: 600px) {
     .img-box > img {
       height: auto !important;
