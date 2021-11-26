@@ -38,9 +38,16 @@
 <script>
 import SignIn1Form from "./Forms/SignIn1Form";
 export default {
-  // layout: "AuthLayout",
+  // layout: "FrontLayout",
   name: "SignIn1",
   components: { SignIn1Form },
+  head() {
+    return {
+      bodyAttrs: {
+        class: "signin-layout",
+      },
+    };
+  },
   data: () => ({}),
   mounted() {
     const loggedIn = localStorage.getItem("access_token");
@@ -51,14 +58,17 @@ export default {
 };
 </script>
 
-<style scoped>
-@import url("../../../assets/css/backend/typography.css");
-
-@import url("../../../assets/css/custom.css");
-@import url("../../../assets/css/backend/variable.css");
-@import url("../../../assets/css/backend/dark.css");
-@import url("../../../assets/css/backend/responsive.css");
-@import url("../../../assets/css/backend/style.css");
+<style lang="scss" scoped>
+.signin-layout {
+  &::v-deep {
+    @import url("../../../assets/css/backend/typography.css");
+    @import url("../../../assets/css/custom.css");
+    @import url("../../../assets/css/backend/variable.css");
+    @import url("../../../assets/css/backend/dark.css");
+    @import url("../../../assets/css/backend/responsive.css");
+    @import url("../../../assets/css/backend/style.css");
+  }
+}
 
 .alert-danger {
   color: var(--red) !important;

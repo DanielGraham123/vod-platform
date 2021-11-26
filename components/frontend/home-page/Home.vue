@@ -1,6 +1,6 @@
 <template>
   <section id="home" class="iq-main-slider p-0">
-    <div class="owl-carousel owl-theme" v-if="sliderData">
+    <!-- <div class="owl-carousel owl-theme" v-if="sliderData">
       <div v-for="(item, index) in sliderData" :key="index">
         <div
           class="section_bg"
@@ -10,6 +10,31 @@
         ></div>
         <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
       </div>
+    </div> -->
+
+    <div
+      v-swiper:homeSwiper="swiperOption"
+      class="w-5/6 ml-auto relative"
+      :loadtheme="true"
+    >
+      <div class="swiper-wrapper">
+        <div
+          class="swiper-slide"
+          v-for="(item, index) in sliderData"
+          :key="index"
+        >
+          <div
+            class="section_bg"
+            :style="{
+              background:
+                'url(' + item.image + ') center top / cover no-repeat',
+            }"
+          ></div>
+          <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
+        </div>
+      </div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -31,6 +56,12 @@
 import Slick from "../../core/slider/Slick";
 import SliderCaption from "../PageComponents/SliderCaption.vue";
 import $ from "jquery";
+import Vue from "vue";
+import { directive } from "vue-awesome-swiper";
+import { Navigation } from "swiper";
+// import { Swiper, SwiperSlide s} from "swiper/vue";
+
+import "swiper/swiper.min.css";
 
 export default {
   name: "Home",
@@ -38,6 +69,14 @@ export default {
   components: {
     Slick,
     SliderCaption,
+  },
+  directives: {
+    swiper: directive,
+  },
+  setup() {
+    return {
+      modules: [Navigation],
+    };
   },
   data() {
     return {
@@ -79,6 +118,40 @@ export default {
           text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         },
       ],
+
+      swiperOption: {
+        // slidesPerView: 1,
+        // spaceBetween: -10,
+        // slidesPerGroup: 1,
+        loop: true,
+        // loopFillGroupWithBlank: true,
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   clickable: true,
+        // },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // breakpoints: {
+        //   1024: {
+        //     slidesPerView: 1,
+        //     spaceBetween: 10,
+        //   },
+        //   768: {
+        //     slidesPerView: 1,
+        //     spaceBetween: 10,
+        //   },
+        //   640: {
+        //     slidesPerView: 1,
+        //     spaceBetween: 10,
+        //   },
+        //   320: {
+        //     slidesPerView: 1,
+        //     spaceBetween: 10,
+        //   },
+        // },
+      },
     };
   },
   methods: {
@@ -89,46 +162,63 @@ export default {
     },
   },
   mounted() {
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      items: 1,
-      nav: true,
-      dots: false,
-      navText: [
-        "<i class='fa fa-chevron-left nav-btn prev-slide'></i>",
-        "<i class='fa fa-chevron-right nav-btn next-slide'></i>",
-      ],
-
-      responsiveClass: true,
-      autoplay: false,
-      autoplayTimeout: 6000,
-      autoplayHoverPause: false,
-      responsive: {
-        0: {
-          items: 1,
-          nav: false,
-        },
-        600: {
-          items: 1,
-          nav: false,
-        },
-        1000: {
-          items: 1,
-        },
-      },
-    });
+    // $(document).ready(function () {
+    //   $(".owl-carousel").owlCarousel({
+    //     loop: true,
+    //     items: 1,
+    //     nav: true,
+    //     dots: false,
+    //     navText: [
+    //       "<i class='fa fa-chevron-left nav-btn prev-slide'></i>",
+    //       "<i class='fa fa-chevron-right nav-btn next-slide'></i>",
+    //     ],
+    //     responsiveClass: true,
+    //     autoplay: false,
+    //     autoplayTimeout: 6000,
+    //     autoplayHoverPause: false,
+    //     responsive: {
+    //       0: {
+    //         items: 1,
+    //         nav: false,
+    //       },
+    //       600: {
+    //         items: 1,
+    //         nav: false,
+    //       },
+    //       1000: {
+    //         items: 1,
+    //       },
+    //     },
+    //   });
+    // });
+    this.homeSwiper.slideTo(1, 1000, false);
   },
+
+  beforeMount() {},
 };
 </script>
 
 
 <style lang="scss" scoped>
+.swiper-pagination-bullet.swiper-pagination-bullet-active::after {
+  // @apply w-48 h-48 ;
+}
+
+.swiper-container {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
 .overlay {
   display: none;
 }
 
 .section_bg {
   opacity: 0.5;
+}
+
+.iq-main-slider {
+  height: 450px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

@@ -18,10 +18,17 @@ export default {
         rel: "stylesheet",
         href: "/owlcarousel/owl.carousel.min.css",
       },
+      {
+        rel: "stylesheet",
+        href: "/owlcarousel/owl.theme.default.min.css",
+      },
     ],
     scripts: [
       {
         src: "/owlcarousel/owl.carousel.min.js",
+      },
+      {
+        src: "/carousels/home.js",
       },
     ],
   },
@@ -51,7 +58,7 @@ export default {
     { src: "~/plugins/apexchart.js", ssr: false },
     { src: "~/plugins/vue-datepicker", ssr: false },
     { src: "~/plugins/v-owl-carousel.js", ssr: false },
-    // { src: "~/plugins/vue-awesome-swiper", mode: "client" },
+    { src: "~/plugins/vue-awesome-swiper", mode: "client" },
   ],
 
   router: {

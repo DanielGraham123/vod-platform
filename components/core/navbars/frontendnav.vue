@@ -554,7 +554,6 @@ export default {
     closeSidebar(e) {
       if (!e.target.classList.contains("navbar-toggler-icon")) {
         this.sidebar = false;
-        console.log("close sidebar: ", e);
 
         document.getElementsByTagName("body")[0].classList.remove("nav-open");
       }

@@ -257,6 +257,10 @@ export default {
     height: 0px;
   }
 
+  // .owl-carousel .owl-item {
+  //   min-width: 1272px !important;
+  // }
+
   .owl-carousel .nav-btn {
     height: 47px;
     position: absolute;
