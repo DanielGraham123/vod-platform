@@ -16,6 +16,7 @@
               data-animation-in="fadeInLeft"
               data-delay-in="0.6"
               v-if="title"
+              :class="$router.name === 'home' ? 'text-center' : ''"
             >
               {{ title }}
             </h2>
@@ -34,6 +35,7 @@
               data-delay-in="1.2"
               class="movie-description mt-2"
               v-if="text"
+              :class="$router.name === 'home' ? 'text-center' : ''"
             >
               {{ text }}
             </p>
@@ -121,6 +123,7 @@
         data-animation-in="fadeIn"
         data-delay-in="0.6"
         v-if="title"
+        :class="$router.name === 'home' ? 'text-center' : ''"
       >
         {{ title }}
       </h2>
@@ -131,6 +134,7 @@
           data-delay-in="1.2"
           class="movie-description mb-0 mt-2"
           v-if="text"
+          :class="$router.name === 'home' ? 'text-center' : ''"
         >
           {{ text }}
         </p>
@@ -169,6 +173,7 @@ export default {
   props: {
     title: { type: String },
     text: { type: String },
+    widget: { type: String },
   },
 
   data() {

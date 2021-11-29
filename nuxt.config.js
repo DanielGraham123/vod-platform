@@ -58,7 +58,7 @@ export default {
     { src: "~/plugins/apexchart.js", ssr: false },
     { src: "~/plugins/vue-datepicker", ssr: false },
     { src: "~/plugins/v-owl-carousel.js", ssr: false },
-    { src: "~/plugins/vue-awesome-swiper", mode: "client" },
+    { src: "~/plugins/vue-awesome-swiper.js" },
   ],
 
   router: {

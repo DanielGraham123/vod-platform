@@ -1,22 +1,6 @@
 <template>
   <section id="home" class="iq-main-slider p-0">
-    <!-- <div class="owl-carousel owl-theme" v-if="sliderData">
-      <div v-for="(item, index) in sliderData" :key="index">
-        <div
-          class="section_bg"
-          :style="{
-            background: 'url(' + item.image + ') center top / cover no-repeat',
-          }"
-        ></div>
-        <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
-      </div>
-    </div> -->
-
-    <!-- <div
-      v-swiper:homeSwiper="swiperOption"
-      class="w-5/6 ml-auto relative"
-      :loadtheme="true"
-    >
+    <div v-swiper="swiperOption" ref="homeSwiper" class="swiper">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
@@ -32,25 +16,19 @@
           ></div>
           <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
         </div>
-      </div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-    </div> -->
 
-    <swiper ref="homeSwiper" class="swiper" :options="swiperOption">
-      <swiper-slide v-for="(item, index) in sliderData" :key="index">
         <div
-          class="section_bg"
-          :style="{
-            background: 'url(' + item.image + ') center top / cover no-repeat',
-          }"
+          class="swiper-button-prev"
+          @click="prev()"
+          slot="button-prev"
         ></div>
-        <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
-      </swiper-slide>
-
-      <div class="swiper-button-prev" @click="prev()" slot="button-prev"></div>
-      <div class="swiper-button-next" @click="next()" slot="button-next"></div>
-    </swiper>
+        <div
+          class="swiper-button-next"
+          @click="next()"
+          slot="button-next"
+        ></div>
+      </div>
+    </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol
@@ -71,11 +49,11 @@
 <script>
 import Slick from "../../core/slider/Slick";
 import SliderCaption from "../PageComponents/SliderCaption.vue";
-import $ from "jquery";
-import Vue from "vue";
+// import $ from "jquery";
+// import Vue from "vue";
 import { directive } from "vue-awesome-swiper";
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+// import { Navigation } from "swiper";
+// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
 import "swiper/swiper.min.css";
 
@@ -85,15 +63,15 @@ export default {
   components: {
     Slick,
     SliderCaption,
-    Swiper,
-    SwiperSlide,
+    // Swiper,
+    // SwiperSlide,
   },
   directives: {
     swiper: directive,
   },
   setup() {
     return {
-      modules: [Navigation],
+      // modules: [Navigation],
     };
   },
   data() {
@@ -153,6 +131,21 @@ export default {
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          1024: {
+            spaceBetween: 40,
+          },
+          768: {
+            spaceBetween: 30,
+          },
+          640: {
+            spaceBetween: 20,
+          },
+          320: {
+            spaceBetween: 10,
+            navigation: {},
+          },
         },
       },
     };
@@ -218,6 +211,10 @@ export default {
 @media (max-width: 768px) {
   .slider-caption {
     top: 3.5em;
+  }
+
+  .iq-main-slider {
+    height: 515px;
   }
 
   .movie-description {
