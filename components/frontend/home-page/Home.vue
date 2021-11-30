@@ -1,32 +1,14 @@
 <template>
   <section id="home" class="iq-main-slider p-0">
-    <div v-swiper="swiperOption" ref="homeSwiper" class="swiper">
-      <div class="swiper-wrapper">
+    <div class="owl-carousel owl-theme" v-if="sliderData">
+      <div v-for="(item, index) in sliderData" :key="index">
         <div
-          class="swiper-slide"
-          v-for="(item, index) in sliderData"
-          :key="index"
-        >
-          <div
-            class="section_bg"
-            :style="{
-              background:
-                'url(' + item.image + ') center top / cover no-repeat',
-            }"
-          ></div>
-          <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
-        </div>
-
-        <div
-          class="swiper-button-prev"
-          @click="prev()"
-          slot="button-prev"
+          class="section_bg"
+          :style="{
+            background: 'url(' + item.image + ') center top / cover no-repeat',
+          }"
         ></div>
-        <div
-          class="swiper-button-next"
-          @click="next()"
-          slot="button-next"
-        ></div>
+        <SliderCaption :title="item.title" :text="item.text"></SliderCaption>
       </div>
     </div>
 
@@ -45,17 +27,10 @@
     </svg>
   </section>
 </template>
-
 <script>
 import Slick from "../../core/slider/Slick";
 import SliderCaption from "../PageComponents/SliderCaption.vue";
-// import $ from "jquery";
-// import Vue from "vue";
-import { directive } from "vue-awesome-swiper";
-// import { Navigation } from "swiper";
-// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-
-import "swiper/swiper.min.css";
+import $ from "jquery";
 
 export default {
   name: "Home",
@@ -63,16 +38,6 @@ export default {
   components: {
     Slick,
     SliderCaption,
-    // Swiper,
-    // SwiperSlide,
-  },
-  directives: {
-    swiper: directive,
-  },
-  setup() {
-    return {
-      // modules: [Navigation],
-    };
   },
   data() {
     return {
@@ -114,46 +79,7 @@ export default {
           text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         },
       ],
-
-      swiperOption: {
-        loop: true,
-        effect: "creative",
-        creativeEffect: {
-          prev: {
-            // will set `translateZ(-400px)` on previous slides
-            translate: [0, 0, -400],
-          },
-          next: {
-            // will set `translateX(100%)` on next slides
-            translate: ["100%", 0, 0],
-          },
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          1024: {
-            spaceBetween: 40,
-          },
-          768: {
-            spaceBetween: 30,
-          },
-          640: {
-            spaceBetween: 20,
-          },
-          320: {
-            spaceBetween: 10,
-            navigation: {},
-          },
-        },
-      },
     };
-  },
-  computed: {
-    swiper() {
-      return this.$refs.homeSwiper.$swiper;
-    },
   },
   methods: {
     openTrailer(path) {
@@ -161,36 +87,48 @@ export default {
       console.log("routeData", routeData);
       window.open(routeData.href, "_blank");
     },
-    next() {
-      this.swiper.slideNext(1, 1000, false);
-    },
-    prev() {
-      this.swiper.slidePrev(1, 1000, false);
-    },
   },
-  mounted() {},
+  mounted() {
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      items: 1,
+      nav: true,
+      dots: false,
+      navText: [
+        "<i class='fa fa-chevron-left nav-btn prev-slide'></i>",
+        "<i class='fa fa-chevron-right nav-btn next-slide'></i>",
+      ],
 
-  beforeMount() {},
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 6000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false,
+        },
+        600: {
+          items: 1,
+          nav: false,
+        },
+        1000: {
+          items: 1,
+        },
+      },
+    });
+  },
 };
 </script>
 
 
 <style lang="scss" scoped>
-.swiper-container {
-  height: 100% !important;
-  overflow: hidden !important;
-}
-
 .overlay {
   display: none;
 }
 
 .section_bg {
   opacity: 0.5;
-}
-
-.iq-main-slider {
-  height: 450px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -211,10 +149,6 @@ export default {
 @media (max-width: 768px) {
   .slider-caption {
     top: 3.5em;
-  }
-
-  .iq-main-slider {
-    height: 515px;
   }
 
   .movie-description {
