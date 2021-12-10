@@ -5,7 +5,7 @@
   "author": "Goldenmace",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "NUXT_PORT=process.env.PORT nuxt",
     "dev:host": "nuxt --hostname 192.168.8.50 --port 8000",
     "build": "nuxt build",
     "start": "nuxt start",
