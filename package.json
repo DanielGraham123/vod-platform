@@ -10,8 +10,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "export": "nuxt export",
-    "serve": "nuxt serve",
     "generate": "nuxt generate",
+    "serve": "nuxt serve",
     "heroku-postbuild": "npm run build && npm run generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
