@@ -67,6 +67,7 @@ export default {
     base: "/",
   },
 
+  // should be removed in production
   server: {
     port: process.env.PORT || 8000 // default: 3000
   },
